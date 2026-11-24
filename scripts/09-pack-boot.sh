@@ -41,10 +41,10 @@ EOF
 fi
 
 echo "==> mkbootimg"
-# tools/pack-bootimg.py ar sjalvstandig (header v2). AOSP:s mkbootimg.py kraver
+# scripts/pack-bootimg.py ar sjalvstandig (header v2). AOSP:s mkbootimg.py kraver
 # sitt gki/-paket, som inte foljer med nar bara filen laddas ner - darfor
 # anvands den bara om den faktiskt ar komplett.
-PACKER="$ROOT/tools/pack-bootimg.py"
+PACKER="$ROOT/scripts/pack-bootimg.py"
 if [ -f "$ROOT/tools/mkbootimg.py" ] && \
    python3 -c "import sys; sys.path.insert(0,'$ROOT/tools'); import gki" 2>/dev/null; then
   PACKER="$ROOT/tools/mkbootimg.py"
