@@ -25,10 +25,11 @@ def build(kernel, ramdisk, dtb, page, cmdline, name, base,
           kernel_offset, ramdisk_offset, tags_offset, dtb_offset, os_version=0):
     hdr = bytearray(HEADER_V2)
     struct.pack_into("8s", hdr, 0, MAGIC)
+    # second_addr ar 0 i stock nar second_size ar 0 - matchar den exakt
     struct.pack_into("<10I", hdr, 8,
                      len(kernel), base + kernel_offset,
                      len(ramdisk), base + ramdisk_offset,
-                     0, base + ramdisk_offset,
+                     0, 0,
                      base + tags_offset, page, 2, os_version)
     struct.pack_into("16s", hdr, 48, name.encode()[:16])
     struct.pack_into("512s", hdr, 64, cmdline.encode()[:511])

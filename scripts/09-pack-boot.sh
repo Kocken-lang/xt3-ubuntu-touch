@@ -52,7 +52,21 @@ if [ -f "$ROOT/tools/mkbootimg.py" ] && \
    python3 -c "import sys; sys.path.insert(0,'$ROOT/tools'); import gki" 2>/dev/null; then
   PACKER="$ROOT/tools/mkbootimg.py"
 fi
+# os_version i stock-headern (offset 44). ABL ser den; vi ateranvander
+# enhetens eget varde i stallet for att skriva 0.
+OSV=0
+STOCK="$ROOT/out/fota/partitions/boot.img"
+if [ -f "$STOCK" ]; then
+  OSV=$(python3 - "$STOCK" <<'PYEOF'
+import struct, sys
+d = open(sys.argv[1], "rb").read(64)
+print(struct.unpack_from("<I", d, 44)[0] if d[:8] == b"ANDROID!" else 0)
+PYEOF
+)
+fi
+
 python3 "$PACKER" \
+  --os_version "$OSV" \
   --kernel "$KERNEL" \
   --ramdisk "$INITRD" \
   --dtb "$DTB" \

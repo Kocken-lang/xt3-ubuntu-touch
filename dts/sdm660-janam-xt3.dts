@@ -48,11 +48,11 @@
         /*
          * Qualcomm-ABL validerar dessa tre innan den hoppar till kärnan.
          * Värdena är lästa ur enhetens egen boot-DTB (91.57, from-boot.dtb),
-         * inte gissade. Utan msm-id/board-id avvisar ABL bilden och faller
-         * tillbaka till fastboot - vilket är exakt symptomet vi såg.
+         * inte gissade. Stock-DTB:n har msm-id och pmic-id men INGEN
+         * board-id - den hor till dtbo-varianten, och en felaktig board-id
+         * kan fa ABL att matcha fel och vagra.
          */
         qcom,msm-id = <0x144 0x00>;
-        qcom,board-id = <0x30008 0x00>;
         qcom,pmic-id = <0x1001b 0x101011a 0x00 0x00
                         0x1001b 0x201011a 0x00 0x00
                         0x1001b 0x102001a 0x00 0x00>;
