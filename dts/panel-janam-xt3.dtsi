@@ -1,0 +1,35 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * ili9881d 720p video mode dsi panel
+ * GENERERAD av scripts/13-panel-from-dtb.py. Redigera inte for hand.
+ */
+
+&mdss_dsi0 {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        panel: panel@0 {
+                compatible = "janam,xt3-panel";
+                reg = <0>;
+
+                reset-gpios = <&tlmm 53 GPIO_ACTIVE_LOW>;
+                backlight = <&pm660l_wled>;
+
+                /*
+                 * Downstream uses mdss_dsi_active/mdss_te_active pinctrl
+                 * states.  Those labels do not exist in mainline; the reset
+                 * line works as a plain GPIO and video mode needs no TE.
+                 */
+
+                port {
+                        panel_in: endpoint {
+                                remote-endpoint = <&mdss_dsi0_out>;
+                        };
+                };
+        };
+};
+
+&mdss_dsi0_out {
+        data-lanes = <0 1 2 3>;
+        remote-endpoint = <&panel_in>;
+};

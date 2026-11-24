@@ -31,7 +31,31 @@ make image       # boot.img
 ## Uppdateringar 2026-11-24 (efter analys av 91.57)
 - 91.57 är en **Android A/B OTA-zip** (payload.bin 1.44 GB), inte ett eget PFU-format.
   Extrahering sker med `payload-dumper-go` (laddas ner automatiskt av 02-extract-fota.sh).
-- Firmware (mba.mbn, modem.mdt, adsp.mdt, wlanmdsp.mbn, bdwlan*, crbtfw*) ligger i
-  `vendor.img`/`/vendor/firmware_mnt/image` -> `11-collect-firmware.sh`.
+- Firmware (mba.mbn, modem.mdt, adsp.mdt, wlanmdsp.mbn, bdwlan*, crbtfw*) ligger **inte**
+  i `vendor.img` – `/vendor/firmware_mnt` är en monteringspunkt. Filerna finns i
+  `modemsda.img`/`modemsdm.img` (FAT), `bluetooth.img` (FAT) och `dsp.img` (ext4).
+  `11-collect-firmware.sh --from-dir out/fota/partitions` hanterar alla tre.
 - Halium är struket som fas; endast contingency om IPA/rmnet visar sig obrukbart.
 - Release-flöde: `.github/workflows/build-release.yml` -> `make release` -> `install.sh`.
+
+## Hårdvarufakta som rättats (2026-11-24, ur stock-DTB)
+- Skannern är **inte** UART. Det är en Honeywell HSM-imager på i2c8 `0x18` +
+  MIPI CSI-2 (2 lanes), med 11 GPIO på PM660L. `ttyHS1` i inventeringen är BT/aux.
+- MSR är **SPI** (Wiznova MMD1000, BLSP1 QUP3 `0xc177000`, 960 kHz).
+- SAM är **TDA8029 via UART**, två stycken, styrda av PCA9535 på i2c1 `0x22`.
+- NFC är PN54x på i2c6 `0x28`.
+- Panel: ILI9881D 720x1280 video, reset tlmm 53, TE 59, en 8.
+- Touch: Synaptics RMI4 på i2c4 `0x20`, irq 67, reset 66.
+
+## Formatfakta (dyra att lära om)
+- `dtbo.img`-headern är **big-endian** (12 poster i 91.57).
+- Vendor `qcom,mdss-dsi-*-command` har 7-byte header, `dlen` **big-endian** (`ntohs`).
+- Vendor `qcom,mdss-dsi-reset-sequence` anger **fysisk** nivå (gpio-flags 0). Mainline
+  noden använder `GPIO_ACTIVE_LOW`, så logiska värdet är inverterat.
+- `vendor.img` innehåller HAL-bibliotek, inte firmware. Se ovan.
+
+## Verifieringsregel
+Testa aldrig en parser mot en fil som byggts med samma antagande som parsern.
+Tre buggar (DTBO-magic, DTBO-header, 7z-fallback) överlevde just därför.
+Använd riktiga producenter (`mkfs.vfat`, `mke2fs`, `dtc`, `payload-dumper-go`) och
+`tests/selftest.sh`, som nu också bygger DTB mot en riktig 7.2.y-källa.

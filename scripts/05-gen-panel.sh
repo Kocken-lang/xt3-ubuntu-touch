@@ -1,36 +1,42 @@
 #!/usr/bin/env bash
-# Generate a mainline DRM panel driver from the stock (downstream) DTB.
-#   usage: 05-gen-panel.sh <vendor.dtb> [more.dtb ...]
+# Generate the mainline DRM panel driver from a stock (downstream) DTB.
+#
+#   usage: 05-gen-panel.sh <dtb|dts> [--panel <nod>]
+#
+# The stock boot.img DTB is the best source: it contains every panel variant
+# with its full init sequence.  dtbo.img only contains the backlight overlay.
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-[ $# -ge 1 ] || { echo "anvandning: $0 <vendor.dtb> [...]"; exit 1; }
-
-LMD="$ROOT/.reference/linux-mdss-dsi-panel-driver-generator"
-[ -d "$LMD" ] || { echo "kor 00-bootstrap.sh forst"; exit 1; }
-PY="$ROOT/.venv/bin/python"
-[ -x "$PY" ] || PY=python3
-
+GEN="$ROOT/scripts/13-panel-from-dtb.py"
 OUT="$ROOT/out/panel"
-rm -rf "$OUT"; mkdir -p "$OUT"
+PANEL=""
 
-for dtb in "$@"; do
-  echo "==> $dtb"
-  dts="${dtb%.dtb}.dts"
-  [ -f "$dts" ] || dtc -I dtb -O dts -o "$dts" "$dtb" 2>/dev/null || true
-  if ! grep -q "mdss_dsi" "$dts" 2>/dev/null; then
-    echo "    hoppar: ingen mdss_dsi-nod"
-    continue
-  fi
-  ( cd "$OUT" && "$PY" "$LMD/lmdpdg.py" "$dtb" 2>&1 | sed 's/^/    /' ) \
-    || echo "    !! generatorn misslyckades"
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --panel) PANEL="$2"; shift 2 ;;
+    *) SRC="$1"; shift ;;
+  esac
 done
 
-echo
-ls -l "$OUT" 2>/dev/null || true
-cat <<'HINT'
+[ -n "${SRC:-}" ] || { echo "anvandning: $0 <dtb|dts> [--panel <nod>]"; exit 1; }
 
-Nasta steg (manuellt, 5 min):
- 1. Flytta panel-*.c -> <karna>/drivers/gpu/drm/panel/ + Makefile/Kconfig
- 2. Ta panel-*.dtsi-noden till dts/sdm660-janam-xt3.dts (&dsi0 -> panel@0)
- 3. Kontrollera regulatorer/reset-gpio mot utdatan i out/panel/
+echo "==> paneler i $SRC"
+"$GEN" --dtb "$SRC" --list
+
+rm -rf "$OUT"; mkdir -p "$OUT"
+echo "==> genererar"
+if [ -n "$PANEL" ]; then
+  "$GEN" --dtb "$SRC" --name xt3 --outdir "$OUT" --panel "$PANEL"
+else
+  "$GEN" --dtb "$SRC" --name xt3 --outdir "$OUT"
+fi
+
+cat <<HINT
+
+Nasta steg:
+  cp $OUT/panel-xt3.c      panel/panel-janam-xt3.c
+  cp $OUT/panel-xt3.dtsi   dts/panel-janam-xt3.dtsi
+  git add panel/panel-janam-xt3.c dts/panel-janam-xt3.dtsi
+
+Bygg sedan om karnan: make kernel
 HINT

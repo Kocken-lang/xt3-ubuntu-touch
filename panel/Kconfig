@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: GPL-2.0-only
+config DRM_PANEL_JANAM_XT3
+	tristate "Janam XT3 panel (Ilitek ILI9881D)"
+	depends on OF && DRM_MIPI_DSI
+	depends on BACKLIGHT_CLASS_DEVICE
+	help
+	  Say Y here to enable the ILI9881D 720x1280 panel found in the
+	  Janam XT3 rugged handheld.
+
+	  The init sequence is generated from the stock device tree by
+	  scripts/13-panel-from-dtb.py.

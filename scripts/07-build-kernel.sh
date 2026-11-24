@@ -12,9 +12,24 @@ mkdir -p "$KB"
 
 echo "==> installerar DTS i tradet"
 cp -f "$ROOT/dts/$DTS_NAME" "$KSRC/arch/arm64/boot/dts/qcom/$DTS_NAME"
+cp -f "$ROOT/dts/panel-janam-xt3.dtsi" "$KSRC/arch/arm64/boot/dts/qcom/"
 MK="$KSRC/arch/arm64/boot/dts/qcom/Makefile"
 grep -q "$DTS_NAME" "$MK" || \
   echo "dtb-\$(CONFIG_ARCH_QCOM) += ${DTS_NAME%.dts}.dtb" >> "$MK"
+
+echo "==> installerar paneldrivrutin"
+PANEL_SRC="$ROOT/panel/panel-janam-xt3.c"
+if [ -f "$PANEL_SRC" ]; then
+  cp -f "$PANEL_SRC" "$KSRC/drivers/gpu/drm/panel/"
+  PMK="$KSRC/drivers/gpu/drm/panel/Makefile"
+  grep -q "panel-janam-xt3" "$PMK" || \
+    echo 'obj-$(CONFIG_DRM_PANEL_JANAM_XT3) += panel-janam-xt3.o' >> "$PMK"
+  PK="$KSRC/drivers/gpu/drm/panel/Kconfig"
+  if ! grep -q "DRM_PANEL_JANAM_XT3" "$PK"; then
+    echo "" >> "$PK"
+    cat "$ROOT/panel/Kconfig" >> "$PK"
+  fi
+fi
 
 echo "==> defconfig + fragment"
 make -C "$KSRC" O="$KB" sdm660_defconfig

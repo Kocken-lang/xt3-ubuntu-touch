@@ -4,7 +4,9 @@ Port av Ubuntu Touch till **Janam XT3** (Android 11, firmware **91.57**, `a11/XT
 med **sdm660-mainline/linux 7.2.y** som kärnbasspår, med bevarade enterprise-funktioner
 (skanner, RFID, SAM, MSR, tangentbord, WWAN) och full hårdvaruutnyttjning.
 
-Status: **Fas 1 – utvinning & inventering** (inget är byggt ännu).
+Status: **Fas 1 – utvinning & inventering.** Panel, touch, bussar och firmware är
+identifierade ur 91.57. Kärnan bygger. Det som återstår innan första bootbara release är
+enhetens `from-boot.dtb` (se §10 i `docs/01-arkitektur.md`).
 
 ---
 
@@ -30,37 +32,46 @@ DeviceService  ScannerService  SerialService  RFIDService  SamService
 MsrService     SPIService      ExGpioService  HiJackService  (+ I2C, Hidden)
 ```
 
-| Funktion | Gränssnitt | Mainline-portabilitet |
+| Funktion | Verklig buss (ur 91.57-DTB) | Mainline-portabilitet |
 |---|---|---|
-| Skannermotor | `/dev/ttyHSL0` (msm_serial_hs) via `SerialService`/`ScannerService` | **Bra** – rå UART, protokoll i SDK |
-| RFID (RF88-sled) | `ex.dev.sdk.rf88_3.1.4` → USB-serial `/dev/ttyACM*` | **Bra** – extern modul, protokoll i Java |
-| SAM-kort | `SamService` → I2C/SPI | Medel – kräver I2C-protokoll från vendor |
-| MSR (kortläsare) | `MsrService` → I2C | Medel |
-| GPIO/knappar | `ExGpioService`, `HiJackService` (key-hijack) | Bra – `gpio-keys` i DTS |
-| Extern serial | `/dev/ttyACM0/1`, `/dev/ttyXRUSB0/1` | Trivialt |
+| Skanner (Honeywell HSM) | **I2C `0x18` + MIPI CSI-2** (inte UART) | Kräver V4L2-subdev + camss; decode i userspace |
+| RFID (RF88-sled) | USB-serial `ttyACM*` | **Enkel** – extern modul, protokoll i Java |
+| SAM 1 + SAM 2 | UART via **TDA8029** + PCA9535 | Medel – ingen TDA8029-driver |
+| MSR (Wiznova MMD1000) | **SPI** (BLSP1 QUP3) | Medel – SPI-kontroller saknas i 7.2.y |
+| GPIO/knappar | PCA9535 + tlmm | Bra – `gpio-keys` i DTS |
+| NFC (PN54x) | I2C `0x28` | Bra – `pn544-i2c` finns |
 
-> Slutsats: enterprise-stacken är **inte** i Android-HAL:en i någon avgörande grad – den är
-> binder-tjänster ovanpå **serial/I2C/SPI/GPIO**. Det gör mainline-spåret realistiskt: vi skriver
-> tunna native-daemoner (systemd) som äger samma `/dev`-noder och exponerar ett D-Bus/CLI-API.
+Fullständig tabell med adresser, GPIO-nummer och drivrutinsstatus: `docs/03-hardvarukarta.md`.
+
+> Slutsats: enterprise-stacken är binder-tjänster ovanpå **I2C/SPI/UART/CSI/GPIO** – inte
+> Android-HAL. Vi skriver tunna native-daemoner (systemd) som äger samma bussar och
+> exponerar ett D-Bus/CLI-API.
 
 ## 3. Pipeline
 
 ```
-PFU (91.57) ──► 02-extract ──► boot/dtbo/super/firmware
+PFU (91.57) ──► 02-extract ──► 22 partitioner (boot, dtbo, modemsda, bluetooth, dsp, ...)
                                     │
 XT3 via adb ──► 01-inventory ───────┤
                                     ▼
-                            04-unpack-boot ──► DTB ──► 05-gen-panel ──► panel-driver + dtsi
-                                                          │
-                                                          ▼
-                                           dts/sdm660-janam-xt3.dts
-                                                          │
-                    06-fetch-mainline ──► 07-build-kernel ──► Image.gz + .dtb
-                                                          │
-                            08-build-rootfs ──► rootfs.img │
-                                                          ▼
-                                              09-pack-boot ──► 10-flash
+                    04-unpack-boot ──► dtb (boot) + 12 dtb (dtbo)
+                                    │
+                    13-panel-from-dtb ──► panel-*.c + panel-*.dtsi
+                    14-hw-from-dtb    ──► out/hw/hw.md (tangenter, bussar, rails)
+                    11-collect-firmware ──► out/firmware/{qcom,wlan,bt,adreno}
+                                    │
+                                    ▼
+                     dts/sdm660-janam-xt3.dts + panel/panel-janam-xt3.c
+                                    │
+      06-fetch-mainline ──► 07-build-kernel ──► Image.gz + .dtb + 617 moduler
+                                    │
+                08-build-rootfs ──► rootfs.img │
+                                    ▼
+                       09-pack-boot ──► 10-flash
 ```
+
+`05-gen-panel.sh` och `13-panel-from-dtb.py` är samma verktyg; det senare är
+implementationen och kan köras ensamt på vilken DTB som helst.
 
 ## 4. Kör så här
 
@@ -74,15 +85,17 @@ XT3 via adb ──► 01-inventory ───────┤
 # 2) packa upp firmware (91.57 ar en Android A/B OTA-zip -> payload-dumper-go)
 ./scripts/02-extract-fota.sh ~/janam_fota/a11/XT3/91.57_20251001.PFU   # -> out/fota/partitions/
 
-# 2b) plocka ut Qualcomm-firmware ur vendor.img
-./scripts/11-collect-firmware.sh --from-image out/fota/partitions/vendor.img
+# 2b) Qualcomm-firmware ligger i modem/bluetooth/dsp, inte i vendor.img
+./scripts/11-collect-firmware.sh --from-dir out/fota/partitions
+#    tips: samma kommando med --inspect listar innehållet forst
 
-# 3) boot.img -> kernel/dtb/ramdisk, dtbo -> dtb-filer
-./scripts/04-unpack-boot.sh out/fota/partitions/boot.img
-./scripts/04-unpack-boot.sh out/fota/partitions/dtbo.img
+# 3) boot.img -> kernel/dtb, dtbo -> 12 dtb-filer
+./scripts/04-unpack-boot.sh out/fota/partitions/boot.img out/fota/boot
+./scripts/04-unpack-boot.sh out/fota/partitions/dtbo.img out/fota/dtbo
 
-# 4) paneldrivrutin
-./scripts/05-gen-panel.sh out/fota/dtb/*.dtb                            # → out/panel/
+# 4) panel + hardvarukarta ur enhetens egen DTB
+make hw       # -> out/hw/hw.md
+make panel    # -> out/panel/panel-xt3.c + .dtsi
 
 # 5) kärna
 ./scripts/06-fetch-mainline.sh && ./scripts/07-build-kernel.sh
