@@ -59,6 +59,9 @@ def main():
     ap.add_argument("--tags_offset", type=lambda v: int(v, 0), default=0x100)
     ap.add_argument("--dtb_offset", type=lambda v: int(v, 0), default=0x1F00000)
     ap.add_argument("--os_version", type=lambda v: int(v, 0), default=0)
+    # Stock-bilden ar padad till hela partitionen (64 MB). Qualcomm-ABL
+    # laser en fast region, sa vi fyller ut likadant.
+    ap.add_argument("--pad_to", type=lambda v: int(v, 0), default=0)
     # Samma flagga som AOSP:s mkbootimg; vi skriver alltid v2-header.
     ap.add_argument("--header_version", type=int, default=2,
                     choices=(2,), help="endast 2 stods")
@@ -71,6 +74,8 @@ def main():
     img = build(read(a.kernel), read(a.ramdisk), read(a.dtb), a.pagesize,
                 a.cmdline, a.name, a.base, a.kernel_offset, a.ramdisk_offset,
                 a.tags_offset, a.dtb_offset, a.os_version)
+    if a.pad_to and len(img) < a.pad_to:
+        img += b"\0" * (a.pad_to - len(img))
     with open(a.output, "wb") as fh:
         fh.write(img)
     print(f"    {a.output}: {len(img)} byte, header v2, sida {a.pagesize}")

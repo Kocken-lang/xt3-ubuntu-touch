@@ -77,6 +77,9 @@ def repack(src, dst):
                      a["cmdline"], a["name"], 0,
                      v["kernel_addr"], v["ramdisk_addr"], v["tags_addr"],
                      v["dtb_addr"] or 0x1F00000, v["os_version"])
+    # Samma slutstorlek som stock - ABL laser en fast region.
+    if len(img) < a["size"]:
+        img += b"\0" * (a["size"] - len(img))
     with open(dst, "wb") as fh:
         fh.write(img)
     print(f"skrev {dst}: {len(img)} byte (samma innehall som {src}, vara header-falt)")

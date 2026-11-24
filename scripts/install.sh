@@ -48,13 +48,13 @@ fi
 # --slot all ar avgörande: boot skrivs till bada slottarna, sa verifieringen
 # maste stangas av pa bada. Tidigare gick vbmeta bara till aktuell slot, och
 # da verifierar den andra slotens vbmeta var bild mot sin ursprungliga hash.
-if ! fastboot --disable-verity --disable-verification --slot all \
-      flash vbmeta vbmeta.img 2>/dev/null; then
-  echo "  --slot all stods inte av fastboot - flashar vbmeta_a och vbmeta_b"
-  for s in a b; do
-    fastboot --disable-verity --disable-verification flash "vbmeta_$s" vbmeta.img
-  done
-fi
+# vbmeta ar redan slottad (vbmeta_a/vbmeta_b), sa --slot all avvisas.
+# Flasha varje slot for sig - annars verifierar den andra slotens vbmeta
+# var bild mot sin ursprungliga hash och ABL faller tillbaka till fastboot.
+for s in a b; do
+  fastboot --disable-verity --disable-verification flash "vbmeta_$s" vbmeta.img \
+    || echo "  varning: vbmeta_$s misslyckades"
+done
 
 say "4/5 flashar rootfs till userdata"
 if [ -f rootfs.img ]; then

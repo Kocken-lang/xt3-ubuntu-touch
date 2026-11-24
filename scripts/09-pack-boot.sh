@@ -65,8 +65,13 @@ PYEOF
 )
 fi
 
+# Stock ar padad till hela partitionen (64 MB). Qualcomm-ABL laser en fast
+# region, sa vi fyller ut till samma storlek.
+BOOT_PAD=67108864
+[ -f "$STOCK" ] && BOOT_PAD=$(stat -c%s "$STOCK")
+
 python3 "$PACKER" \
-  --os_version "$OSV" \
+  --os_version "$OSV" --pad_to "$BOOT_PAD" \
   --kernel "$KERNEL" \
   --ramdisk "$INITRD" \
   --dtb "$DTB" \
