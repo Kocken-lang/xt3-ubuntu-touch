@@ -30,6 +30,7 @@ def parse(path):
     dtb_size = dtb_addr = 0
     if hv >= 2:
         dtb_size, dtb_addr = struct.unpack_from("<IQ", d, 1648)
+    vals["dtb_size"], vals["dtb_addr"] = dtb_size, dtb_addr
     page = vals["page_size"]
     off = page
     kern = d[off:off + vals["kernel_size"]]
@@ -53,6 +54,8 @@ def show(a, b):
         print(f"{f:18} {va:>22} {vb:>22}{mark}")
     print(f"{'kernel byte':18} {len(a['kernel']):>22} {len(b['kernel']):>22}")
     print(f"{'ramdisk byte':18} {len(a['ramdisk']):>22} {len(b['ramdisk']):>22}")
+    print(f"{'dtb_size':18} {a['vals']['dtb_size']:>22} {b['vals']['dtb_size']:>22}")
+    print(f"{'dtb_addr':18} {a['vals']['dtb_addr']:>22} {b['vals']['dtb_addr']:>22}")
     print(f"{'dtb byte':18} {len(a['dtb']):>22} {len(b['dtb']):>22}")
     print(f"{'filstorlek':18} {a['size']:>22} {b['size']:>22}")
     print(f"\nstock name    : {a['name']}")
