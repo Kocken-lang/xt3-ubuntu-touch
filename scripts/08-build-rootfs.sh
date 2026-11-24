@@ -3,9 +3,8 @@
 #
 #   usage: 08-build-rootfs.sh [--size 6G] [--tarball <ut-arm64-rootfs.tar.gz>]
 #
-# Get the tarball from https://cdimage.ubports.com/ubports-touch/ (arm64, focal).
-# A mainline (non-Halium) rootfs needs manual glue; this script does the mechanical
-# part and leaves a device hook directory at out/rootfs-overlay/.
+# Tarballen byggs av 18-bootstrap-rootfs.sh (debootstrap noble/arm64 + Lomiri).
+# Hittas automatiskt i out/src/.  Enhetsglue lases fran out/rootfs-overlay/.
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SIZE="6G"; TARBALL=""

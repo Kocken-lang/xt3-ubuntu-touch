@@ -158,6 +158,7 @@ PKGS=(
   procps
   less
   nano
+  file
   curl
   ca-certificates
 )
