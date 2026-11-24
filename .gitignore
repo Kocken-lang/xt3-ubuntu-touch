@@ -16,3 +16,6 @@ panel/.*.cmd
 panel/Module.symvers
 panel/modules.order
 wget-log*
+memory/
+xt3-release/
+out/
