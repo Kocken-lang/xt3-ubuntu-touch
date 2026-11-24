@@ -1,0 +1,136 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Janam XT3 (Qualcomm SDM660) - MALL, inte fardig.
+ *
+ * Alla "TODO" maste fyllas fran:
+ *   out/inventory/70-device-tree/   (stock DTB avmonterad via adb)
+ *   out/panel/panel-*.dtsi          (genererad av 05-gen-panel.sh)
+ *   out/inventory/21-input.txt      (touchcontroller)
+ *   out/inventory/22-i2c.txt        (I2C-adresser)
+ *   out/inventory/24-gpio.txt       (GPIO-karta)
+ *
+ * Jamfor alltid med en fungerande referens: sdm660-xiaomi-lavender-common.dtsi
+ */
+
+/dts-v1/;
+
+#include "sdm660.dtsi"
+#include "pm660.dtsi"
+#include "pm660l.dtsi"
+
+/ {
+	model = "Janam XT3";
+	compatible = "janam,xt3", "qcom,sdm660";
+	chassis-type = "handset";
+
+	aliases {
+		serial0 = &blsp1_uart2;
+	};
+
+	chosen {
+		stdout-path = "serial0:115200n8";
+	};
+
+	/*
+	 * TODO: exakta minnesregioner fran stock DTB. sdm660.dtsi satter
+	 * rimliga defaultvarden for mpss/adsp/wlan, men XT3 kan avvika.
+	 */
+
+	gpio-keys {
+		compatible = "gpio-keys";
+		label = "gpio-keys";
+
+		pinctrl-names = "default";
+		/* TODO: pinctrl-0 = <&key_vol_up_default>; */
+
+		key-vol-up {
+			label = "volume_up";
+			gpios = <&tlmm 0 GPIO_ACTIVE_LOW>;	/* TODO */
+			linux,code = <KEY_VOLUMEUP>;
+			debounce-interval = <15>;
+		};
+
+		/* TODO: skannerknapp (HiJackService), PTT, sidoknappar */
+	};
+
+	/*
+	 * TODO: panelnod. Klistra in innehaller fran out/panel/panel-*.dtsi
+	 * och lagg den under &mdss_dsi0 som panel@0.
+	 */
+};
+
+/* --- Konsol / debug ------------------------------------------------- */
+&blsp1_uart2 {
+	status = "okay";
+};
+
+/* --- Lagring -------------------------------------------------------- */
+&sdhc_1 {
+	status = "okay";
+	non-removable;
+	/* TODO: vmmc-supply = <&pm660l_l3>; */
+};
+
+&sdhc_2 {
+	status = "okay";
+	/* TODO: cd-gpios = <&tlmm 0 GPIO_ACTIVE_HIGH>; */
+};
+
+/* --- USB (adb/fastboot + externa moduler: RF88, MSR) ----------------- */
+&usb3 {
+	status = "okay";
+};
+
+&usb3_dwc3 {
+	dr_mode = "peripheral";		/* TODO: "otg" om vardlage behovs */
+};
+
+/* --- Display / GPU -------------------------------------------------- */
+&mdss {
+	status = "okay";
+};
+
+&mdss_dsi0 {
+	status = "okay";
+};
+
+&mdss_dsi0_phy {
+	status = "okay";
+};
+
+&adreno_gpu {
+	status = "okay";
+};
+
+/* --- WiFi/BT (WCN3990) ---------------------------------------------- */
+&wifi {
+	status = "okay";
+	/* TODO: vdd-0.8-cx-mx-supply, vdd-1.8-xo-supply, firmware-name */
+};
+
+/* --- Modem / ADSP (WWAN, sensors, audio) ---------------------------- */
+&remoteproc_mss {
+	status = "okay";
+};
+
+&adsp_pil {
+	status = "okay";
+};
+
+/* --- Touch / skanner / RFID ----------------------------------------- */
+/* TODO: valj ratt buss enligt out/inventory/22-i2c.txt */
+&blsp_i2c1 {
+	status = "okay";
+};
+
+&blsp_i2c2 {
+	status = "okay";
+};
+
+&blsp_i2c4 {
+	status = "okay";
+};
+
+&blsp1_uart1 {
+	status = "okay";	/* TODO: skannermotor om den inte sitter pa ttyHSL0 */
+};
