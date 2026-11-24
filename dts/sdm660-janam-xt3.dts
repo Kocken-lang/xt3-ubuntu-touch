@@ -62,8 +62,16 @@
          * måste finnas - stock-DTB:n har den utan reg. Utan nod får kärnan
          * ingen RAM alls.
          */
-        memory {
+        /*
+         * ABL fyller i reg pa /memory i stock-DTB:n. Gor den inte det for en
+         * DTB den inte kanner igen far karnan 0 MB RAM och panikar tyst.
+         * Darfor ett explicit reg: sdm660-plattformen har RAM fran
+         * 0x80000000; 3 GB racker aven om enheten har 4 GB (da lamnas
+         * oversta gigabyte oanvand, inte felmappad).
+         */
+        memory@80000000 {
                 device_type = "memory";
+                reg = <0x0 0x80000000 0x0 0xC0000000>;
         };
 
         /*
