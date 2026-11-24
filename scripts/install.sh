@@ -45,7 +45,16 @@ if [ ! -f vbmeta.img ]; then
   echo "  stangs av. Avbryter hellre an att lamna en enhet som bootloopar."
   exit 1
 fi
-fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img
+# --slot all ar avgörande: boot skrivs till bada slottarna, sa verifieringen
+# maste stangas av pa bada. Tidigare gick vbmeta bara till aktuell slot, och
+# da verifierar den andra slotens vbmeta var bild mot sin ursprungliga hash.
+if ! fastboot --disable-verity --disable-verification --slot all \
+      flash vbmeta vbmeta.img 2>/dev/null; then
+  echo "  --slot all stods inte av fastboot - flashar vbmeta_a och vbmeta_b"
+  for s in a b; do
+    fastboot --disable-verity --disable-verification flash "vbmeta_$s" vbmeta.img
+  done
+fi
 
 say "4/5 flashar rootfs till userdata"
 if [ -f rootfs.img ]; then
