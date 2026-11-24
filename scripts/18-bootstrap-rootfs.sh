@@ -48,11 +48,19 @@ if [ -x /usr/bin/qemu-aarch64-static ]; then
 fi
 
 echo "==> 2/4 andra steget under qemu"
-for d in proc sys dev dev/pts; do
-  mkdir -p "$WORK/rootfs/$d"
-  mount --bind "/$d" "$WORK/rootfs/$d"
-  mounts=("$WORK/rootfs/$d" "${mounts[@]}")
-done
+mount --make-rprivate / 2>/dev/null || true
+mkdir -p "$WORK/rootfs/proc" "$WORK/rootfs/sys" "$WORK/rootfs/dev/pts"
+mount -t proc     proc     "$WORK/rootfs/proc"
+mount -t sysfs    sysfs    "$WORK/rootfs/sys"
+mount --rbind /dev "$WORK/rootfs/dev"
+mounts=("$WORK/rootfs/dev" "$WORK/rootfs/sys" "$WORK/rootfs/proc")
+
+# Utan /proc i chrooten vagrar java (och dpkg) att konfigurera paket.
+if ! chroot "$WORK/rootfs" /bin/sh -c 'test -s /proc/self/maps' 2>/dev/null; then
+  echo "FEL: /proc syns inte i chrooten. Kontrollera att du kor som root"
+  echo "     och att /proc ar monterat pa varden."
+  exit 1
+fi
 if [ -x "$WORK/rootfs/debootstrap/debootstrap" ]; then
   if have_binfmt; then
     chroot "$WORK/rootfs" /debootstrap/debootstrap --second-stage
@@ -88,29 +96,61 @@ Dpkg::Options { "--force-confdef"; "--force-confold"; };
 EOF
 
 # Lomiri + det som en handhållen enhet behöver för att vara användbar direkt.
+# Med --no-install-recommends maste Mir-backenderna namnges: lomiri
+# rekommenderar dem, och utan dem startar inte compositorn pa DRM/GBM.
+# ubuntu-standard rekommenderar LibreOffice + JDK (~700 paket, 2 GB) som en
+# enterprise-handheld inte har nagon nytta av. aven lomiri-docviewer-app
+# hard-drar hela LibreOffice-core, sa den far installeras vid behov i stallet.
 PKGS=(
   lomiri
   lomiri-desktop-session
   lomiri-system-settings
   lomiri-greeter
+  lomiri-app-launch
   lomiri-url-dispatcher
+  lomiri-indicator-network
+  lomiri-polkit-agent
+  lightdm
+  mir-platform-graphics-gbm-kms
+  mir-platform-graphics-gbm-kms20
+  mir-platform-input-evdev8
+  mir-platform-rendering-egl-generic
+  mir-platform-rendering-egl-generic20
+  maliit-keyboard
   lomiri-calculator-app
   lomiri-clock-app
   lomiri-filemanager-app
   lomiri-gallery-app
   lomiri-mediaplayer-app
   lomiri-music-app
-  lomiri-docviewer-app
-  maliit-keyboard
-  ubuntu-standard
+  lomiri-terminal-app
+  morph-browser
+  fonts-noto-core
+  fonts-dejavu-core
+  fonts-noto-color-emoji
   network-manager
   wpasupplicant
+  modemmanager
+  bluez
+  urfkill
+  alsa-utils
+  pipewire
+  pipewire-pulse
+  wireplumber
   openssh-server
   sudo
   systemd-sysv
   dbus
-  bluez
-  alsa-utils
+  udev
+  kmod
+  iproute2
+  iputils-ping
+  ethtool
+  usbutils
+  pciutils
+  procps
+  less
+  nano
   curl
   ca-certificates
 )
@@ -118,7 +158,8 @@ PKGS=(
 apt_get() {
   chroot "$WORK/rootfs" /usr/bin/env DEBIAN_FRONTEND=noninteractive \
     apt-get -o Dpkg::Options::=--force-confdef \
-            -o Dpkg::Options::=--force-confold "$@"
+            -o Dpkg::Options::=--force-confold \
+            -o APT::Keep-Downloaded-Packages=false "$@"
 }
 
 if [ "$SIMULATE" = 1 ]; then
@@ -134,7 +175,11 @@ fi
 echo "==> 4/4 installerar (tar en stund)"
 chroot "$WORK/rootfs" debconf-set-selections /tmp/xt3-preseed.txt 2>/dev/null || true
 apt_get update
-apt_get install "${PKGS[@]}"
+# Ett avbrutet kor kan lamna paket halvkonfigurerade; red ut det forst.
+chroot "$WORK/rootfs" /usr/bin/env DEBIAN_FRONTEND=noninteractive \
+  dpkg --configure -a >/dev/null 2>&1 || true
+apt_get install --no-install-recommends "${PKGS[@]}"
+chroot "$WORK/rootfs" apt-get clean
 
 # Forsta boots-debugg over USB: konsol pa ttyGS0 och ssh over usb0.
 chroot "$WORK/rootfs" systemctl enable ssh 2>/dev/null || true

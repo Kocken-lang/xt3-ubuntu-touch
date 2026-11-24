@@ -42,8 +42,16 @@ och installerar firmware med `17-install-firmware.sh`.
 Dependency-resolution mot arm64-index för noble + noble-updates + noble-security:
 
 ```
-1286 newly installed, 0 to remove and 0 not upgraded
+705 newly installed, 0 to remove and 0 not upgraded
+0 libreoffice-/openjdk-paket
 ```
+
+Listan är medvetet smal (`--no-install-recommends`). `ubuntu-standard` drar in
+LibreOffice + JDK som rekommendationer, och `lomiri-docviewer-app` hard-drar
+`libreoffice-core`. Ingen av dem behövs för att få enheten att boota; de går
+att `apt install` senare. Mir-backenderna däremot är *rekommendationer* till
+`lomiri` och måste därför namnges explicit — utan `mir-platform-graphics-gbm-kms`
+startar compositorn inte på DRM/GBM.
 
 Alltså går paketmassan att lösa. Själva installationen kräver binfmt
 (`qemu-user-static` + `binfmt-support`), som `make bootstrap` installerar.
