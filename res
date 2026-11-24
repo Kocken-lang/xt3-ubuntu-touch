@@ -1,13 +1,6 @@
-1795561676873213570
+1795561705210005178
+skrev out/boot-h1.img: kernel=ours dtb=ours ramdisk=ours cmdline=stock, 67108864 byte
+FLASHAT
 2303910504	 fastboot
 
-slot-retry-count:a: 6
-current-slot: a
-CONFIG_USB_DWC3=y
-CONFIG_USB_DWC3_QCOM=y
-CONFIG_USB_GADGET=y
-CONFIG_USB_CONFIGFS=y
-CONFIG_USB_CONFIGFS_ACM=y
-CONFIG_PHY_QCOM_QMP=y
-CONFIG_PHY_QCOM_QUSB2=y
-CONFIG_CONFIGFS_FS=y
+List of devices attached
