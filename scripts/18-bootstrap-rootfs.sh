@@ -65,6 +65,16 @@ if [ -x "$WORK/rootfs/debootstrap/debootstrap" ]; then
 fi
 
 echo "==> 3/4 apt-kallor och paket"
+# Ingen dialog ska kunna blockera en oovervakad build.  tzdata och
+# keyboard-configuration ar de tva som annars fragar interaktivt.
+mkdir -p "$WORK/rootfs/usr/share/xt3"
+cat > "$WORK/rootfs/tmp/xt3-preseed.txt" <<'EOF'
+tzdata tzdata/Areas select Europe
+tzdata tzdata/Zones/Europe select Stockholm
+keyboard-configuration keyboard-configuration/layoutcode string se
+keyboard-configuration keyboard-configuration/modelcode string pc105
+console-setup console-setup/charmap47 select UTF-8
+EOF
 cat > "$WORK/rootfs/etc/apt/sources.list" <<EOF
 deb $MIRROR $SUITE main universe
 deb $MIRROR $SUITE-updates main universe
@@ -105,11 +115,16 @@ PKGS=(
   ca-certificates
 )
 
+apt_get() {
+  chroot "$WORK/rootfs" /usr/bin/env DEBIAN_FRONTEND=noninteractive \
+    apt-get -o Dpkg::Options::=--force-confdef \
+            -o Dpkg::Options::=--force-confold "$@"
+}
+
 if [ "$SIMULATE" = 1 ]; then
   echo "==> 4/4 simulerar (inget installeras)"
-  chroot "$WORK/rootfs" apt-get update
-  chroot "$WORK/rootfs" apt-get -s install "${PKGS[@]}" \
-    | tail -25
+  apt_get update
+  apt_get -s install "${PKGS[@]}" | tail -25
   echo
   echo "Simuleringen visar att paketmassan gar att losa."
   echo "Kor utan --simulate for att bygga klart och packa $TARBALL"
@@ -117,8 +132,9 @@ if [ "$SIMULATE" = 1 ]; then
 fi
 
 echo "==> 4/4 installerar (tar en stund)"
-chroot "$WORK/rootfs" apt-get update
-chroot "$WORK/rootfs" apt-get install "${PKGS[@]}"
+chroot "$WORK/rootfs" debconf-set-selections /tmp/xt3-preseed.txt 2>/dev/null || true
+apt_get update
+apt_get install "${PKGS[@]}"
 
 # Forsta boots-debugg over USB: konsol pa ttyGS0 och ssh over usb0.
 chroot "$WORK/rootfs" systemctl enable ssh 2>/dev/null || true
