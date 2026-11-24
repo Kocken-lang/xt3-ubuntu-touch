@@ -18,6 +18,9 @@
 #include "pm660.dtsi"
 #include "pm660l.dtsi"
 
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/linux-event-codes.h>
+
 / {
 	model = "Janam XT3";
 	compatible = "janam,xt3", "qcom,sdm660";
