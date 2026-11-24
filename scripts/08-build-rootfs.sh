@@ -100,6 +100,12 @@ if [ -n "$KREL" ] && [ -x "$MNT/usr/sbin/update-initramfs" ]; then
   sudo mkdir -p "$MNT/etc/initramfs-tools"
   printf 'MODULES=dep\nCOMPRESS=gzip\nBUSYBOX=auto\n' \
     | sudo tee "$MNT/etc/initramfs-tools/initramfs.conf" >/dev/null
+  # MODULES=dep harleder drivrutiner ur /etc/fstab, dar roten star som
+  # LABEL=ut-rootfs. Etiketten gar inte att sla upp vid byggtid, sa listan
+  # kan bli tom - och da hittar initramfs aldrig disken. Namnge lagret
+  # explicit i stallet. Saknade moduler ger bara en varning.
+  printf 'mmc_block\nsdhci\nsdhci_msm\next4\n' \
+    | sudo tee "$MNT/etc/initramfs-tools/modules" >/dev/null
   if sudo chroot "$MNT" /usr/bin/env DEBIAN_FRONTEND=noninteractive \
        update-initramfs -c -k "$KREL" >/tmp/xt3-initramfs.log 2>&1; then
     sudo cp "$MNT/boot/initrd.img-$KREL" "$ROOT/out/initramfs.img"
