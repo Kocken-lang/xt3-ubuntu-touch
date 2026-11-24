@@ -65,8 +65,9 @@ count_files() { find "$1" -type f 2>/dev/null | wc -l; }
 
 extract_ext() {
   local img="$1" dst="$2"
-  local dirs=(/image /firmware/image /firmware_mnt/image /vendor/firmware_mnt/image
-              /etc/firmware /lib/firmware /vendor/firmware)
+  local dirs=(/image /firmware /firmware/image /firmware_mnt /firmware_mnt/image
+              /vendor/firmware_mnt/image /vendor/firmware /bt_firmware
+              /dsp /adsp /cdsp /etc/firmware /lib/firmware)
   local d before after
   for d in "${dirs[@]}"; do
     before=$(count_files "$dst")

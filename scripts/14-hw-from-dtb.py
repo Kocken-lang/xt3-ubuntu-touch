@@ -125,9 +125,10 @@ def main() -> int:
     lines = ["# Hardware ur stock-DTB", "", f"Kalla: `{args.dtb}`", ""]
     lines.append("## Paneler")
     for p in panels:
+        note = f"  **oparsbar:** {p['error']}" if p.get("error") else ""
         lines.append(f"- `{p['panel_name']}` {p['width']}x{p['height']} "
                      f"@ {p['fps']} Hz, {p['lanes']} lanes, "
-                     f"{len(p['on_cmds'])} init-kommandon")
+                     f"{len(p['on_cmds'])} init-kommandon{note}")
     lines.append("")
     lines.append("## Tangenter")
     for k in keys:

@@ -149,23 +149,77 @@ def parse_int(body: str, name: str, default: int | None = None) -> int | None:
     return vals[0] if vals else default
 
 
+_ESCAPES = {"n": 10, "t": 9, "r": 13, "0": 0, "\\": 92, '"': 34, "'": 39}
+
+
+def bytes_from_string(text: str, name: str) -> list[int]:
+    """Decode a DTS string literal (dtc prints all-printable byte arrays as
+    strings, so a valid command array can reach us in this form)."""
+    out, i = [], 0
+    while i < len(text):
+        c = text[i]
+        if c != "\\":
+            out.append(ord(c) & 0xFF)
+            i += 1
+            continue
+        i += 1
+        if i >= len(text):
+            raise PanelError(f"{name}: escape i slutet av strangen")
+        esc = text[i]
+        if esc == "x":
+            digits = text[i + 1:i + 3]
+            if len(digits) != 2:
+                raise PanelError(f"{name}: kort hex-escape")
+            out.append(int(digits, 16))
+            i += 3
+        elif esc in _ESCAPES:
+            out.append(_ESCAPES[esc])
+            i += 1
+        elif esc.isdigit():
+            digits = esc
+            while i + 1 < len(text) and text[i + 1].isdigit():
+                i += 1
+                digits += text[i]
+            out.append(int(digits, 8) & 0xFF)
+            i += 1
+        else:
+            out.append(ord(esc) & 0xFF)
+            i += 1
+    return out
+
+
 def parse_bytes(body: str, name: str) -> list[int]:
+    """Accept the three shapes dtc can print a byte array in:
+    [05 01 ...] (hex bytes), <0x05 0x01 ...> (cells) and "..." (printable)."""
     raw = prop_block(body, name)
     if raw is None:
         return []
+
     m = re.search(r"\[(.*?)\]", raw, re.S)
-    if not m:
-        return []
-    out = []
-    for token in m.group(1).split():
-        token = token.strip()
-        if not token:
-            continue
-        try:
-            out.append(int(token, 16))
-        except ValueError:
-            raise PanelError(f"{name}: ogiltig byte {token!r}")
-    return out
+    if m:
+        out = []
+        for token in m.group(1).split():
+            try:
+                out.append(int(token, 16))
+            except ValueError:
+                raise PanelError(f"{name}: ogiltig byte {token!r}")
+        return out
+
+    m = re.search(r"<([^>]*)>", raw, re.S)
+    if m:
+        out = []
+        for token in m.group(1).split():
+            try:
+                out.append(int(token, 16) if token.lower().startswith("0x")
+                           else int(token) & 0xFF)
+            except ValueError:
+                raise PanelError(f"{name}: ogiltig cell {token!r}")
+        return out
+
+    m = re.search(r'"((?:[^"\\]|\\.)*)"', raw, re.S)
+    if m:
+        return bytes_from_string(m.group(1), name)
+    return []
 
 
 def parse_reset_sequence(body: str) -> list[dict]:
@@ -222,8 +276,18 @@ def collect_panels(text: str) -> list[dict]:
         if prop_block(body, "qcom,mdss-dsi-on-command") is None:
             continue
         label, name = node_label(header)
-        on = parse_bytes(body, "qcom,mdss-dsi-on-command")
-        off = parse_bytes(body, "qcom,mdss-dsi-off-command")
+        error = None
+        try:
+            on = parse_bytes(body, "qcom,mdss-dsi-on-command")
+            on_cmds = parse_cmds(on, "on-command")
+        except PanelError as exc:
+            on, on_cmds, error = [], [], str(exc)
+        try:
+            off = parse_bytes(body, "qcom,mdss-dsi-off-command")
+            off_cmds = parse_cmds(off, "off-command")
+        except PanelError as exc:
+            off, off_cmds = [], []
+            error = error or str(exc)
         panels.append({
             "node": name,
             "label": label,
@@ -247,8 +311,10 @@ def collect_panels(text: str) -> list[dict]:
             "on_state": parse_string(body, "qcom,mdss-dsi-on-command-state"),
             "lanes": count_lanes(body),
             "reset_sequence": parse_reset_sequence(body),
-            "on_cmds": parse_cmds(on, "on-command"),
-            "off_cmds": parse_cmds(off, "off-command"),
+            "on_cmds": on_cmds,
+            "off_cmds": off_cmds,
+            "error": error,
+            "on_raw": on[:16],
         })
     return panels
 
@@ -663,9 +729,16 @@ def main() -> int:
 
     if args.list:
         for i, p in enumerate(panels):
-            print(f"[{i}] {p['panel_name']}  ({p['node']})")
+            state = f"FEL: {p['error']}" if p.get("error") else "ok"
+            print(f"[{i}] {p['panel_name']!r}")
+            print(f"    node {p['node']}, label {p['label']}")
+            print(f"    {p['width']}x{p['height']} @ {p['fps']} Hz, "
+                  f"{p['bpp']} bpp, {p['panel_type']}, {p['lanes']} lanes")
+            print(f"    on={len(p['on_cmds'])} off={len(p['off_cmds'])}  {state}")
+            print("    raw on: " + " ".join(f"{b:02x}" for b in p["on_raw"]))
         return 0
 
+    usable = [p for p in panels if not p.get("error") and p["on_cmds"]]
     if args.panel:
         match = [p for p in panels
                  if args.panel in (p["node"], p["label"], p["panel_name"])]
@@ -674,14 +747,23 @@ def main() -> int:
                   file=sys.stderr)
             return 1
         panel = match[0]
-    elif len(panels) == 1:
-        panel = panels[0]
-    else:
-        # Prefer the one whose name matches the device, otherwise the first.
-        panel = next((p for p in panels if "xt3" in (p["panel_name"] or "").lower()),
-                     panels[0])
+        if panel.get("error"):
+            print(f"panelen {panel['panel_name']!r} ar oparsbar: "
+                  f"{panel['error']}\nkor --list for att se alla noder",
+                  file=sys.stderr)
+            return 1
+    elif len(usable) == 1:
+        panel = usable[0]
+    elif usable:
+        panel = next((p for p in usable if "xt3" in (p["panel_name"] or "").lower()),
+                     usable[0])
         print(f"flera paneler i DTB:n, valjer {panel['panel_name']!r} "
               f"(anvand --panel for att valja)", file=sys.stderr)
+    else:
+        print("alla panelnoder ar oparsbara:", file=sys.stderr)
+        for p in panels:
+            print(f"  {p['panel_name']!r}: {p['error']}", file=sys.stderr)
+        return 1
 
     os.makedirs(args.outdir, exist_ok=True)
     base = os.path.join(args.outdir, f"panel-{args.name}")

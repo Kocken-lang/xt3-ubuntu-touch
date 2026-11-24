@@ -50,6 +50,8 @@ make image       # boot.img
 ## Formatfakta (dyra att lära om)
 - `dtbo.img`-headern är **big-endian** (12 poster i 91.57).
 - Vendor `qcom,mdss-dsi-*-command` har 7-byte header, `dlen` **big-endian** (`ntohs`).
+- `dtc` skriver ut en byte-array som **sträng** om alla byte är utskrivbara. Parsern
+  måste därför acceptera `[05 01 ..]`, `<0x05 0x01 ..>` och `"\x05\x01.."`.
 - Vendor `qcom,mdss-dsi-reset-sequence` anger **fysisk** nivå (gpio-flags 0). Mainline
   noden använder `GPIO_ACTIVE_LOW`, så logiska värdet är inverterat.
 - `vendor.img` innehåller HAL-bibliotek, inte firmware. Se ovan.

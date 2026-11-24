@@ -37,6 +37,45 @@ need "panel-compatible" '"janam,xt3-panel"' "$D"
 # the source: 05 01 00 00 14 00 02 29 00
 need "sista kommando 0x29" "0x29" "$C"
 
+echo "== 13: alla tre kodningar + tolerans"
+cat > "$TMP/enc.dts" <<'EOF'
+/dts-v1/;
+/ {
+        p_hex: panel@0 {
+                qcom,mdss-dsi-panel-name = "hex panel";
+                qcom,mdss-dsi-panel-width = <720>;
+                qcom,mdss-dsi-panel-height = <1280>;
+                qcom,mdss-dsi-on-command = [05 01 00 00 0a 00 01 11];
+        };
+        p_cell: panel@1 {
+                qcom,mdss-dsi-panel-name = "cell panel";
+                qcom,mdss-dsi-panel-width = <720>;
+                qcom,mdss-dsi-panel-height = <1280>;
+                qcom,mdss-dsi-on-command = <0x05 0x01 0x00 0x00 0x0a 0x00 0x01 0x11>;
+        };
+        p_str: panel@2 {
+                qcom,mdss-dsi-panel-name = "string panel";
+                qcom,mdss-dsi-panel-width = <720>;
+                qcom,mdss-dsi-panel-height = <1280>;
+                qcom,mdss-dsi-on-command = "\x05\x01\x00\x00\x0a\x00\x01\x11";
+        };
+        p_bad: panel@3 {
+                qcom,mdss-dsi-panel-name = "broken panel";
+                qcom,mdss-dsi-panel-width = <720>;
+                qcom,mdss-dsi-panel-height = <1280>;
+                qcom,mdss-dsi-on-command = [32 01 00 00 0a 00 01 11];
+        };
+};
+EOF
+"$ROOT/scripts/13-panel-from-dtb.py" --dtb "$TMP/enc.dts" --list >"$TMP/list.txt" 2>&1
+need "listar 4 paneler"  "broken panel" "$TMP/list.txt"
+need "hex parsas"        "on=1 off=0  ok" "$TMP/list.txt"
+need "trasig markeras"   "FEL: on-command: okand dtype 0x32" "$TMP/list.txt"
+"$ROOT/scripts/13-panel-from-dtb.py" --dtb "$TMP/enc.dts" \
+  --name enc --outdir "$TMP/enc" >"$TMP/enc.log" 2>&1 \
+  && ok "valjer parsbar panel" || bad "valjer parsbar panel"
+need "valde hex"         "hex panel" "$TMP/enc.log"
+
 echo "== 14-hw-from-dtb"
 "$ROOT/scripts/14-hw-from-dtb.py" \
   --dtb "$ROOT/inventory-data/91.57/dtbo/dtb/00-id0-rev0.dts" \
