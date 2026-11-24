@@ -2,12 +2,15 @@
 /*
  * Janam XT3 (Qualcomm SDM660) - MALL, inte fardig.
  *
+ * Hardware enligt Janam XT3 User Manual (v1, mars 2020) + inventering:
+ *   5" 720x1280 IPS, Honeywell N6703 1D/2D imager, NXP pn54x NFC/RFID,
+ *   2x microSAM, micro-SIM (WWAN-SKU), 13MP+5MP kamera, BT5/BLE, 802.11ac,
+ *   A-GPS (GPS/QZSS/GLONASS/Galileo/Beidou), 4 hard keys + programmerbar.
+ *   Se docs/02-enhetsmatris.md.
+ *
  * Alla "TODO" maste fyllas fran:
- *   out/inventory/70-device-tree/   (stock DTB avmonterad via adb)
- *   out/panel/panel-*.dtsi          (genererad av 05-gen-panel.sh)
- *   out/inventory/21-input.txt      (touchcontroller)
- *   out/inventory/22-i2c.txt        (I2C-adresser)
- *   out/inventory/24-gpio.txt       (GPIO-karta)
+ *   out/fota/dtbo/dtb/*.dts        (91.57 stock-DTB ur dtbo.img)
+ *   out/panel/panel-*.dtsi         (genererad av 05-gen-panel.sh)
  *
  * Jamfor alltid med en fungerande referens: sdm660-xiaomi-lavender-common.dtsi
  */
@@ -23,7 +26,7 @@
 
 / {
 	model = "Janam XT3";
-	compatible = "janam,xt3", "qcom,sdm660";
+	compatible = "janam,xt3", "qcom,sda660";  /* enheten rapporterar SDA660 */
 	chassis-type = "handset";
 
 	aliases {
