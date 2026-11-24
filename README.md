@@ -5,7 +5,7 @@ med **sdm660-mainline/linux 7.2.y** som kärnbasspår, med bevarade enterprise-f
 (skanner, RFID, SAM, MSR, tangentbord, WWAN) och full hårdvaruutnyttjning.
 
 Status: **Fas 1 klar, Fas 2 förberedd.** Panel, touch, bussar och firmware är
-identifierade ur 91.57. Kärnan bygger. Det som återstår innan första bootbara release är
+identifierade ur 91.57 (panel: JD9365DA). Kärnan bygger. Det som återstår innan första bootbara release är
 enhetens `from-boot.dtb` (se §10 i `docs/01-arkitektur.md`).
 
 ---
