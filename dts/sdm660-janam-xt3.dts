@@ -129,6 +129,28 @@
          * touching the PMIC.  Replace with the real PM660 L3 / L11 regulator
          * nodes once from-boot.dtb gives the voltages.
          */
+        /* eMMC: samma spanningar som sdm660-xiaomi-lavender-common.dtsi
+         * satter pa sdhc_1 (vreg_l4b_2p95 / vreg_l8a_1p8). Vi modellerar dem
+         * som fasta, always-on - railen halls uppe av ABL och far inte
+         * stangas av nar vi byter kernel. */
+        xt3_vreg_emmc_2p95: regulator-emmc-2p95 {
+                compatible = "regulator-fixed";
+                regulator-name = "xt3_emmc_2p95";
+                regulator-min-microvolt = <2950000>;
+                regulator-max-microvolt = <2950000>;
+                regulator-always-on;
+                regulator-boot-on;
+        };
+
+        xt3_vreg_emmc_1p8: regulator-emmc-1p8 {
+                compatible = "regulator-fixed";
+                regulator-name = "xt3_emmc_1p8";
+                regulator-min-microvolt = <1800000>;
+                regulator-max-microvolt = <1800000>;
+                regulator-always-on;
+                regulator-boot-on;
+        };
+
         xt3_vreg_touch_3v3: regulator-touch-3v3 {
                 compatible = "regulator-fixed";
                 regulator-name = "xt3_touch_3v3";
@@ -296,7 +318,9 @@
 &sdhc_1 {
         status = "okay";
         non-removable;
-        /* TODO: vmmc-supply / vqmmc-supply from from-boot.dtb */
+        mmc-hs200-1_8v;
+        vmmc-supply = <&xt3_vreg_emmc_2p95>;
+        vqmmc-supply = <&xt3_vreg_emmc_1p8>;
 };
 
 &sdhc_2 {
