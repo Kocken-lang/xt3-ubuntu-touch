@@ -1,4 +1,10 @@
-1795561106743733738
-agent-ok
-Linux 7.0.0-43-generic
-/home/moon/xt3
+1795561213089302729
+OK
+4dda550 verktyg: fjarragent over git
+Image.gz
+modules
+sdm660-janam-xt3.dtb
+/usr/bin/dtc
+/usr/bin/fastboot
+SUDO-NOPASSWD
+2303910504	 fastboot
