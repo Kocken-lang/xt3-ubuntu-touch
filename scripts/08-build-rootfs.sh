@@ -104,8 +104,13 @@ if [ -n "$KREL" ] && [ -x "$MNT/usr/sbin/update-initramfs" ]; then
   # LABEL=ut-rootfs. Etiketten gar inte att sla upp vid byggtid, sa listan
   # kan bli tom - och da hittar initramfs aldrig disken. Namnge lagret
   # explicit i stallet. Saknade moduler ger bara en varning.
-  printf 'mmc_block\nsdhci\nsdhci_msm\next4\n' \
+  printf 'mmc_block\nsdhci\nsdhci_msm\next4\nlibcomposite\nusb_f_acm\ndwc3\ndwc3_qcom\nphy_qcom_qusb2\nphy_qcom_qmp_combo\n' \
     | sudo tee "$MNT/etc/initramfs-tools/modules" >/dev/null
+  # Karnloggen ut over USB-C som seriell enhet. Utan detta ar vi blinda nar
+  # roten inte hittas - det var precis vad som stoppade oss.
+  sudo mkdir -p "$MNT/etc/initramfs-tools/scripts/init-premount"
+  sudo install -m 0755 "$ROOT/scripts/initramfs-hook-usbmsg" \
+    "$MNT/etc/initramfs-tools/scripts/init-premount/xt3-usbmsg"
   if sudo chroot "$MNT" /usr/bin/env DEBIAN_FRONTEND=noninteractive \
        update-initramfs -c -k "$KREL" >/tmp/xt3-initramfs.log 2>&1; then
     sudo cp "$MNT/boot/initrd.img-$KREL" "$ROOT/out/initramfs.img"

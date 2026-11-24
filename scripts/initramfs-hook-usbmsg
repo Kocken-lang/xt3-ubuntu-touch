@@ -1,0 +1,43 @@
+#!/bin/sh
+# Strömmar karnloggen over USB-C som en seriell enhet (CDC-ACM).
+# Ligger i initramfs sa den startar innan rot monteras - da kan vi lasa
+# dmesg aven nar roten aldrig hittas.
+PREREQ=""
+prereqs() { echo "$PREREQ"; }
+case "$1" in prereqs) prereqs; exit 0 ;; esac
+
+. /scripts/functions
+
+G=/sys/kernel/config/usb_gadget/xt3
+
+setup_gadget() {
+        mountpoint -q /sys/kernel/config || mount -t configfs none /sys/kernel/config || return 1
+        [ -d "$G" ] && return 0
+        mkdir -p "$G" || return 1
+        echo 0x1d6b > "$G/idVendor"
+        echo 0x0104 > "$G/idProduct"
+        mkdir -p "$G/strings/0x409"
+        echo "Janam" > "$G/strings/0x409/manufacturer"
+        echo "XT3 kmsg" > "$G/strings/0x409/product"
+        echo "0123456789" > "$G/strings/0x409/serialnumber"
+        mkdir -p "$G/configs/c.1/strings/0x409"
+        echo "kmsg" > "$G/configs/c.1/strings/0x409/configuration"
+        mkdir -p "$G/functions/acm.usb0"
+        ln -sf "$G/functions/acm.usb0" "$G/configs/c.1/" 2>/dev/null
+        local udc
+        udc=$(ls /sys/class/udc 2>/dev/null | head -1)
+        [ -n "$udc" ] && echo "$udc" > "$G/UDC"
+        # vanta pa ttyGS0 (max 5 s)
+        i=0
+        while [ ! -e /dev/ttyGS0 ] && [ $i -lt 50 ]; do
+                sleep 0.1; i=$((i+1))
+        done
+        [ -e /dev/ttyGS0 ]
+}
+
+if setup_gadget; then
+        # backloggen forst, sedan lopande logg
+        ( dmesg > /dev/ttyGS0 2>/dev/null
+          cat /proc/kmsg > /dev/ttyGS0 2>/dev/null ) &
+fi
+exit 0
