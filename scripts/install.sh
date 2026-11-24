@@ -50,15 +50,26 @@ fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img
 say "4/5 flashar rootfs till userdata"
 if [ -f rootfs.img ]; then
   ROOTFS_B=$(stat -c%s rootfs.img)
-  PART_B=$(fastboot getvar partition-size:userdata 2>&1 \
-           | grep -oE '0x[0-9a-fA-F]+|[0-9]+' | tail -1)
-  if [ -n "$PART_B" ]; then
-    [ "$PART_B" -gt 1000000000 ] 2>/dev/null || PART_B=$((PART_B))
-    if [ "$ROOTFS_B" -gt "$PART_B" ] 2>/dev/null; then
-      echo "  FEL: rootfs.img ar $((ROOTFS_B/1024/1024)) MB, userdata ar"
-      echo "       $((PART_B/1024/1024)) MB. Bygg mindre: sudo make rootfs SIZE=4G"
+  # fastboot svarar "partition-size:userdata: 0x1d0f00000" (hex) eller ibland
+  # bara ett tal. Kan vi inte lasa det later vi flashningen forsoka - okant
+  # ar inte samma sak som for litet.
+  PART_RAW=$(fastboot getvar partition-size:userdata 2>&1 \
+             | grep -i 'partition-size' | sed 's/.*: *//' | tr -d ' \r')
+  PART_B=""
+  case "$PART_RAW" in
+    0x*|0X*) PART_B=$((PART_RAW)) ;;
+    ''|*[!0-9]*) PART_B="" ;;
+    *) PART_B="$PART_RAW" ;;
+  esac
+  if [ -n "$PART_B" ] && [ "$PART_B" -gt 0 ] 2>/dev/null; then
+    echo "  rootfs $((ROOTFS_B/1024/1024)) MB, userdata $((PART_B/1024/1024)) MB"
+    if [ "$ROOTFS_B" -gt "$PART_B" ]; then
+      echo "  FEL: rootfs.img ar storre an partitionen."
+      echo "  Bygg mindre: sudo make rootfs SIZE=4G && make image && make release"
       exit 1
     fi
+  else
+    echo "  kunde inte lasa userdata-storleken - later fastboot forsoka"
   fi
   fastboot flash userdata rootfs.img
 else
