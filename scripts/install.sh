@@ -71,7 +71,21 @@ if [ -f rootfs.img ]; then
   else
     echo "  kunde inte lasa userdata-storleken - later fastboot forsoka"
   fi
-  fastboot flash userdata rootfs.img
+  # rootfs.img ar en sparse fil (skapad med truncate + mkfs). fastboots
+  # sparse-omvandling raknar fel pa hal och skickar bara en del av imagen -
+  # flashningen sager OKAY men enheten har ingen giltig rot. Skriv darfor en
+  # tat (dense) kopia forst och flasha den.
+  FLASH_IMG=rootfs.img
+  APPARENT=$(stat -c%s rootfs.img)
+  ACTUAL=$(( $(du -s --bytes rootfs.img | cut -f1) ))
+  if [ "$ACTUAL" -lt $((APPARENT * 9 / 10)) ]; then
+    echo "  rootfs.img ar sparse ($((ACTUAL/1024/1024)) MB pa disk av $((APPARENT/1024/1024)) MB)"
+    echo "  skriver tat kopia - tar en stund, och kraver plats i /tmp"
+    FLASH_IMG=$(mktemp /tmp/xt3-rootfs-XXXXXX.img)
+    cp --sparse=never rootfs.img "$FLASH_IMG"
+  fi
+  fastboot flash userdata "$FLASH_IMG"
+  [ "$FLASH_IMG" = rootfs.img ] || rm -f "$FLASH_IMG"
 else
   echo "  rootfs.img saknas - hoppar over (bootar befintligt system)"
 fi
