@@ -66,8 +66,10 @@ Karna: $KREL
 EOF
 
 echo "==> checksummor"
-( cd "$REL" && sha256sum boot.img rootfs.img vbmeta.img install.sh manifest.json 2>/dev/null \
-    || sha256sum boot.img rootfs.img install.sh manifest.json > SHA256SUMS )
+( cd "$REL" && { sha256sum boot.img rootfs.img vbmeta.img install.sh manifest.json 2>/dev/null \
+    || sha256sum boot.img rootfs.img install.sh manifest.json; } > SHA256SUMS )
+[ -s "$REL/SHA256SUMS" ] || { echo "FEL: SHA256SUMS blev tom"; exit 1; }
+echo "    $(wc -l < "$REL/SHA256SUMS") rader i SHA256SUMS"
 
 echo "==> zippar"
 ZIP="$ROOT/out/$NAME.zip"
