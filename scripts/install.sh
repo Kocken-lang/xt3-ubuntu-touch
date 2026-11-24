@@ -35,6 +35,16 @@ else
   fastboot flash boot boot.img
 fi
 
+say "3b/5 stanger av AVB (vbmeta)"
+# 91.57 har vbmeta med verifiering pa. En modifierad boot.img far inte plats
+# i den hash-kedjan, sa verifieringen maste stangas av - annars bootloop.
+if [ -f vbmeta.img ]; then
+  fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img \
+    || echo "  varning: vbmeta misslyckades"
+else
+  echo "  vbmeta.img saknas i paketet - hoppar over"
+fi
+
 say "4/5 flashar rootfs till userdata"
 if [ -f rootfs.img ]; then
   fastboot flash userdata rootfs.img
