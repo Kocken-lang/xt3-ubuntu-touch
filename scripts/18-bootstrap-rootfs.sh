@@ -50,15 +50,22 @@ fi
 echo "==> 2/4 andra steget under qemu"
 mount --make-rprivate / 2>/dev/null || true
 mkdir -p "$WORK/rootfs/proc" "$WORK/rootfs/sys" "$WORK/rootfs/dev/pts"
-mount -t proc     proc     "$WORK/rootfs/proc"
-mount -t sysfs    sysfs    "$WORK/rootfs/sys"
-mount --rbind /dev "$WORK/rootfs/dev"
+mountpoint -q "$WORK/rootfs/proc"  || mount -t proc  proc  "$WORK/rootfs/proc"
+mountpoint -q "$WORK/rootfs/sys"   || mount -t sysfs sysfs "$WORK/rootfs/sys"
+mountpoint -q "$WORK/rootfs/dev"   || mount --rbind /dev   "$WORK/rootfs/dev"
 mounts=("$WORK/rootfs/dev" "$WORK/rootfs/sys" "$WORK/rootfs/proc")
 
-# Utan /proc i chrooten vagrar java (och dpkg) att konfigurera paket.
-if ! chroot "$WORK/rootfs" /bin/sh -c 'test -s /proc/self/maps' 2>/dev/null; then
-  echo "FEL: /proc syns inte i chrooten. Kontrollera att du kor som root"
-  echo "     och att /proc ar monterat pa varden."
+# Tva separata fel som annars ser likadana ut: binfmt och /proc.
+if ! chroot "$WORK/rootfs" /bin/true 2>/dev/null; then
+  echo "FEL: kan inte kora arm64-binärer i chrooten."
+  echo "     Installera qemu-user-binfmt (make bootstrap) och kor:"
+  echo "       sudo update-binfmts --enable qemu-aarch64"
+  exit 1
+fi
+# Notera: procfs-filer rapporterar storlek 0, sa 'test -s' fungerar inte har.
+if ! chroot "$WORK/rootfs" /bin/sh -c 'test -e /proc/self/maps'; then
+  echo "FEL: /proc syns inte i chrooten."
+  ls -la "$WORK/rootfs/proc" | head -5
   exit 1
 fi
 if [ -x "$WORK/rootfs/debootstrap/debootstrap" ]; then
