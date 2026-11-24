@@ -21,8 +21,11 @@ jobs:
           sudo apt-get install -y --no-install-recommends \
             bc bison flex libssl-dev libelf-dev cpio rsync zip unzip \
             device-tree-compiler gcc-aarch64-linux-gnu \
-            android-sdk-libsparse-utils e2fsprogs python3-pip
+            android-sdk-libsparse-utils e2fsprogs dosfstools mtools python3-pip
           python3 -m pip install --quiet --upgrade pip
+
+      - name: Sjalvtest (DT-verktyg)
+        run: ./tests/selftest.sh
 
       - name: Hamta mainline-karna
         run: ./scripts/06-fetch-mainline.sh
