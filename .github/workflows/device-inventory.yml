@@ -1,0 +1,50 @@
+name: device-inventory
+
+# Kors pa en self-hosted runner pa maskinen dar XT3:an ar inkopplad.
+# Startas manuellt: Actions -> device-inventory -> Run workflow
+on:
+  workflow_dispatch:
+    inputs:
+      note:
+        description: 'Valfri anteckning'
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    runs-on: self-hosted
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Krav
+        run: |
+          command -v adb    >/dev/null || sudo apt-get install -y android-tools-adb
+          command -v dtc    >/dev/null || sudo apt-get install -y device-tree-compiler
+          command -v xxd    >/dev/null || sudo apt-get install -y xxd
+          adb version | head -1
+
+      - name: Enhet ansluten?
+        run: |
+          adb start-server
+          adb devices
+          adb devices | grep -qw device || {
+            echo "::error::Ingen enhet. Slå på USB-felsökning och auktorisera runner-användaren."
+            exit 1; }
+
+      - name: Inventering
+        run: ./scripts/01-device-inventory.sh
+
+      - name: Sammanfattning
+        run: cat out/inventory/SUMMARY.md
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xt3-inventory-${{ github.run_number }}
+          path: |
+            out/inventory/
+            out/stock/
+          if-no-files-found: error
+          retention-days: 30
