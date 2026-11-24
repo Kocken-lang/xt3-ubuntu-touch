@@ -1,6 +1,13 @@
-1795561537792169390
-Sending 'boot_b' (65536 KB)                        OKAY [  1.667s]
-Writing 'boot_b'                                   OKAY [  0.453s]
-Finished. Total time: 4.258s
-Finished. Total time: 0.050s
-INGEN-TTYACM
+1795561676873213570
+2303910504	 fastboot
+
+slot-retry-count:a: 6
+current-slot: a
+CONFIG_USB_DWC3=y
+CONFIG_USB_DWC3_QCOM=y
+CONFIG_USB_GADGET=y
+CONFIG_USB_CONFIGFS=y
+CONFIG_USB_CONFIGFS_ACM=y
+CONFIG_PHY_QCOM_QMP=y
+CONFIG_PHY_QCOM_QUSB2=y
+CONFIG_CONFIGFS_FS=y
