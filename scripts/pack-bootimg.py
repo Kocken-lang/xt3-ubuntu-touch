@@ -58,6 +58,9 @@ def main():
     ap.add_argument("--tags_offset", type=lambda v: int(v, 0), default=0x100)
     ap.add_argument("--dtb_offset", type=lambda v: int(v, 0), default=0x1F00000)
     ap.add_argument("--os_version", type=lambda v: int(v, 0), default=0)
+    # Samma flagga som AOSP:s mkbootimg; vi skriver alltid v2-header.
+    ap.add_argument("--header_version", type=int, default=2,
+                    choices=(2,), help="endast 2 stods")
     a = ap.parse_args()
 
     def read(p):
