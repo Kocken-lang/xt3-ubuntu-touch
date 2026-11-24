@@ -11,7 +11,8 @@ sudo apt-get install -y \
   apktool aapt apksigner zipalign binwalk tcpdump clang \
   device-tree-compiler gcc-aarch64-linux-gnu libssl-dev libelf-dev \
   bc bison flex git curl wget unzip 7zip cpio rsync kmod e2fsprogs \
-  python3-pip python3-venv python3-dev swig libfdt-dev dosfstools mtools
+  python3-pip python3-venv python3-dev swig libfdt-dev dosfstools mtools \
+  debootstrap qemu-user-static binfmt-support
 
 # jadx is not in the Ubuntu archive -> GitHub release
 if ! command -v jadx >/dev/null; then
