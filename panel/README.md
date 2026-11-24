@@ -12,10 +12,10 @@ cp out/panel/panel-xt3.dtsi dts/panel-janam-xt3.dtsi
 
 | | |
 |---|---|
-| Nuvarande källa | Qualcomms QRD-referens `dsi-panel-ili9881d-720p-video.dtsi` (gcdb-genererad, GPL-2.0) — **fel panel, se nedan** |
-| Panel | enheten har **JD9365DA**, 720×1280, 60 Hz, 24 bpp, 4 lanes |
-| Init-sekvens | 196 kommandon, 2 av-kommandon, 3-stegs reset |
-| Status | **provisorisk och avstängd i DTS** |
+| Källa | `inventory-data/91.57/boot/from-boot.dtb`, noden `qcom,mdss_dsi_jd9365da_720p_video` |
+| Panel | JD9365DA, 720×1280, 60 Hz, 24 bpp, 4 lanes, burst mode |
+| Init-sekvens | 219 kommandon, 2 av-kommandon, reset 20 ms |
+| Status | **definitiv** — genererad ur enhetens egen DTB, verifierad i CI |
 
 Enheten rapporterar själv vilken panel den kör:
 
@@ -25,11 +25,10 @@ panel_name=jd9365da 720p video mode dsi panel
 primary_panel=1
 ```
 
-Alltså **JD9365DA**, inte ILI9881D. `from-boot.dtb` innehåller noden
-`qcom,mdss_dsi_jd9365da_720p_video` med 219 init-kommandon. Den här filen
-(ILI9881D, 196 kommandon) får därför inte bindas till enheten, och
-`#include` i `dts/sdm660-janam-xt3.dts` är avkommenterad tills drivrutinen är
-omgenererad.
+Alltså **JD9365DA**, inte ILI9881D — två 720p-paneler finns i samma DTB, och
+fel val ger svart skärm utan felmeddelande. Drivrutinen i den här katalogen är
+genererad ur `qcom,mdss_dsi_jd9365da_720p_video` (219 kommandon) och
+`tests/selftest.sh` kontrollerar att den fortfarande matchar DTB:n.
 
 Kör detta för att göra den definitiv:
 

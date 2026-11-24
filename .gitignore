@@ -8,3 +8,10 @@ out/
 tools/
 __pycache__/
 *.pyc
+panel/*.o
+panel/*.ko
+panel/*.mod
+panel/*.mod.c
+panel/.*.cmd
+panel/Module.symvers
+panel/modules.order

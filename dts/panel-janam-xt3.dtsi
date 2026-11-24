@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-only
 /*
- * ili9881d 720p video mode dsi panel
+ * jd9365da 720p video mode dsi panel
  * GENERERAD av scripts/13-panel-from-dtb.py. Redigera inte for hand.
  */
 

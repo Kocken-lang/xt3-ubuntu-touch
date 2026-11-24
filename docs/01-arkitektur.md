@@ -22,7 +22,7 @@ Detta ändrades när stock-DTB:n lästes. Den tidigare beskrivningen ("skanner p
 | NFC | I2C | i2c6 `0x28`, irq 28, ven 29, firm 30 | `pn544-i2c` finns |
 | GPIO-expander | I2C | i2c1 `0x22` (PCA9535), irq 72 | `gpio-pca953x` finns |
 | Gasmätare (bränslemätare) | I2C | i2c2 `0x62` (CW2015), chg-sts 45 | `cw2015_battery` finns |
-| Panel | DSI | ILI9881D 720p, reset 53, TE 59, en 8 | driver genereras ur DTB |
+| Panel | DSI | JD9365DA 720p, reset 53, TE 59, en 8 | drivrutin genererad ur DTB |
 | Touch | I2C | i2c4 `0x20` (RMI4), irq 67, reset 66 | `rmi4-i2c` finns |
 | SD-kort | SDHC | CD gpio 70 | `sdhci-msm` finns |
 
@@ -84,10 +84,11 @@ tolkning. `scripts/13-panel-from-dtb.py` parsar exakt detta och genererar:
   (`devm_drm_panel_alloc`, inte borttagna `drm_panel_init`)
 * `panel-janam-xt3.dtsi` – noden under `&mdss_dsi0`
 
-Den incheckade drivrutinen är genererad ur Qualcomms QRD-referens för
-**ILI9881D 720p video** – samma panel som XT3:s stock-DTB pekar ut
-(`dsi_ili9881d_720p_video`). Den är märkt *provisorisk*: när `from-boot.dtb`
-finns körs generatorn om mot enhetens egen nod, och då är sekvensen definitiv.
+Drivrutinen är genererad ur enhetens egen nod `qcom,mdss_dsi_jd9365da_720p_video`
+i `inventory-data/91.57/boot/from-boot.dtb` (219 kommandon). Att panelen är
+JD9365DA och inte ILI9881D bekräftades av enheten själv via
+`/sys/class/graphics/fb0/msm_fb_panel_info`. `tests/selftest.sh` genererar om
+ur DTB:n och jämför, så filerna kan inte glida isär.
 
 ## 6. Fasplan
 

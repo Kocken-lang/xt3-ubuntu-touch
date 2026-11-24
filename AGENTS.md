@@ -44,7 +44,9 @@ make image       # boot.img
 - MSR är **SPI** (Wiznova MMD1000, BLSP1 QUP3 `0xc177000`, 960 kHz).
 - SAM är **TDA8029 via UART**, två stycken, styrda av PCA9535 på i2c1 `0x22`.
 - NFC är PN54x på i2c6 `0x28`.
-- Panel: ILI9881D 720x1280 video, reset tlmm 53, TE 59, en 8.
+- Panel: **JD9365DA** 720x1280 video (burst), reset tlmm 53, TE 59, en 8.
+  Bekraftat av enheten: fb0/msm_fb_panel_info -> panel_name=jd9365da ...
+  Fel panel (ILI9881D finns i samma DTB) ger svart skarm utan felmeddelande.
 - Touch: Synaptics RMI4 på i2c4 `0x20`, irq 67, reset 66.
 
 ## Formatfakta (dyra att lära om)

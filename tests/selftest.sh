@@ -76,6 +76,31 @@ need "trasig markeras"   "FEL: on-command: okand dtype 0x32" "$TMP/list.txt"
   && ok "valjer parsbar panel" || bad "valjer parsbar panel"
 need "valde hex"         "hex panel" "$TMP/enc.log"
 
+echo "== panel-filer matchar from-boot.dtb"
+if [ -f "$ROOT/inventory-data/91.57/boot/from-boot.dtb" ]; then
+  "$ROOT/scripts/13-panel-from-dtb.py" \
+    --dtb "$ROOT/inventory-data/91.57/boot/from-boot.dtb" \
+    --panel "jd9365da 720p video mode dsi panel" --name xt3 \
+    --outdir "$TMP/regen" >"$TMP/regen.log" 2>&1 \
+    && ok "regenererar" || bad "regenererar"
+  cmp -s "$TMP/regen/panel-xt3.c" "$ROOT/panel/panel-janam-xt3.c" \
+    && ok "panel-janam-xt3.c ar aktuell" || bad "panel-janam-xt3.c ar aktuell"
+  cmp -s "$TMP/regen/panel-xt3.dtsi" "$ROOT/dts/panel-janam-xt3.dtsi" \
+    && ok "panel-janam-xt3.dtsi ar aktuell" || bad "panel-janam-xt3.dtsi ar aktuell"
+else
+  echo "  skippar (ingen from-boot.dtb i inventory-data)"
+fi
+
+echo "== panel-drivrutinen kompilerar"
+if [ -n "${KSRC:-}" ] && [ -d "$KSRC" ]; then
+  make -C "$KSRC" ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
+    M="$ROOT/panel" panel-janam-xt3.o >"$TMP/panel-build.log" 2>&1 \
+    && ok "panel-janam-xt3.o" || { bad "panel-janam-xt3.o"; tail -20 "$TMP/panel-build.log"; }
+  rm -f "$ROOT"/panel/*.o "$ROOT"/panel/.*.cmd
+else
+  echo "  skippar (satt KSRC=/path/till/linux)"
+fi
+
 echo "== 14-hw-from-dtb"
 "$ROOT/scripts/14-hw-from-dtb.py" \
   --dtb "$ROOT/inventory-data/91.57/dtbo/dtb/00-id0-rev0.dts" \

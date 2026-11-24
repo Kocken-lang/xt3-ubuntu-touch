@@ -390,9 +390,11 @@ def gen_c(panel: dict, slug: str, compatible: str, diagonal: float) -> str:
     mode_flags = []
     if (panel["panel_type"] or "").lower() != "dsi_cmd_mode":
         mode_flags.append("MIPI_DSI_MODE_VIDEO")
+        # Burst and sync-pulse are mutually exclusive in the DSI host; the
+        # vendor picks one via qcom,mdss-dsi-traffic-mode.
         if "burst" in traffic:
             mode_flags.append("MIPI_DSI_MODE_VIDEO_BURST")
-        if panel["h_sync_pulse"] or "sync_pulse" in traffic:
+        elif panel["h_sync_pulse"] or "sync_pulse" in traffic:
             mode_flags.append("MIPI_DSI_MODE_VIDEO_SYNC_PULSE")
     if (panel["on_state"] or "").lower() == "dsi_lp_mode":
         mode_flags.append("MIPI_DSI_MODE_LPM")

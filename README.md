@@ -4,9 +4,13 @@ Port av Ubuntu Touch till **Janam XT3** (Android 11, firmware **91.57**, `a11/XT
 med **sdm660-mainline/linux 7.2.y** som kärnbasspår, med bevarade enterprise-funktioner
 (skanner, RFID, SAM, MSR, tangentbord, WWAN) och full hårdvaruutnyttjning.
 
-Status: **Fas 1 klar, Fas 2 förberedd.** Panel, touch, bussar och firmware är
-identifierade ur 91.57 (panel: JD9365DA). Kärnan bygger. Det som återstår innan första bootbara release är
-enhetens `from-boot.dtb` (se §10 i `docs/01-arkitektur.md`).
+Status: **Fas 1 klar.** Panelen är identifierad av enheten själv (JD9365DA) och
+drivrutinen är genererad ur `inventory-data/91.57/boot/from-boot.dtb`, som nu
+ligger i repot. Nio tangenter, touch, PMIC, gauge, NFC och firmware är på plats.
+
+Fas 2 (första boot) återstår och kräver enheten: bygg, flasha, läs konsolen.
+`tests/selftest.sh` verifierar att de incheckade panelfilerna fortfarande
+matchar DTB:n och att de kompilerar mot 7.2.y.
 
 ---
 

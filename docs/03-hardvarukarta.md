@@ -11,7 +11,7 @@ SoC: **SDA660** (`/sys/devices/soc0/machine`), PM660 + PM660L.
 
 | Signal | Stock | Mainline |
 |---|---|---|
-| Panel | ILI9881D 720×1280 video, 4 lanes, 60 Hz | `panel-janam-xt3.c` (genererad) |
+| Panel | JD9365DA 720×1280 video, 4 lanes, 60 Hz (burst) | `panel-janam-xt3.c` (genererad ur from-boot.dtb) |
 | Panelvarianter | `dsi_ili9881d_720p_video`, `_evt`, `jd9365da`, `nt35521sh` | generatorn väljer ur DTB |
 | Reset | tlmm 53, aktiv låg | `reset-gpios` |
 | TE | tlmm 59 | `pinctrl`/te-gpio |
