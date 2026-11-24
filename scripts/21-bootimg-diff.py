@@ -85,8 +85,41 @@ def repack(src, dst):
     print(f"skrev {dst}: {len(img)} byte (samma innehall som {src}, vara header-falt)")
 
 
+def hybrid(stock_img, out_img, root, kernel="ours", dtb="ours",
+           ramdisk="ours", cmdline="stock"):
+    """Blanda vara delar med stock-delar for att isolera en i taget."""
+    sys.path.insert(0, __file__.rsplit("/", 1)[0])
+    from importlib.machinery import SourceFileLoader
+    pack = SourceFileLoader("pack", __file__.replace("21-bootimg-diff.py",
+                                                     "pack-bootimg.py")).load_module()
+    st = parse(stock_img)
+    v = st["vals"]
+    mine = {
+        "kernel": f"{root}/out/kernel/Image.gz",
+        "dtb": f"{root}/out/kernel/sdm660-janam-xt3.dtb",
+        "ramdisk": f"{root}/out/initramfs.img",
+    }
+    def pick(choice, key, default):
+        return default if choice == "stock" else open(mine[key], "rb").read()
+    kern = pick(kernel, "kernel", st["kernel"])
+    dtb_ = pick(dtb, "dtb", st["dtb"])
+    ram = pick(ramdisk, "ramdisk", st["ramdisk"])
+    cmd = st["cmdline"] if cmdline == "stock" else st["cmdline"] + " root=LABEL=ut-rootfs rootwait rw"
+    img = pack.build(kern, ram, dtb_, v["page_size"], cmd, "", 0,
+                     v["kernel_addr"], v["ramdisk_addr"], v["tags_addr"],
+                     v["dtb_addr"] or 0x1F00000, v["os_version"])
+    if len(img) < st["size"]:
+        img += b"\0" * (st["size"] - len(img))
+    open(out_img, "wb").write(img)
+    print(f"skrev {out_img}: kernel={kernel} dtb={dtb} ramdisk={ramdisk} "
+          f"cmdline={cmdline}, {len(img)} byte")
+
+
 if __name__ == "__main__":
-    if len(sys.argv) == 4 and sys.argv[1] == "--repack":
+    if len(sys.argv) >= 5 and sys.argv[1] == "--hybrid":
+        args = dict(a.split("=", 1) for a in sys.argv[5:])
+        hybrid(sys.argv[2], sys.argv[3], sys.argv[4], **args)
+    elif len(sys.argv) == 4 and sys.argv[1] == "--repack":
         repack(sys.argv[2], sys.argv[3])
     elif len(sys.argv) == 3:
         show(parse(sys.argv[1]), parse(sys.argv[2]))
