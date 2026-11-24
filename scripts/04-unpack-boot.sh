@@ -55,12 +55,16 @@ if d[:8] == b"ANDROID!":
                 os.makedirs(os.path.join(out, "dtb"), exist_ok=True)
                 w("dtb/from-boot.dtb", d[off:off + dsz])
 
-elif d[:4] == b"\xd7\xb7\xab\x1e":   # DTBO-magic lagras som råa bytes, inte LE-uint32
-    total, hsz, esz, cnt, eoff, pg = struct.unpack_from("<IIIIII", d, 4)
-    print(f"    DTBO: {cnt} entries, entry={esz} byte, header={hsz}")
+elif d[:4] == b"\xd7\xb7\xab\x1e":
+    # Android DTBO (libufdt) ar BIG-ENDIAN i hela headern och entry-tabellen.
+    total, hsz, esz, cnt, eoff, pg = struct.unpack_from(">IIIIII", d, 4)
+    if esz < 16 or cnt > 4096 or eoff + cnt * esz > len(d):
+        print(f"    orimlig DTBO-header (cnt={cnt} esz={esz} eoff={eoff}), avbryter")
+        sys.exit(1)
+    print(f"    DTBO: {cnt} entries, entry={esz} byte, header={hsz}, sida={pg}")
     os.makedirs(os.path.join(out, "dtb"), exist_ok=True)
     for i in range(cnt):
-        sz, o, did, rev = struct.unpack_from("<IIII", d, eoff + i * esz)
+        sz, o, did, rev = struct.unpack_from(">IIII", d, eoff + i * esz)
         name = f"dtb/{i:02d}-id{did}-rev{rev}.dtb"
         w(name, d[o:o + sz])
 elif d[:4] == b"\xd0\x0d\xfe\xed":
