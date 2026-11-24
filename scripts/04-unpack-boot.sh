@@ -55,7 +55,7 @@ if d[:8] == b"ANDROID!":
                 os.makedirs(os.path.join(out, "dtb"), exist_ok=True)
                 w("dtb/from-boot.dtb", d[off:off + dsz])
 
-elif struct.unpack_from("<I", d, 0)[0] == 0xD7B7AB1E:
+elif d[:4] == b"\xd7\xb7\xab\x1e":   # DTBO-magic lagras som råa bytes, inte LE-uint32
     total, hsz, esz, cnt, eoff, pg = struct.unpack_from("<IIIIII", d, 4)
     print(f"    DTBO: {cnt} entries, entry={esz} byte, header={hsz}")
     os.makedirs(os.path.join(out, "dtb"), exist_ok=True)

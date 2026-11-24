@@ -31,17 +31,15 @@ else
   [ -f "$IMAGE" ] || { echo "saknar $IMAGE"; exit 1; }
   echo "==> packar upp firmware ur $IMAGE"
   mkdir -p "$OUT/from-image"
-  if command -v debugfs >/dev/null; then
-    for d in /firmware_mnt/image /firmware/image /etc/firmware /vendor/firmware_mnt/image; do
+  command -v debugfs >/dev/null || { echo "  debugfs saknas (apt install e2fsprogs)"; exit 1; }
+  found=0
+  for d in /firmware_mnt/image /firmware/image /etc/firmware; do
+    if debugfs -R "ls -l $d" "$IMAGE" 2>/dev/null | grep -q .; then
       debugfs -R "rdump $d $OUT/from-image" "$IMAGE" >/dev/null 2>&1 \
-        && echo "   debugfs: $d" || true
-    done
-  fi
-  if [ -z "$(find "$OUT/from-image" -type f 2>/dev/null | head -1)" ]; then
-    echo "   debugfs gav inget, provar 7z"
-    7z x -y -o"$OUT/from-image" "$IMAGE" >/dev/null 2>&1 || true
-  fi
-  echo "   $(find "$OUT/from-image" -type f 2>/dev/null | wc -l) filer utplockade"
+        && { echo "   debugfs: $d"; found=1; }
+    fi
+  done
+  [ "$found" = 1 ] || { echo "  hittade inga firmware-kataloger i $IMAGE"; exit 1; }
 fi
 
 echo "==> sorterar in i /lib/firmware-struktur"
