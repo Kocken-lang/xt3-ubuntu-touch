@@ -26,7 +26,14 @@ fastboot devices | grep -qw fastboot || {
   echo "  Ingen enhet i fastboot-lage. Stang av, hall Vol- + Power, anslut USB."; exit 1; }
 
 say "3/5 flashar boot"
-fastboot flash boot boot.img
+# 91.57 ar en A/B-enhet (ota-type=AB) -> boot och dtbo finns per slot
+SLOTS=$(fastboot getvar slot-count 2>&1 | grep -o '[0-9]\+' | head -1)
+if [ "${SLOTS:-1}" -ge 2 ]; then
+  echo "  A/B-enhet ($SLOTS slots) - flashar bada"
+  fastboot --slot all flash boot boot.img
+else
+  fastboot flash boot boot.img
+fi
 
 say "4/5 flashar rootfs till userdata"
 if [ -f rootfs.img ]; then
