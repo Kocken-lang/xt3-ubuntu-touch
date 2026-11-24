@@ -31,6 +31,8 @@ make image       # boot.img
 ## Uppdateringar 2026-11-24 (efter analys av 91.57)
 - 91.57 är en **Android A/B OTA-zip** (payload.bin 1.44 GB), inte ett eget PFU-format.
   Extrahering sker med `payload-dumper-go` (laddas ner automatiskt av 02-extract-fota.sh).
+- Rootfs: `18-bootstrap-rootfs.sh` (debootstrap noble arm64 + Lomiri ur Ubuntu
+  universe, 1286 paket). UBports publicerar ingen generisk arm64-tarball.
 - Firmware (mba.mbn, modem.mdt, adsp.mdt, wlanmdsp.mbn, bdwlan*, crbtfw*) ligger **inte**
   i `vendor.img` – `/vendor/firmware_mnt` är en monteringspunkt. Filerna finns i
   `modemsda.img`/`modemsdm.img` (FAT), `bluetooth.img` (FAT) och `dsp.img` (ext4).

@@ -3,10 +3,11 @@ PFU ?= $(HOME)/janam_fota/a11/XT3/91.57_20251001.PFU
 FW  ?= out/fota/partitions
 DTB ?= out/fota/boot/dtb/from-boot.dtb
 
-.PHONY: help bootstrap inventory extract dtb panel hw firmware fetch kernel rootfs image flash release test clean
+.PHONY: help bootstrap rootfs-bootstrap inventory extract dtb panel hw firmware fetch kernel rootfs image flash release test clean
 
 help:
 	@echo "make bootstrap   - installera verktyg"
+	@echo "make rootfs-bootstrap - bygg arm64-rootfs med Lomiri (sudo)"
 	@echo "make inventory   - adb-inventering av enheten"
 	@echo "make extract     - packa upp PFU (PFU=...)"
 	@echo "make dtb         - boot/dtbo -> dtb"
@@ -47,7 +48,10 @@ firmware:
 fetch:
 	./scripts/06-fetch-mainline.sh
 
-kernel:
+rootfs-bootstrap:
+	sudo ./scripts/18-bootstrap-rootfs.sh
+
+kernel: fetch
 	./scripts/07-build-kernel.sh
 
 rootfs:

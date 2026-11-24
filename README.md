@@ -9,6 +9,7 @@ drivrutinen är genererad ur `inventory-data/91.57/boot/from-boot.dtb`, som nu
 ligger i repot. Nio tangenter, touch, PMIC, gauge, NFC och firmware är på plats.
 
 Fas 2 (första boot) återstår och kräver enheten: bygg, flasha, läs konsolen.
+Rotfilsystemet byggs ur Ubuntu-arkivet med Lomiri (se `docs/04-rootfs.md`).
 `tests/selftest.sh` verifierar att de incheckade panelfilerna fortfarande
 matchar DTB:n och att de kompilerar mot 7.2.y.
 
@@ -70,7 +71,9 @@ XT3 via adb ──► 01-inventory ───────┤
                                     │
       06-fetch-mainline ──► 07-build-kernel ──► Image.gz + .dtb + 617 moduler
                                     │
+   18-bootstrap-rootfs ──► out/src/xt3-lomiri-noble-arm64.tar.gz
                 08-build-rootfs ──► rootfs.img │
+                17-install-firmware ──► /lib/firmware i rootfs
                                     ▼
                        09-pack-boot ──► 10-flash
 ```

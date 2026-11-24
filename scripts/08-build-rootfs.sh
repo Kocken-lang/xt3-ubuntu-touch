@@ -16,17 +16,24 @@ while [ $# -gt 0 ]; do
     *) echo "okant argument: $1"; exit 1 ;;
   esac
 done
-TARBALL="${TARBALL:-$ROOT/out/src/ubports-touch-arm64-rootfs.tar.gz}"
+if [ -z "${TARBALL:-}" ]; then
+  for c in "$ROOT"/out/src/xt3-lomiri-*.tar.gz \
+           "$ROOT/out/src/ubports-touch-arm64-rootfs.tar.gz"; do
+    [ -f "$c" ] && TARBALL="$c" && break
+  done
+fi
+TARBALL="${TARBALL:-}"
 IMG="$ROOT/out/rootfs.img"
 MNT="$ROOT/out/rootfs"
 OVERLAY="$ROOT/out/rootfs-overlay"
 
 [ -f "$TARBALL" ] || {
   cat <<EOF
-Saknar rootfs-tarball: $TARBALL
+Saknar rootfs-tarball: ${TARBALL:-<ingen>}
 
-Ladda ner en arm64 Ubuntu Touch rootfs, t.ex.:
-  curl -L -o "$TARBALL" <url-fran https://cdimage.ubports.com/ubports-touch/>
+Bygg en med Lomiri ur Ubuntu-arkivet (rekommenderas, se docs/04-rootfs.md):
+  make rootfs-bootstrap
+Da hamnar den i out/src/xt3-lomiri-noble-arm64.tar.gz och hittas automatiskt.
 EOF
   exit 1
 }
