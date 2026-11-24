@@ -1,0 +1,12 @@
+$ ls -l /dev/subsys_* /dev/rmnet* 2>/dev/null; getprop | grep -iE "radio|modem|baseband" | head -20
+crw-rw---- 1 usb    usb     10,  57 1970-01-01 01:00 /dev/rmnet_ctrl
+crw-r----- 1 system system 247,   1 1970-01-01 01:00 /dev/subsys_a512_zap
+crw-r----- 1 system system 247,   2 1970-01-01 01:00 /dev/subsys_adsp
+crw-r----- 1 system system 247,   3 1970-01-01 01:00 /dev/subsys_cdsp
+crw-r----- 1 system system 247,   4 1970-01-01 01:00 /dev/subsys_modem
+crw-r----- 1 system system 247,   0 1970-01-01 01:00 /dev/subsys_venus
+[persist.radio.VT_CAM_INTERFACE]: [2]
+[persist.radio.multisim.config]: [ssss]
+[ro.baseband]: [apq]
+[ro.boot.baseband]: [apq]
+[ro.radio.noril]: [yes]

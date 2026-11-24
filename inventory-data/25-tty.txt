@@ -1,0 +1,5 @@
+$ ls -l /dev/tty* 2>/dev/null | head -40
+crw-rw-rw- 1 root      root     5,   0 1970-01-01 01:00 /dev/tty
+crw-rw---- 1 bluetooth net_bt 244,   0 2026-11-24 16:54 /dev/ttyHS0
+crw-rw-rw- 1 system    system 244,   1 1970-01-01 01:00 /dev/ttyHS1
+crw-rw---- 1 system    system 245,   0 1970-01-01 01:00 /dev/ttyMSM0

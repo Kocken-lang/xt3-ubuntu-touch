@@ -1,0 +1,3 @@
+$ getprop ro.boot.slot_suffix; getprop ro.build.ab_update
+_a
+true

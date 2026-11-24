@@ -1,0 +1,2 @@
+$ ls -l /dev/ttyHSL* /dev/ttyMSM* 2>/dev/null; cat /proc/tty/drivers 2>/dev/null
+crw-rw---- 1 system system 245,   0 1970-01-01 01:00 /dev/ttyMSM0

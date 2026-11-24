@@ -1,0 +1,2 @@
+$ cat /sys/devices/soc0/machine /sys/devices/soc0/platform 2>/dev/null
+SDA660

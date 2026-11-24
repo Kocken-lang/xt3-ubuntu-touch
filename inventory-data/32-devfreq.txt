@@ -1,0 +1,14 @@
+$ ls /sys/class/devfreq/ 2>/dev/null
+5000000.qcom,kgsl-3d0
+cc00000.qcom,vidc:arm9_bus_ddr
+cc00000.qcom,vidc:bus_cnoc
+cc00000.qcom,vidc:venus_bus_ddr
+mmc0
+mmc1
+soc:devfreq_spdm_cpu
+soc:qcom,cpubw
+soc:qcom,gpubw
+soc:qcom,kgsl-busmon
+soc:qcom,memlat-cpu0
+soc:qcom,memlat-cpu4
+soc:qcom,mincpubw

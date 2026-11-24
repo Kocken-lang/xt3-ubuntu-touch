@@ -1,0 +1,61 @@
+$ dumpsys SurfaceFlinger 2>/dev/null | head -60
+Build configuration: [sf DISABLE_TRIPLE_BUFFERING PRESENT_TIME_OFFSET=0 FORCE_HWC_FOR_RBG_TO_YUV=1 MAX_VIRT_DISPLAY_DIM=4096 RUNNING_WITHOUT_SYNC_FRAMEWORK=0 NUM_FRAMEBUFFER_SURFACE_BUFFERS=3] [libui] [libgui]
+
+Wide-Color information:
+hasWideColorDisplay: 0
+DisplayColorSetting: Managed
+Display 0 color modes:
+    ColorMode::NATIVE (0)
+    Current color mode: ColorMode::NATIVE (0)
+
+Sync configuration: [using: EGL_ANDROID_native_fence_sync EGL_KHR_wait_sync]
+DispSync configuration: app phase 1000000 ns, sf phase 1000000 ns, early app phase 1000000 ns, early sf phase 1000000 ns, early app gl phase 1000000 ns, early sf gl phase 1000000 ns, present offset 0 ns (refresh 16666666 ns)
+
+Static screen stats:
+  < 1 frames: 268.530 s (0.6%)
+  < 2 frames: 138.957 s (0.3%)
+  < 3 frames: 14.373 s (0.0%)
+  < 4 frames: 10.401 s (0.0%)
+  < 5 frames: 137.952 s (0.3%)
+  < 6 frames: 1325.325 s (2.7%)
+  < 7 frames: 14.984 s (0.0%)
+  7+ frames: 46521.066 s (96.1%)
+
+Buffering stats:
+  [Layer name] <Active time> <Two buffer> <Double buffered> <Triple buffered>
+  [StatusBar#0] 61.67 0.417 0.695 0.305
+  [me.bmax.apatch/me.bmax.apatch.ui.MainActivity#0] 20.61 0.050 0.318 0.682
+  [device.apps.fotaclient/device.apps.fotaclient.AutoUpdateActivity#0] 12.31 0.000 0.000 1.000
+  [com.android.launcher3/com.android.searchlauncher.SearchLauncher#1] 10.22 0.498 0.639 0.361
+  [BootAnimation#0] 7.39 1.000 1.000 0.000
+  [com.android.documentsui/com.android.documentsui.files.FilesActivity#0] 6.04 0.000 0.124 0.876
+  [device.apps.fotaclient/device.apps.fotaclient.PackageListActivity#1] 5.59 0.792 0.905 0.095
+  [device.apps.fotaclient/device.apps.fotaclient.PackageListActivity#0] 4.23 0.984 0.984 0.016
+  [com.android.settings/com.android.settings.SubSettings#0] 3.03 0.086 0.086 0.914
+  [ColorFade#0] 2.74 0.000 0.000 1.000
+  [com.android.settings/com.android.settings.Settings$SystemDashboardActivity#0] 1.89 0.355 0.674 0.326
+  [com.android.settings/com.android.settings.Settings#0] 1.55 0.886 0.886 0.114
+  [ex.dev.tool.fotaupgradetool/ex.dev.tool.fotaupgradetool.FotaMainActivity#0] 1.33 0.612 0.612 0.388
+  [com.android.settings/com.android.settings.FallbackHome#0] 0.73 0.000 0.000 1.000
+  [device.settings.addon/device.settings.addon.development.DevelopmentAdditionalSettigs#0] 0.65 0.588 0.588 0.412
+  [PopupWindow:dd7619e#0] 0.60 0.566 0.566 0.434
+  [com.android.launcher3/com.android.searchlauncher.SearchLauncher#0] 0.56 0.258 0.258 0.742
+  [device.apps.fotaclient/device.apps.fotaclient.AutoUpdateActivity#1] 0.28 1.000 1.000 0.000
+
+Visible layers (count = 48)
+GraphicBufferProducers: 53, max 4096
++ BufferLayer (Display Root#0)
+  Region TransparentRegion (this=0 count=0)
+  Region VisibleRegion (this=0 count=0)
+  Region SurfaceDamageRegion (this=0 count=0)
+      layerStack=   0, z=        0, pos=(0,0), size=(2560,2560), crop=[  0,   0,  -1,  -1], finalCrop=[  0,   0,  -1,  -1], isOpaque=0, invalidate=1, dataspace=Default, defaultPixelFormat=RGBx_8888, color=(0.000,0.000,0.000,1.000), flags=0x00000002, tr=[1.00, 0.00][0.00, 1.00]
+      parent=none
+      zOrderRelativeOf=none
+      activeBuffer=[   0x   0:   0,Unknown/None], queued-frames=0, mRefreshPending=0, windowType=-1, appId=-1
++ BufferLayer (mAboveAppWindowsContainers#0)
+  Region TransparentRegion (this=0 count=0)
+  Region VisibleRegion (this=0 count=0)
+  Region SurfaceDamageRegion (this=0 count=0)
+      layerStack=   0, z=        2, pos=(0,0), size=(2560,2560), crop=[  0,   0,  -1,  -1], finalCrop=[  0,   0,  -1,  -1], isOpaque=0, invalidate=1, dataspace=Default, defaultPixelFormat=RGBx_8888, color=(0.000,0.000,0.000,1.000), flags=0x00000000, tr=[1.00, 0.00][0.00, 1.00]
+      parent=Display Root#0
+      zOrderRelativeOf=none

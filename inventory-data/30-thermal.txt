@@ -1,0 +1,30 @@
+$ for z in /sys/class/thermal/thermal_zone*; do echo "$(basename $z) $(cat $z/type) $(cat $z/temp)"; done
+thermal_zone0 bq27541 23800
+thermal_zone1 battery 25000
+thermal_zone10 tsens_tz_sensor1 314
+thermal_zone11 tsens_tz_sensor2 310
+thermal_zone12 tsens_tz_sensor3 291
+thermal_zone13 tsens_tz_sensor4 294
+thermal_zone14 tsens_tz_sensor5 301
+thermal_zone15 tsens_tz_sensor6 297
+thermal_zone16 tsens_tz_sensor7 294
+thermal_zone17 tsens_tz_sensor8 301
+thermal_zone18 tsens_tz_sensor9 301
+thermal_zone19 tsens_tz_sensor10 291
+thermal_zone2 emmc_therm 25
+thermal_zone20 tsens_tz_sensor11 291
+thermal_zone21 tsens_tz_sensor12 304
+thermal_zone22 tsens_tz_sensor13 291
+thermal_zone23 limits_sensor-00 
+thermal_zone24 limits_sensor-01 
+thermal_zone25 bms 25000
+thermal_zone26 GLM_soc 0
+thermal_zone27 LLM_cp1- 0
+thermal_zone28 LLM_cp0- 0
+thermal_zone3 pa_therm0 -40
+thermal_zone4 pm660_tz 27190
+thermal_zone5 pm660l_tz 37000
+thermal_zone6 msm_therm 26
+thermal_zone7 quiet_therm 24
+thermal_zone8 xo_therm 25
+thermal_zone9 tsens_tz_sensor0 297

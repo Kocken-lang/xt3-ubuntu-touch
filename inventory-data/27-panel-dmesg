@@ -1,0 +1,1 @@
+$ dmesg 2>/dev/null | grep -iE "panel|dsi|touch|goodix|focal|novatek|synaptics|hx83|ili" | head -40

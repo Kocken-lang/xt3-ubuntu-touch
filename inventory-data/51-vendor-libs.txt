@@ -1,0 +1,1 @@
+$ ls -l /vendor/lib64/ 2>/dev/null | grep -iE "device|scanner|serial|rfid|sam|msr|gpio" | head -30

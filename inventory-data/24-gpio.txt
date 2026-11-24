@@ -1,0 +1,27 @@
+$ cat /sys/kernel/debug/gpio 2>/dev/null || ls /sys/class/gpio/ 2>/dev/null
+gpiochip0
+gpiochip1015
+gpiochip1020
+gpiochip295
+gpiochip327
+gpiochip359
+gpiochip391
+gpiochip423
+gpiochip455
+gpiochip487
+gpiochip519
+gpiochip551
+gpiochip583
+gpiochip615
+gpiochip647
+gpiochip679
+gpiochip711
+gpiochip743
+gpiochip775
+gpiochip807
+gpiochip839
+gpiochip871
+gpiochip903
+gpiochip935
+gpiochip967
+gpiochip983

@@ -1,0 +1,12 @@
+$ getprop | grep -iE "wifi|bluetooth" | head -20; ls /sys/class/ieee80211 2>/dev/null
+[init.svc.wificond]: [running]
+[init.svc.wifidisplayhalservice]: [running]
+[net.tcp.buffersize.wifi]: [524288,2097152,4194304,262144,524288,1048576]
+[ro.bluetooth.emb_wp_mode]: [true]
+[ro.bluetooth.library_name]: [libbluetooth_qti.so]
+[ro.bluetooth.wipower]: [true]
+[ro.pm.wifimac]: [00:24:06:10:68:c2]
+[ro.wifi.channels]: []
+[sys.wifitracing.started]: [1]
+[wifi.interface]: [wlan0]
+phy1

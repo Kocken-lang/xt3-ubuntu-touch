@@ -1,0 +1,12 @@
+$ for d in /sys/bus/i2c/devices/*; do echo "$(basename $d) $(cat $d/name 2>/dev/null)"; done
+1-0022 
+2-0062 
+4-0020 
+6-0028 
+8-0018 
+8-0048 
+i2c-1 
+i2c-2 
+i2c-4 
+i2c-6 
+i2c-8 

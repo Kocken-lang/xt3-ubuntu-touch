@@ -1,0 +1,2 @@
+$ for d in /sys/class/drm/*; do echo "$d: $(cat $d/status 2>/dev/null)"; done
+/sys/class/drm/*: 
