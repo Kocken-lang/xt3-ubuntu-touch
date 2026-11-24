@@ -23,9 +23,13 @@ SIMULATE=0
 [ "${1:-}" = "--simulate" ] && SIMULATE=1
 
 [ "$(id -u)" = 0 ] || { echo "kor med sudo"; exit 1; }
-for t in debootstrap qemu-aarch64-static; do
-  command -v "$t" >/dev/null || { echo "saknar $t (kor 00-bootstrap.sh)"; exit 1; }
-done
+command -v debootstrap >/dev/null || { echo "saknar debootstrap (kor make bootstrap)"; exit 1; }
+have_binfmt() { [ -e /proc/sys/fs/binfmt_misc/qemu-aarch64 ]; }
+if ! have_binfmt && ! command -v qemu-aarch64-static >/dev/null; then
+  echo "saknar qemu for arm64: installera qemu-user-binfmt och kor"
+  echo "  sudo update-binfmts --enable qemu-aarch64"
+  exit 1
+fi
 
 mounts=()
 cleanup() {
@@ -39,7 +43,9 @@ if [ ! -x "$WORK/rootfs/debootstrap/debootstrap" ] && [ ! -f "$WORK/rootfs/etc/o
   debootstrap --arch="$ARCH" --foreign --variant=minbase \
     --components=main,universe "$SUITE" "$WORK/rootfs" "$MIRROR"
 fi
-install -m755 /usr/bin/qemu-aarch64-static "$WORK/rootfs/usr/bin/" 2>/dev/null || true
+if [ -x /usr/bin/qemu-aarch64-static ]; then
+  install -m755 /usr/bin/qemu-aarch64-static "$WORK/rootfs/usr/bin/"
+fi
 
 echo "==> 2/4 andra steget under qemu"
 for d in proc sys dev dev/pts; do
@@ -48,7 +54,14 @@ for d in proc sys dev dev/pts; do
   mounts=("$WORK/rootfs/$d" "${mounts[@]}")
 done
 if [ -x "$WORK/rootfs/debootstrap/debootstrap" ]; then
-  chroot "$WORK/rootfs" /debootstrap/debootstrap --second-stage
+  if have_binfmt; then
+    chroot "$WORK/rootfs" /debootstrap/debootstrap --second-stage
+  elif [ -x "$WORK/rootfs/usr/bin/qemu-aarch64-static" ]; then
+    echo "    binfmt saknas - kor andra steget via qemu direkt"
+    chroot "$WORK/rootfs" /usr/bin/qemu-aarch64-static \
+      /debootstrap/debootstrap --second-stage
+    echo "    varning: apt nedanfor kraver binfmt for underprocesser"
+  fi
 fi
 
 echo "==> 3/4 apt-kallor och paket"

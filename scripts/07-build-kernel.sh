@@ -44,9 +44,19 @@ make -C "$KSRC" O="$KB" -j"$(nproc)" Image.gz modules dtbs 2>&1 | tail -40
 
 mkdir -p "$ROOT/out/kernel"
 cp -f "$KB/arch/arm64/boot/Image.gz" "$ROOT/out/kernel/"
-rm -rf "$ROOT/out/kernel/modules"
-make -C "$KSRC" O="$KB" INSTALL_MOD_PATH="$ROOT/out/kernel/modules" \
-     INSTALL_MOD_STRIP=1 modules_install 2>&1 | tail -3
-echo "    $(find "$ROOT/out/kernel/modules" -name '*.ko' | wc -l) moduler installlerade"
+MODDIR="$ROOT/out/kernel/modules"
+rm -rf "$MODDIR"
+make -C "$KSRC" O="$KB" INSTALL_MOD_PATH="$MODDIR" \
+     INSTALL_MOD_STRIP=--strip-debug modules_install 2>&1 | tail -3
+built=$(find "$KB" -name '*.ko' | wc -l)
+installed=$(find "$MODDIR" -name '*.ko' | wc -l)
+echo "    $built byggda, $installed installerade i out/kernel/modules"
+if [ "$installed" -eq 0 ]; then
+  echo "FEL: inga moduler installerade. Innehall i out/kernel/modules:"
+  find "$MODDIR" -maxdepth 6 | head -20
+  echo "Byggda moduler i out/kbuild: $built"
+  find "$KB" -name '*.ko' | head -3
+  exit 1
+fi
 cp -f "$KB/arch/arm64/boot/dts/qcom/${DTS_NAME%.dts}.dtb" "$ROOT/out/kernel/"
 ls -lh "$ROOT/out/kernel/"

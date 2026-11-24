@@ -15,3 +15,4 @@ panel/*.mod.c
 panel/.*.cmd
 panel/Module.symvers
 panel/modules.order
+wget-log*

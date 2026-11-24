@@ -54,7 +54,9 @@ if [ -d "$ROOT/out/kbuild" ]; then
   sudo make -C "$ROOT/out/src/linux" O="$ROOT/out/kbuild" \
     INSTALL_MOD_PATH="$MNT" modules_install >/dev/null
   KREL=$(make -s -C "$ROOT/out/src/linux" kernelrelease)
-  echo "    $KREL -> /lib/modules/$KREL"
+  n=$(find "$MNT/lib/modules/$KREL" -name '*.ko' 2>/dev/null | wc -l)
+  echo "    $KREL -> /lib/modules/$KREL ($n moduler)"
+  [ "$n" -gt 0 ] || echo "    VARNING: inga .ko installerade - kor make kernel igen"
 else
   echo "    hoppar (bygg karnan forst: 07-build-kernel.sh)"
 fi
