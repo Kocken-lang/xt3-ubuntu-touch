@@ -49,15 +49,29 @@ echo "==> packar upp rootfs"
 sudo tar -xpf "$TARBALL" -C "$MNT" --numeric-owner
 
 echo "==> karnmoduler"
-if [ -d "$ROOT/out/kbuild" ]; then
-  sudo make -C "$ROOT/out/src/linux" O="$ROOT/out/kbuild" \
-    INSTALL_MOD_PATH="$MNT" modules_install >/dev/null
-  KREL=$(make -s -C "$ROOT/out/src/linux" kernelrelease)
+KB="$ROOT/out/kbuild"
+KSRC="$ROOT/out/src/linux"
+KARCH=(ARCH=arm64 CROSS_COMPILE="${CROSS_COMPILE:-aarch64-linux-gnu-}")
+KREL=""
+if [ -f "$KB/.config" ]; then
+  KREL=$(make -s -C "$KSRC" O="$KB" "${KARCH[@]}" kernelrelease 2>/dev/null || true)
+  sudo make -C "$KSRC" O="$KB" "${KARCH[@]}" \
+    INSTALL_MOD_PATH="$MNT" INSTALL_MOD_STRIP=--strip-debug \
+    modules_install >/dev/null 2>&1 || true
   n=$(find "$MNT/lib/modules/$KREL" -name '*.ko' 2>/dev/null | wc -l)
+  if [ "$n" -eq 0 ]; then
+    # Samma fallback som 07: kopiera for hand om kbuild inte installerar.
+    dest="$MNT/lib/modules/$KREL"
+    while IFS= read -r ko; do
+      sudo install -D -m644 "$ko" "$dest/kernel/${ko#"$KB"/}"
+    done < <(find "$KB" -name '*.ko')
+    sudo depmod -b "$MNT" "$KREL" 2>/dev/null || true
+    n=$(find "$dest" -name '*.ko' 2>/dev/null | wc -l)
+  fi
   echo "    $KREL -> /lib/modules/$KREL ($n moduler)"
   [ "$n" -gt 0 ] || echo "    VARNING: inga .ko installerade - kor make kernel igen"
 else
-  echo "    hoppar (bygg karnan forst: 07-build-kernel.sh)"
+  echo "    hoppar (bygg karnan forst: make kernel)"
 fi
 
 echo "==> enhetsglue (overlay)"
@@ -73,6 +87,24 @@ if [ -d "$ROOT/out/firmware" ]; then
   "$ROOT/scripts/17-install-firmware.sh" "$MNT" | sed 's/^/    /'
 else
   echo "    hoppar (kor make firmware forst)"
+fi
+
+echo "==> initramfs"
+if [ -n "$KREL" ] && [ -x "$MNT/usr/sbin/update-initramfs" ]; then
+  for d in proc sys dev; do
+    sudo mountpoint -q "$MNT/$d" || sudo mount --bind "/$d" "$MNT/$d"
+  done
+  if sudo chroot "$MNT" /usr/bin/env DEBIAN_FRONTEND=noninteractive \
+       update-initramfs -c -k "$KREL" >/tmp/xt3-initramfs.log 2>&1; then
+    sudo cp "$MNT/boot/initrd.img-$KREL" "$ROOT/out/initramfs.img"
+    echo "    out/initramfs.img ($(du -h "$ROOT/out/initramfs.img" | cut -f1))"
+  else
+    echo "    FEL: update-initramfs misslyckades, se /tmp/xt3-initramfs.log"
+    tail -5 /tmp/xt3-initramfs.log | sed 's/^/      /'
+  fi
+  for d in dev sys proc; do sudo umount "$MNT/$d" 2>/dev/null || true; done
+else
+  echo "    hoppar (saknar initramfs-tools i rootfs - kor make rootfs-bootstrap)"
 fi
 
 echo "==> fstab / boot-parametrar"

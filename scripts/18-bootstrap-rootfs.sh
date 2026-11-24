@@ -150,6 +150,7 @@ PKGS=(
   dbus
   udev
   kmod
+  initramfs-tools
   iproute2
   iputils-ping
   ethtool
