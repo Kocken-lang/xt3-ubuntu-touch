@@ -2,7 +2,7 @@ SHELL := /bin/bash
 PFU ?= $(HOME)/janam_fota/a11/XT3/91.57_20251001.PFU
 DTB ?= $(firstword $(wildcard out/stock/*.dtb out/boot/dtb/*.dtb))
 
-.PHONY: help bootstrap inventory extract dtb panel fetch kernel rootfs image flash clean
+.PHONY: help bootstrap inventory extract dtb panel fetch kernel rootfs image flash release clean
 
 help:
 	@echo "make bootstrap   - installera verktyg"
@@ -15,6 +15,7 @@ help:
 	@echo "make rootfs      - bygg Ubuntu Touch rootfs"
 	@echo "make image       - packa boot.img"
 	@echo "make flash       - skriv till enheten (kraver --yes manuellt)"
+	@echo "make release     - bygg installationsbar zip (out/xt3-ut-*.zip)"
 
 bootstrap:
 	./scripts/00-bootstrap.sh
@@ -46,6 +47,9 @@ image:
 
 flash:
 	./scripts/10-flash.sh --yes
+
+release:
+	./scripts/12-make-release.sh
 
 clean:
 	rm -rf out/kbuild out/kernel out/boot.img

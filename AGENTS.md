@@ -27,3 +27,11 @@ make kernel      # Image.gz + dtb
 make rootfs      # Ubuntu Touch arm64
 make image       # boot.img
 ```
+
+## Uppdateringar 2026-11-24 (efter analys av 91.57)
+- 91.57 är en **Android A/B OTA-zip** (payload.bin 1.44 GB), inte ett eget PFU-format.
+  Extrahering sker med `payload-dumper-go` (laddas ner automatiskt av 02-extract-fota.sh).
+- Firmware (mba.mbn, modem.mdt, adsp.mdt, wlanmdsp.mbn, bdwlan*, crbtfw*) ligger i
+  `vendor.img`/`/vendor/firmware_mnt/image` -> `11-collect-firmware.sh`.
+- Halium är struket som fas; endast contingency om IPA/rmnet visar sig obrukbart.
+- Release-flöde: `.github/workflows/build-release.yml` -> `make release` -> `install.sh`.

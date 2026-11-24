@@ -71,11 +71,15 @@ XT3 via adb ──► 01-inventory ───────┤
 # 1) inventera enheten (USB-debug på, adb root möjligt)
 ./scripts/01-device-inventory.sh          # → out/inventory/
 
-# 2) packa upp firmware
-./scripts/02-extract-fota.sh ~/janam_fota/a11/XT3/91.57_20251001.PFU   # → out/fota/
+# 2) packa upp firmware (91.57 ar en Android A/B OTA-zip -> payload-dumper-go)
+./scripts/02-extract-fota.sh ~/janam_fota/a11/XT3/91.57_20251001.PFU   # -> out/fota/partitions/
 
-# 3) boot.img → kernel/dtb/ramdisk, dtbo → dtb-filer
-./scripts/04-unpack-boot.sh out/fota/boot.img
+# 2b) plocka ut Qualcomm-firmware ur vendor.img
+./scripts/11-collect-firmware.sh --from-image out/fota/partitions/vendor.img
+
+# 3) boot.img -> kernel/dtb/ramdisk, dtbo -> dtb-filer
+./scripts/04-unpack-boot.sh out/fota/partitions/boot.img
+./scripts/04-unpack-boot.sh out/fota/partitions/dtbo.img
 
 # 4) paneldrivrutin
 ./scripts/05-gen-panel.sh out/fota/dtb/*.dtb                            # → out/panel/
@@ -106,3 +110,37 @@ Allt hamnar under `out/` (git-ignorerat). Inget skrivs utanför projektkatalogen
 | Vendor-DTB använder `qcom,mdss-dsi-*` som mainline inte förstår | Hög | Normaliseras i `05`/`dts` |
 | Ingen mainline-driver för skanner-UART | Låg | `ttyHSL0` = `msm_serial_hs`, mainline har `qcom,geni`/`msm`-serial; annars bitbang/8250 |
 | Enterprise-appar kräver binder-tjänster | Hög | Daemoner + Waydroid för originalappar (kräver namespace/binderfs-fragment) |
+
+## 7. Vad 91.57 faktiskt är (verifierat 2026-11-24)
+
+```
+PK.. zip, Android A/B OTA
+  META-INF/com/android/metadata   post-build=Janam/XT3/XT3:11/RKQ1.210924.001/R141:user/release-keys
+  payload.bin                     1 443 523 830 byte (update_engine-payload)
+  payload_properties.txt          FILE_HASH / METADATA_HASH
+  care_map.pb, META-INF/com/android/otacert   (PKCS#7 + x509 v3)
+```
+
+Signerad, **inte** krypterad. `payload-dumper-go` ger samtliga partitioner
+(`boot`, `dtbo`, `system`, `vendor`, `product`, `modem`, `adsp`, `vbmeta` …).
+`03-carve.py` behövs inte för denna fil utan behålls som fallback för äldre PFU:er.
+
+## 8. Slutanvändarens installation
+
+```
+1. Ladda ner xt3-ut-<version>.zip från GitHub Releases
+2. packa upp
+3. ./install.sh
+```
+
+`install.sh` verifierar `SHA256SUMS`, flashar `boot.img`, flashar `rootfs.img` till
+`userdata`, startar om. Ingen redigering, inga parametrar.
+
+| Kanal | Byggs av | Betyder |
+|---|---|---|
+| `bringup` | CI på varje commit | kärna + dtb + boot.img bygger; **inte** garanterat bootbart |
+| `release` | CI på tagg `v*` | verifierad på fysisk XT3 |
+
+**Status:** mekanismen är klar och publicerar sig själv, men `release`-kanalen kan inte bli
+bootbar förrän Fas 1-data (panel, touch, minneskarta ur `out/inventory/`) ligger i
+`dts/sdm660-janam-xt3.dts`. Tills dess är zipen en bringup-build.

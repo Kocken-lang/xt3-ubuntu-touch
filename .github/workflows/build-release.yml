@@ -1,0 +1,63 @@
+name: build-release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verktyg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            bc bison flex libssl-dev libelf-dev cpio rsync zip unzip \
+            device-tree-compiler gcc-aarch64-linux-gnu \
+            android-sdk-libsparse-utils e2fsprogs python3-pip
+          python3 -m pip install --quiet --upgrade pip
+
+      - name: Hamta mainline-karna
+        run: ./scripts/06-fetch-mainline.sh
+
+      - name: Bygg karna + dtb
+        run: ./scripts/07-build-kernel.sh
+
+      - name: Rootfs (Ubuntu Touch arm64)
+        continue-on-error: true
+        run: ./scripts/08-build-rootfs.sh --size 4G
+        env:
+          ROOTFS_URL: ${{ vars.ROOTFS_URL }}
+
+      - name: Packa boot.img
+        run: ./scripts/09-pack-boot.sh
+
+      - name: Release
+        run: ./scripts/12-make-release.sh
+        env:
+          CHANNEL: ${{ github.ref_type == 'tag' && 'release' || 'bringup' }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xt3-ut
+          path: |
+            out/*.zip
+            out/kernel/*
+            out/boot.img
+
+      - name: Publicera release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" out/*.zip \
+            --title "XT3 Ubuntu Touch ${GITHUB_REF_NAME}" \
+            --notes-file out/release/*/README.txt || \
+          gh release upload "${GITHUB_REF_NAME}" out/*.zip --clobber
