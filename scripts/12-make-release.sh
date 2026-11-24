@@ -23,6 +23,15 @@ install -m644 out/boot.img "$REL/boot.img"
 install -m644 out/rootfs.img "$REL/rootfs.img"
 install -m755 scripts/install.sh "$REL/install.sh"
 
+# En modifierad boot.img matchar inte Janams hash-kedja. Utan vbmeta.img
+# (med verifieringen avstangd) bootloopar enheten, sa den maste folja med.
+if [ -f out/fota/partitions/vbmeta.img ]; then
+  install -m644 out/fota/partitions/vbmeta.img "$REL/vbmeta.img"
+else
+  echo "VARNING: out/fota/partitions/vbmeta.img saknas - releasen kan inte"
+  echo "         stanga AVB. Kor 02-extract-fota.sh forst."
+fi
+
 KREL=$(make -s -C out/src/linux kernelrelease 2>/dev/null || echo unknown)
 KVER=$(git -C out/src/linux describe --always --tags 2>/dev/null || echo unknown)
 cat > "$REL/manifest.json" <<EOF
@@ -57,7 +66,8 @@ Karna: $KREL
 EOF
 
 echo "==> checksummor"
-( cd "$REL" && sha256sum boot.img rootfs.img install.sh manifest.json > SHA256SUMS )
+( cd "$REL" && sha256sum boot.img rootfs.img vbmeta.img install.sh manifest.json 2>/dev/null \
+    || sha256sum boot.img rootfs.img install.sh manifest.json > SHA256SUMS )
 
 echo "==> zippar"
 ZIP="$ROOT/out/$NAME.zip"
