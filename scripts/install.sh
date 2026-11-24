@@ -25,6 +25,12 @@ fastboot devices
 fastboot devices | grep -qw fastboot || {
   echo "  Ingen enhet i fastboot-lage. Stang av, hall Vol- + Power, anslut USB."; exit 1; }
 
+say "3/5 rensar misc"
+# misc haller ABL:s kommando. Ett kvarlamnat kommando far ABL att ladda en
+# partition som inte finns -> "Failed to load image from partition". Rensa
+# fore varje flashing, inte bara vid aterstallning.
+fastboot erase misc || echo "  varning: kunde inte rensa misc"
+
 say "3/5 flashar boot"
 # 91.57 ar en A/B-enhet (ota-type=AB) -> boot och dtbo finns per slot
 SLOTS=$(fastboot getvar slot-count 2>&1 | grep -o '[0-9]\+' | head -1)
@@ -55,6 +61,12 @@ for s in a b; do
   fastboot --disable-verity --disable-verification flash "vbmeta_$s" vbmeta.img \
     || echo "  varning: vbmeta_$s misslyckades"
 done
+
+say "3c/5 markerar slot aktiv"
+# set_active skriver till misc och aterstaller ABL:s returraknare. Utan den
+# ar sloten kvar i "forsokt for manga ganger" och gar till fastboot aven med
+# en korrekt bild.
+fastboot set_active "${SLOT:-a}" || true
 
 say "4/5 flashar rootfs till userdata"
 if [ -f rootfs.img ]; then
@@ -98,6 +110,8 @@ if [ -f rootfs.img ]; then
 else
   echo "  rootfs.img saknas - hoppar over (bootar befintligt system)"
 fi
+
+fastboot erase misc || true
 
 if [ "$WIPE" = "1" ]; then
   say "extra: rensar metadata/cache"
