@@ -60,6 +60,13 @@ else
   echo "    ingen overlay - skapa out/rootfs-overlay/ vid behov"
 fi
 
+echo "==> firmware"
+if [ -d "$ROOT/out/firmware" ]; then
+  "$ROOT/scripts/17-install-firmware.sh" "$MNT" | sed 's/^/    /'
+else
+  echo "    hoppar (kor make firmware forst)"
+fi
+
 echo "==> fstab / boot-parametrar"
 sudo tee "$MNT/etc/fstab" >/dev/null <<'EOF'
 LABEL=ut-rootfs  /  ext4  defaults,noatime  0 1

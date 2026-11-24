@@ -42,6 +42,7 @@ hw:
 
 firmware:
 	./scripts/11-collect-firmware.sh --from-dir $(FW)
+	./scripts/16-fetch-upstream-firmware.sh
 
 fetch:
 	./scripts/06-fetch-mainline.sh

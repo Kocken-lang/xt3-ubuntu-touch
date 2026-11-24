@@ -58,7 +58,8 @@ Filerna finns i modem- och bluetooth-partitionerna:
 |---|---|---|
 | `mba.mbn`, `modem.mdt`, `modem.b0*` | `remoteproc_mss` | `modemsda.img` (FAT, SDA660) |
 | `adsp.mdt`, `adsp.b0*` | `adsp_pil` | `modemsda.img` / `dsp.img` |
-| `wlanmdsp.mbn`, `bdwlan*.bin` | `ath10k_snoc` | `modemsda.img` |
+| `ath10k/WCN3990/hw1.0/{firmware-5.bin,wlanmdsp.mbn,board-2.bin}` | `ath10k_snoc` | linux-firmware (pinnad i `16-fetch-upstream-firmware.sh`) |
+| `bdwlan*.bin`, `WCNSS_qcom_cfg.ini` | **qcacld (Android) — används inte** | `modemsda.img` |
 | `crbtfw*.tlv`, `crbtnv*.bin` | `btqca` | `bluetooth.img` (FAT) |
 | `a630_sqe.fw`, `a630_gmu.bin` | freedreno | `modemsda.img` / linux-firmware |
 | `venus*.mbn` | `venus` | `modemsda.img` |

@@ -59,6 +59,7 @@ XT3 via adb ──► 01-inventory ───────┤
                     13-panel-from-dtb ──► panel-*.c + panel-*.dtsi
                     14-hw-from-dtb    ──► out/hw/hw.md (tangenter, bussar, rails)
                     11-collect-firmware ──► out/firmware/{qcom,wlan,bt,adreno,touch}
+                    16-fetch-upstream  ──► + qcom/a630_*, ath10k/WCN3990/*
                                     │
                                     ▼
                      dts/sdm660-janam-xt3.dts + panel/panel-janam-xt3.c

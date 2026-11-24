@@ -135,10 +135,78 @@
                 label = "gpio-keys";
 
                 /*
-                 * Only the two switches that the stock overlay adds are known.
-                 * The volume, scan and PTT keys live in the base DTB; run
-                 * scripts/14-hw-from-dtb.py on from-boot.dtb to get them.
+                 * Key map from the stock base DTB (keypad node in
+                 * from-boot.dtb).  Codes are the vendor's own linux,code
+                 * values.  528, 546, 766 and 1023 have no mainline name, so
+                 * they stay numeric and are mapped by xt3-gpiod.
+                 * Polarity is assumed active-low (pull-up, press to ground),
+                 * which is what every QRD keypad uses; verify with evtest.
                  */
+                program-key {
+                        label = "program_key";
+                        gpios = <&tlmm 42 GPIO_ACTIVE_LOW>;
+                        linux,code = <528>;
+                        debounce-interval = <15>;
+                };
+
+                scan-left {
+                        label = "scan_left";
+                        gpios = <&tlmm 65 GPIO_ACTIVE_LOW>;
+                        linux,code = <546>;
+                        debounce-interval = <15>;
+                };
+
+                scan-right {
+                        label = "scan_right";
+                        gpios = <&tlmm 113 GPIO_ACTIVE_LOW>;
+                        linux,code = <766>;
+                        debounce-interval = <15>;
+                };
+
+                gun-trigger {
+                        label = "gun_trigger_key";
+                        gpios = <&tlmm 75 GPIO_ACTIVE_LOW>;
+                        linux,code = <223>;
+                        debounce-interval = <15>;
+                };
+
+                volume-up {
+                        label = "volume_up";
+                        gpios = <&tlmm 7 GPIO_ACTIVE_LOW>;
+                        linux,code = <KEY_VOLUMEUP>;
+                        debounce-interval = <15>;
+                };
+
+                key-home {
+                        label = "home_key";
+                        gpios = <&tlmm 60 GPIO_ACTIVE_LOW>;
+                        linux,code = <KEY_HOMEPAGE>;
+                        debounce-interval = <15>;
+                };
+
+                key-back {
+                        label = "back_key";
+                        gpios = <&tlmm 48 GPIO_ACTIVE_LOW>;
+                        linux,code = <KEY_BACK>;
+                        debounce-interval = <15>;
+                };
+
+                key-menu {
+                        label = "menu_key";
+                        gpios = <&tlmm 64 GPIO_ACTIVE_LOW>;
+                        linux,code = <KEY_MENU>;
+                        debounce-interval = <15>;
+                };
+
+                wake-on-motion {
+                        label = "wake_on_motion";
+                        gpios = <&tlmm 68 GPIO_ACTIVE_LOW>;
+                        linux,code = <1023>;
+                        debounce-interval = <15>;
+                        wakeup-source;
+                };
+
+                /* Switches added by the stock overlay (dtbo). */
                 battery-open {
                         label = "battery_open";
                         gpios = <&tlmm 76 GPIO_ACTIVE_LOW>;

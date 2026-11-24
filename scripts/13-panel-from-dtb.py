@@ -107,11 +107,18 @@ def top_level(body: str) -> str:
 
 
 def node_label(header: str) -> str:
-    header = header.strip()
-    if ":" in header.split("{")[0]:
-        label, rest = header.split(":", 1)
+    """Split 'label: name' out of a block header.
+
+    balanced_blocks hands over everything since the previous ';', which can
+    include the tail of the previous node.  Only the last line is ours.
+    """
+    head = header.split("{")[0].split(";")[-1].strip()
+    if head:
+        head = head.splitlines()[-1].strip()
+    if ":" in head:
+        label, rest = head.split(":", 1)
         return label.strip(), rest.strip()
-    return "", header
+    return "", head
 
 
 def prop_block(body: str, name: str) -> str | None:

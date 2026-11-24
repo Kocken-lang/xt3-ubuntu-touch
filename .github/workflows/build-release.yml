@@ -27,6 +27,9 @@ jobs:
       - name: Sjalvtest (DT-verktyg)
         run: ./tests/selftest.sh
 
+      - name: Firmware (linux-firmware, pinnad)
+        run: ./scripts/16-fetch-upstream-firmware.sh
+
       - name: Hamta mainline-karna
         run: ./scripts/06-fetch-mainline.sh
 

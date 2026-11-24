@@ -55,6 +55,11 @@ make image       # boot.img
 - Vendor `qcom,mdss-dsi-reset-sequence` anger **fysisk** nivå (gpio-flags 0). Mainline
   noden använder `GPIO_ACTIVE_LOW`, så logiska värdet är inverterat.
 - `vendor.img` innehåller HAL-bibliotek, inte firmware. Se ovan.
+- Vendor `bdwlan*.bin`/`WCNSS_qcom_cfg.ini` är qcacld-filer och **går inte** att
+  använda med mainline ath10k. WiFi-firmware hämtas i stället av
+  `16-fetch-upstream-firmware.sh` (pinnad linux-firmware-commit + sha256).
+- GPU-firmware `qcom/a630_{sqe.fw,gmu.bin}` finns inte i vendor-imagen; samma
+  script hämtar dem.
 
 ## Verifieringsregel
 Testa aldrig en parser mot en fil som byggts med samma antagande som parsern.
