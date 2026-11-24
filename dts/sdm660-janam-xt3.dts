@@ -86,6 +86,50 @@
                 regulator-boot-on;
         };
 
+        /*
+         * SoC-mandated PHY rails.  The voltages come from the SDM660 data
+         * sheet, not from the board, so they are safe to describe before the
+         * PMIC mapping is known.  They are always-on placeholders: the
+         * bootloader already enabled them and these nodes never write to the
+         * PMIC.  Replace with the real PM660 regulators once from-boot.dtb
+         * tells which LDO feeds each rail.
+         */
+        xt3_vreg_vdd_0p925: regulator-vdd-0p925 {
+                compatible = "regulator-fixed";
+                regulator-name = "xt3_vdd_0p925";
+                regulator-min-microvolt = <925000>;
+                regulator-max-microvolt = <925000>;
+                regulator-always-on;
+                regulator-boot-on;
+        };
+
+        xt3_vreg_vdda_1p225: regulator-vdda-1p225 {
+                compatible = "regulator-fixed";
+                regulator-name = "xt3_vdda_1p225";
+                regulator-min-microvolt = <1225000>;
+                regulator-max-microvolt = <1225000>;
+                regulator-always-on;
+                regulator-boot-on;
+        };
+
+        xt3_vreg_vdda_1p8: regulator-vdda-1p8 {
+                compatible = "regulator-fixed";
+                regulator-name = "xt3_vdda_1p8";
+                regulator-min-microvolt = <1800000>;
+                regulator-max-microvolt = <1800000>;
+                regulator-always-on;
+                regulator-boot-on;
+        };
+
+        xt3_vreg_vdda_3p125: regulator-vdda-3p125 {
+                compatible = "regulator-fixed";
+                regulator-name = "xt3_vdda_3p125";
+                regulator-min-microvolt = <3125000>;
+                regulator-max-microvolt = <3125000>;
+                regulator-always-on;
+                regulator-boot-on;
+        };
+
         gpio-keys {
                 compatible = "gpio-keys";
                 label = "gpio-keys";
@@ -139,7 +183,13 @@
 
 &usb3_dwc3 {
         dr_mode = "peripheral";
-        /* TODO: extcon + qusb2phy0 rails from from-boot.dtb */
+};
+
+&qusb2phy0 {
+        vdd-supply = <&xt3_vreg_vdd_0p925>;
+        vdda-pll-supply = <&xt3_vreg_vdda_1p8>;
+        vdda-phy-dpdm-supply = <&xt3_vreg_vdda_3p125>;
+        status = "okay";
 };
 
 /* --- Display / GPU -------------------------------------------------- */
@@ -148,12 +198,14 @@
 };
 
 &mdss_dsi0 {
+        vdd-supply = <&xt3_vreg_vdd_0p925>;
+        vdda-supply = <&xt3_vreg_vdda_1p225>;
         status = "okay";
 };
 
 &mdss_dsi0_phy {
+        vcca-supply = <&xt3_vreg_vdd_0p925>;
         status = "okay";
-        /* TODO: vcca-supply from from-boot.dtb */
 };
 
 &adreno_gpu {
