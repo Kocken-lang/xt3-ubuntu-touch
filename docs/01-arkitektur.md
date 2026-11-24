@@ -22,22 +22,43 @@ och Ubuntu Touch är antingen *Halium* (Android-kärna + blobs via libhybris) el
 | Tid till bootbar enhet | 2–4 veckor | 6–12 veckor | 3–6 veckor |
 | Tid till "allt fungerar" | 4–6 veckor | 3–6 månader | 2–4 månader |
 
-### Beslut
-**B är målet** (det du valt, och det är rätt för 2026+). Men:
+### Beslut (reviderat 2026-11-24, efter verifiering)
 
-1. Vi bygger **A först som referens** – inte för att leverera, utan för att Halium-porten
-   tvingar fram exakt den information vi behöver (partitionstabell, vendor-blobbar,
-   vilka HAL:er som faktiskt används). Den blir också vår **återställningsväg**.
-2. B byggs parallellt från och med Fas 3, feature för feature.
-3. C är fallback om Lomiri på mainline visar sig otemabart (Lomiri kräver Mir/GBM –
-   fungerar på PinePhone, så risken är måttlig men inte noll).
+**B är enda spåret. Halium är struket som fas.**
+
+Skäl: Lomiri/Mir kör på DRM/GBM + Mesa utan libhybris (bevisat på PinePhone, Allwinner A64,
+mainline). Det finns inget i Lomiri som kräver Android. Halium ger dessutom **noll** hjälp med
+enterprise-funktionerna, eftersom de är binder-tjänster ovanpå `/dev`-noder som vi ändå måste
+återskapa som daemoner. Halium skulle bara spara kamera/sensor/GPS/RIL-glue – och det är
+billigare att lösa de fyra sakerna direkt än att underhålla en död kärna.
+
+Halium 11 behålls som **contingency**, inte fas: om modem-datapath (IPA/rmnet) visar sig
+obrukbar i 7.2.y *och* enheten måste leverera mobildata, är Halium 11 enda vägen.
+Återställningsväg i övrigt = stock 91.57-PFU, som vi redan har lokalt och kan flasha om.
+
+C (pmOS + Waydroid) är inte ett alternativ till B utan ett **verktyg**: pmOS har färdiga
+sdm660-paket för att snabbt validera drivrutiner, och Waydroid är den mogna vägen för att
+köra Janams Android-SDK-appar oavsett skal.
+
+### Firmware: det enda som fortfarande är proprietärt
+
+"Utan Android-blobs" gäller **userspace**. Kvar finns fyra firmware-beroenden som bara
+Qualcomm kan leverera, och alla hämtas ur 91.57 (se `scripts/11-collect-firmware.sh`):
+
+| Fil | Konsument | Källa |
+|---|---|---|
+| `mba.mbn`, `modem.mdt` | `remoteproc_mss` | `/vendor/firmware_mnt/image` |
+| `adsp.mdt` | `adsp_pil` | samma |
+| `wlanmdsp.mbn`, `bdwlan*.bin`, `crbtfw*.tlv` | `ath10k_snoc` / BT | samma |
+| `a630_sqe.fw`, `a630_gmu.bin` | freedreno | linux-firmware |
+| `venus*.mbn` | `venus` | `/vendor/firmware` |
 
 ## 3. Fasplan
 
 | Fas | Innehåll | Bevis på klart | Est. |
 |---|---|---|---|
 | 0 | Verktyg, repo, PFU-utvinning, enhetsinventering | `out/fota/manifest.json` + `out/inventory/` komplett | 1 dag |
-| 1 | Stock-DTB analyserad, panel identifierad, partitioner dokumenterade | `out/panel/panel-*.c` genererad, `docs/02-hardvara.md` | 2 dagar |
+| 1 | Stock-DTB analyserad, panel identifierad, partitioner + firmware utvunna | `out/panel/panel-*.c`, `out/firmware/` komplett | 2 dagar |
 | 2 | Kernel bootar mainline till UART/USB-nät, ingen Android-ramdisk | `uname -r` visar 7.x över `usb0` | 1 vecka |
 | 3 | eMMC, USB, knappar, WiFi | `lsblk`, `iw dev`, `evtest` | 1 vecka |
 | 4 | Panel + touch (DRM/Freedreno) | bild på skärmen, `libinput debug-events` | 1–2 veckor |

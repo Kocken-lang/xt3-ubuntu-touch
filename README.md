@@ -19,7 +19,7 @@ Status: **Fas 1 – utvinning & inventering** (inget är byggt ännu).
 | LXC / AppArmor / namespaces förkonfigurerat | ❌ **Nej** | saknas i defconfig → måste läggas till (fragment finns i `scripts/`) |
 | Ubuntu Touch "officiellt" på mainline | ❌ **Nej** | UBports porter använder Halium + libhybris. Mainline-UT = egen port (PinePhone-undantaget) |
 
-**Konsekvens:** två spår, se `docs/01-arkitektur.md`. Fas 1–3 är gemensamma för båda.
+**Konsekvens:** mainline är enda spåret (Halium struket, se `docs/01-arkitektur.md`). Kvar som proprietärt: fem firmware-filer från 91.57.
 
 ## 2. Hårdvarukarta (från Point Mobile EmkitSDK A11)
 
