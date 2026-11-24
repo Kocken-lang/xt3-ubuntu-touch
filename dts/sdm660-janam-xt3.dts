@@ -66,6 +66,33 @@
                 device_type = "memory";
         };
 
+        /*
+         * ABL lamnar kvar sin splash-framebuffer pa 0x9d400000
+         * (cont_splash_mem, 0x2300000 byte i stock-DTB:n). Genom att
+         * beskriva den som simple-framebuffer tar simpledrm over den och vi
+         * far textkonsol pa skarmen - enda loggkanalen utan UART.
+         * 720x1280 ARGB8888 -> stride 2880, 0x384000 byte.
+         */
+        reserved-memory {
+                #address-cells = <2>;
+                #size-cells = <2>;
+                ranges;
+
+                splash_region: splash@9d400000 {
+                        reg = <0x0 0x9d400000 0x0 0x2300000>;
+                        label = "cont_splash_mem";
+                };
+        };
+
+        framebuffer@9d400000 {
+                compatible = "simple-framebuffer";
+                reg = <0x0 0x9d400000 0x0 0x384000>;
+                width = <720>;
+                height = <1280>;
+                stride = <2880>;
+                format = "a8r8g8b8";
+        };
+
         aliases {
                 serial0 = &blsp1_uart2;
         };
