@@ -31,7 +31,7 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-mkdir -p "$OUT"/{qcom,wlan,bt,adreno}
+mkdir -p "$OUT"/{qcom,wlan,bt,adreno,touch}
 RAW="$OUT/raw"
 
 fstype() {
@@ -148,6 +148,7 @@ find "$RAW" -type f 2>/dev/null | while IFS= read -r f; do
   b="$(basename "$f")"
   case "$b" in
     crbtfw*|crbtnv*|btfm*|nvm*|*btslim*)           cp -f "$f" "$OUT/bt/$b" ;;
+    *synaptics*|T2mobile*|*_s35*.img|*rmi4*)      cp -f "$f" "$OUT/touch/$b" ;;
     wlan*|bdwlan*|WCNSS*|wlan_mac.bin|qca*)        cp -f "$f" "$OUT/wlan/$b" ;;
     a6xx*|a630*|a5xx*|*sqe.fw|*gmu.bin)            cp -f "$f" "$OUT/adreno/$b" ;;
     *.mbn|*.mdt|*.b0*|*.elf|*.jsn|*.tlv)           cp -f "$f" "$OUT/qcom/$b" ;;
@@ -176,7 +177,7 @@ EOF
 
 echo
 echo "==> resultat"
-for d in qcom wlan bt adreno; do
+for d in qcom wlan bt adreno touch; do
   printf "  %-8s %3d filer\n" "$d" "$(find "$OUT/$d" -type f 2>/dev/null | wc -l)"
 done
 echo "  raw      $(du -sh "$RAW" 2>/dev/null | cut -f1)"

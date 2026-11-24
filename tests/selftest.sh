@@ -70,6 +70,8 @@ if command -v mkfs.vfat >/dev/null && command -v mke2fs >/dev/null; then
   echo cfg   > "$TMP/fw/src/image/crbtfw21.tlv"
   echo clb   > "$TMP/fw/src/image/bdwlan.bin"
   echo venus > "$TMP/fw/ext/firmware/image/venus.mbn"
+  mkdir -p "$TMP/fw/src/image/synaptics"
+  echo tcm   > "$TMP/fw/src/image/synaptics/T2mobile_PM90_Holitech_s3508.img"
   truncate -s 32M "$TMP/fw/modemsda.img"
   mkfs.vfat -F 16 -n modem "$TMP/fw/modemsda.img" >/dev/null 2>&1
   MTOOLS_SKIP_CHECK=1 mcopy -s -i "$TMP/fw/modemsda.img" "$TMP/fw/src"/* ::/ 2>/dev/null
@@ -80,6 +82,7 @@ if command -v mkfs.vfat >/dev/null && command -v mke2fs >/dev/null; then
   [ -f "$ROOT/out/firmware/bt/crbtfw21.tlv" ] && ok "FAT -> bt/" || bad "FAT -> bt/"
   [ -f "$ROOT/out/firmware/wlan/bdwlan.bin" ] && ok "FAT -> wlan/" || bad "FAT -> wlan/"
   [ -f "$ROOT/out/firmware/qcom/venus.mbn" ] && ok "ext4 -> qcom/venus.mbn" || bad "ext4 -> qcom/venus.mbn"
+  [ -f "$ROOT/out/firmware/touch/T2mobile_PM90_Holitech_s3508.img" ] && ok "FAT -> touch/" || bad "FAT -> touch/"
   rm -rf "$ROOT/out/firmware"
 else
   echo "  skippar (mkfs.vfat/mke2fs saknas)"
