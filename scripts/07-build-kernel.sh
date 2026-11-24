@@ -51,6 +51,17 @@ make -C "$KSRC" O="$KB" INSTALL_MOD_PATH="$MODDIR" \
 built=$(find "$KB" -name '*.ko' | wc -l)
 installed=$(find "$MODDIR" -name '*.ko' | wc -l)
 echo "    $built byggda, $installed installerade i out/kernel/modules"
+if [ "$installed" -eq 0 ] && [ "$built" -gt 0 ]; then
+  echo "    kbuild installerade inget - kopierar modulerna for hand"
+  rel=$(make -s -C "$KSRC" O="$KB" kernelrelease)
+  dest="$MODDIR/lib/modules/$rel"
+  while IFS= read -r ko; do
+    install -D -m644 "$ko" "$dest/kernel/${ko#"$KB"/}"
+  done < <(find "$KB" -name '*.ko')
+  depmod -b "$MODDIR" "$rel" 2>/dev/null || true
+  installed=$(find "$MODDIR" -name '*.ko' | wc -l)
+  echo "    $installed moduler efter manuell kopiering"
+fi
 if [ "$installed" -eq 0 ]; then
   echo "FEL: inga moduler installerade. Innehall i out/kernel/modules:"
   find "$MODDIR" -maxdepth 6 | head -20
