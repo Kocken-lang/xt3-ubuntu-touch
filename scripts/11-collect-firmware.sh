@@ -31,9 +31,17 @@ else
   [ -f "$IMAGE" ] || { echo "saknar $IMAGE"; exit 1; }
   echo "==> packar upp firmware ur $IMAGE"
   mkdir -p "$OUT/from-image"
-  7z x -y -o"$OUT/from-image" "$IMAGE" \
-    '*/firmware/*' '*/etc/firmware/*' '*/image/*' >/dev/null 2>&1 || \
-    7z x -y -o"$OUT/from-image" "$IMAGE" >/dev/null
+  if command -v debugfs >/dev/null; then
+    for d in /firmware_mnt/image /firmware/image /etc/firmware /vendor/firmware_mnt/image; do
+      debugfs -R "rdump $d $OUT/from-image" "$IMAGE" >/dev/null 2>&1 \
+        && echo "   debugfs: $d" || true
+    done
+  fi
+  if [ -z "$(find "$OUT/from-image" -type f 2>/dev/null | head -1)" ]; then
+    echo "   debugfs gav inget, provar 7z"
+    7z x -y -o"$OUT/from-image" "$IMAGE" >/dev/null 2>&1 || true
+  fi
+  echo "   $(find "$OUT/from-image" -type f 2>/dev/null | wc -l) filer utplockade"
 fi
 
 echo "==> sorterar in i /lib/firmware-struktur"

@@ -57,9 +57,10 @@ echo "    packar upp 1.4 GB (nagra minuter)..."
 "$BIN" -o "$OUT/partitions" -c "$(nproc)" "$PFU" 2>&1 | tail -5
 
 echo "==> 4/5 verifierar payload-hash"
-python3 - "$PFU" "$OUT/meta/payload_properties.txt" <<'PY'
-import base64, hashlib, os, sys
-pfu, props = sys.argv[1], sys.argv[2]
+# FILE_HASH galler payload.bin inuti zipen - inte hela .PFU-filen.
+python3 - "$PFU" "$OUT/meta/META-INF/com/android/metadata" "$OUT/meta/payload_properties.txt" <<'PYV'
+import base64, hashlib, os, re, sys
+pfu, meta, props = sys.argv[1:4]
 want = None
 if os.path.exists(props):
     for line in open(props):
@@ -67,13 +68,26 @@ if os.path.exists(props):
             want = line.split("=", 1)[1].strip()
 if not want:
     print("    ingen FILE_HASH, hoppar over"); sys.exit(0)
+off = ln = None
+if os.path.exists(meta):
+    txt = open(meta, errors="ignore").read()
+    m = re.search(r"payload\.bin:(\d+):(\d+)", txt)
+    if m:
+        off, ln = int(m.group(1)), int(m.group(2))
+if off is None:
+    print("    hittar inte payload.bin i metadata, hoppar over"); sys.exit(0)
 h = hashlib.sha256()
 with open(pfu, "rb") as f:
-    for chunk in iter(lambda: f.read(8 << 20), b""):
-        h.update(chunk)
+    f.seek(off)
+    left = ln
+    while left > 0:
+        b = f.read(min(8 << 20, left))
+        if not b:
+            break
+        h.update(b); left -= len(b)
 got = base64.b64encode(h.digest()).decode()
-print(f"    {'OK' if got == want else 'MISSMATCH'}: payload.bin sha256")
-PY
+print(f"    {'OK' if got == want else 'MISSMATCH'}: payload.bin sha256 ({ln} byte)")
+PYV
 
 echo "==> 5/5 innehall"
 {

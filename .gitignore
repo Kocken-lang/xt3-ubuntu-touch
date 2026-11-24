@@ -5,3 +5,4 @@ out/
 *.dtbo
 *.gz
 .reference/
+tools/

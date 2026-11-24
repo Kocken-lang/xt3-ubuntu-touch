@@ -52,7 +52,8 @@ if d[:8] == b"ANDROID!":
         if hver >= 2:
             dsz = struct.unpack_from("<I", d, 1648)[0]
             if dsz:
-                w("dtb-from-boot", d[off:off + dsz])
+                os.makedirs(os.path.join(out, "dtb"), exist_ok=True)
+                w("dtb/from-boot.dtb", d[off:off + dsz])
 
 elif struct.unpack_from("<I", d, 0)[0] == 0xD7B7AB1E:
     total, hsz, esz, cnt, eoff, pg = struct.unpack_from("<IIIIII", d, 4)
