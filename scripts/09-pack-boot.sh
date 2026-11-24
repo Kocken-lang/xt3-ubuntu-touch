@@ -41,6 +41,9 @@ EOF
 fi
 
 echo "==> mkbootimg"
+# XT3:s boot_a/boot_b ar 64 MB (67108864 byte). Ett for stort image flashar
+# "lyckat" men startar inte, sa vi kontrollerar det har i stallet.
+BOOT_MAX=$((64 * 1024 * 1024))
 # scripts/pack-bootimg.py ar sjalvstandig (header v2). AOSP:s mkbootimg.py kraver
 # sitt gki/-paket, som inte foljer med nar bara filen laddas ner - darfor
 # anvands den bara om den faktiskt ar komplett.
@@ -63,4 +66,12 @@ python3 "$PACKER" \
   --output "$OUTIMG"
 
 ls -lh "$OUTIMG"
+BOOT_SIZE=$(stat -c%s "$OUTIMG")
+if [ "$BOOT_SIZE" -gt "$BOOT_MAX" ]; then
+  echo "FEL: boot.img ar $((BOOT_SIZE / 1024 / 1024)) MB, partitionen ar 64 MB."
+  echo "     Minsta initramfs: MODULES=dep i /etc/initramfs-tools/initramfs.conf"
+  echo "     bygg om med: sudo make rootfs && make image"
+  exit 1
+fi
+echo "    $((BOOT_SIZE / 1024 / 1024)) MB av 64 MB"
 echo "Klart -> $OUTIMG"

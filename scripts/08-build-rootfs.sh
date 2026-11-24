@@ -94,6 +94,12 @@ if [ -n "$KREL" ] && [ -x "$MNT/usr/sbin/update-initramfs" ]; then
   for d in proc sys dev; do
     sudo mountpoint -q "$MNT/$d" || sudo mount --bind "/$d" "$MNT/$d"
   done
+  # XT3:s boot-partition ar 64 MB. Standard (MODULES=most) stoppar in alla
+  # 767 moduler i initramfs och ger 60 MB - da far kernel+dtb inte plats.
+  # MODULES=dep tar bara det som behovs for att na rotfilsystemet.
+  sudo mkdir -p "$MNT/etc/initramfs-tools"
+  printf 'MODULES=dep\nCOMPRESS=gzip\nBUSYBOX=auto\n' \
+    | sudo tee "$MNT/etc/initramfs-tools/initramfs.conf" >/dev/null
   if sudo chroot "$MNT" /usr/bin/env DEBIAN_FRONTEND=noninteractive \
        update-initramfs -c -k "$KREL" >/tmp/xt3-initramfs.log 2>&1; then
     sudo cp "$MNT/boot/initrd.img-$KREL" "$ROOT/out/initramfs.img"
