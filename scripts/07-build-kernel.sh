@@ -23,9 +23,15 @@ make -C "$KSRC" O="$KB" sdm660_defconfig
 make -C "$KSRC" O="$KB" olddefconfig
 
 echo "==> bygger med $(nproc) jobb"
-make -C "$KSRC" O="$KB" -j"$(nproc)" Image.gz dtbs 2>&1 | tail -40
+# VIKTIGT: 617 symboler ar =m (ath10k_snoc, btqca, drm_msm, qcom_ipa,
+# alla remoteproc/PIL). Bygger man bara Image.gz saknas WiFi, BT, GPU och modem.
+make -C "$KSRC" O="$KB" -j"$(nproc)" Image.gz modules dtbs 2>&1 | tail -40
 
 mkdir -p "$ROOT/out/kernel"
 cp -f "$KB/arch/arm64/boot/Image.gz" "$ROOT/out/kernel/"
+rm -rf "$ROOT/out/kernel/modules"
+make -C "$KSRC" O="$KB" INSTALL_MOD_PATH="$ROOT/out/kernel/modules" \
+     INSTALL_MOD_STRIP=1 modules_install 2>&1 | tail -3
+echo "    $(find "$ROOT/out/kernel/modules" -name '*.ko' | wc -l) moduler installlerade"
 cp -f "$KB/arch/arm64/boot/dts/qcom/${DTS_NAME%.dts}.dtb" "$ROOT/out/kernel/"
 ls -lh "$ROOT/out/kernel/"
