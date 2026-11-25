@@ -1,23 +1,12 @@
-1795634322399682446
-(bootloader) hw-revision:10000
-(bootloader) unlocked:yes
-(bootloader) battery-soc-ok:yes
-(bootloader) variant:SDA EMMC
-(bootloader) has-slot:modem:yes
-(bootloader) has-slot:system:yes
-(bootloader) current-slot:a
-(bootloader) has-slot:boot:yes
-(bootloader) slot-retry-count:b:7
-(bootloader) slot-unbootable:b:no
-(bootloader) slot-successful:b:no
-(bootloader) slot-retry-count:a:3
-(bootloader) slot-unbootable:a:no
-(bootloader) slot-successful:a:no
-(bootloader) slot-count:2
-(bootloader) secure:no
-(bootloader) serialno:2303910504
-(bootloader) product:XT3
-(bootloader) max-download-size:805306368
-=== fetch-test:
-< waiting for any device >
-fastboot: error: Unable to get max-fetch-size. Device does not support fetch command.
+1795634369820438201
+00 -> 42606 byte
+01 -> 40357 byte
+02 -> 41618 byte
+04 -> 42606 byte
+05 -> 43074 byte
+08 -> 39702 byte
+=== verifiera en:
+      dt_entry_count = 1
+             dt_size = 42542
+                  id = 00000000
+                 rev = 00000000
