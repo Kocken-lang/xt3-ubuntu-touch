@@ -1,11 +1,19 @@
-1795644326984536743
---- adb:
-List of devices attached
-
---- fastboot:
---- senaste USB-handelser:
-[165788.167538] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
-[165788.167543] usb 1-1: Product: Android
-[165788.167547] usb 1-1: Manufacturer: Google
-[165788.167550] usb 1-1: SerialNumber: 2303910504
-[165804.361259] usb 1-1: USB disconnect, device number 9
+1795644386377883659
+[167429.662352] br-ab018499dc62: port 6(vethc268fd2) entered blocking state
+[167429.662359] br-ab018499dc62: port 6(vethc268fd2) entered disabled state
+[167429.686117] br-ab018499dc62: port 6(vethc268fd2) entered blocking state
+[167429.686124] br-ab018499dc62: port 6(vethc268fd2) entered forwarding state
+[167456.543744] br-ab018499dc62: port 6(vethc268fd2) entered disabled state
+[167456.566854] br-ab018499dc62: port 6(vethc268fd2) entered disabled state
+[167456.572968] br-ab018499dc62: port 6(vethc268fd2) entered disabled state
+[167456.692588] br-ab018499dc62: port 6(veth9ab1c4e) entered blocking state
+[167456.692595] br-ab018499dc62: port 6(veth9ab1c4e) entered disabled state
+[167456.706744] br-ab018499dc62: port 6(veth9ab1c4e) entered blocking state
+[167456.706750] br-ab018499dc62: port 6(veth9ab1c4e) entered forwarding state
+[167483.720518] br-ab018499dc62: port 6(veth9ab1c4e) entered disabled state
+[167483.742463] br-ab018499dc62: port 6(veth9ab1c4e) entered disabled state
+[167483.744672] br-ab018499dc62: port 6(veth9ab1c4e) entered disabled state
+[167483.883743] br-ab018499dc62: port 6(veth179167b) entered blocking state
+[167483.883768] br-ab018499dc62: port 6(veth179167b) entered disabled state
+[167483.922238] br-ab018499dc62: port 6(veth179167b) entered blocking state
+[167483.922250] br-ab018499dc62: port 6(veth179167b) entered forwarding state
