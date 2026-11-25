@@ -1,4 +1,4 @@
-1795645267796963271
-skrev /tmp/boot-min.img 12288000 byte
+1795645319952243157
 2
-fastboot igen efter 4s
+Android uppe
+91.57 (Oct 01 2025)
