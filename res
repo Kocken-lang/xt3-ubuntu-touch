@@ -1,8 +1,7 @@
 1795626889327494882
 --- metadata nu:
-Erasing 'metadata'                                 FAILED (remote: 'Check device console.')
-fastboot: error: Command failed
+< waiting for any device >
 --- userdata:
-Finished. Total time: 0.164s
+< waiting for any device >
 --- reboot:
-Finished. Total time: 0.050s
+< waiting for any device >
