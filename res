@@ -1,6 +1,15 @@
-1795634511636683778
-00003052: e77f 1db2 d792 78aa 0b00 2523 02f8 0d23  ......x...%#...#
-00003062: 0202 9858 4eee 1439 5942 9d6e dc7b d794  ...XN..9YB.n.{..
-00003072: 03cf 1800 0100 5d00 0000 01c8 3007 0000  ......].....0...
-00003082: 0000 0000 0200 3273 dea3 ec8f 9622 840a  ......2s....."..
-00003092: feba 927d 0b7d dc96 b3af 56b2 2747 ecdc  ...}.}....V.'G..
+1795634535687403919
+OK: 471240 byte (forvantat 471240)
+=== ABL-version:
+=== oem/fetch/panel:
+hw-revision
+oem device-info
+oem disable-charger-screen
+oem disable-root
+oem disable-rooting
+oem enable-charger-screen
+oem enable-root
+oem enable-rooting
+oem off-mode-charge
+oem select-display-panel
+oem unlock-flash
