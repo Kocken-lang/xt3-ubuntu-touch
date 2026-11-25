@@ -1,5 +1,4 @@
-1795641640421509699
-0
+1795641909189310858
+skrev /tmp/boot-bringup.img 12292096 byte
 2
-adb uppe efter 15s
-2303910504	device
+45s forflutna
