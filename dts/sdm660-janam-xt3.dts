@@ -351,6 +351,10 @@
 };
 
 &qusb2phy0 {
+        /* nvmem-cells (qusb2_hstx_trim) kommer fran QFPROM. Probar inte den
+         * sa deferrar PHY:n och da deferrar dwc3 - ingen UDC, ingen konsol.
+         * Trimvardet ar en finjustering; utan det anvands default. */
+        /delete-property/ nvmem-cells;
         vdd-supply = <&xt3_vreg_vdd_0p925>;
         vdda-pll-supply = <&xt3_vreg_vdda_1p8>;
         vdda-phy-dpdm-supply = <&xt3_vreg_vdda_3p125>;
