@@ -1,4 +1,4 @@
-1795638981463393520
-finns
-0
-skrev /tmp/boot-mainline.img 19824640 byte
+1795639039276527502
+skrev /tmp/boot-kern.img 21233664 byte
+Finished. Total time: 0.716s
+fastboot igen efter 17s
