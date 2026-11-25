@@ -53,3 +53,17 @@ Se `docs/04-kontrollkanaler.md`. Kort: `adb root` (permanent, `ro.debuggable=1`)
 
 Init-sekvensen är genererad ur `qcom,mdss-dsi-on-command` i 91.57:s boot-dtb,
 inte handskriven. Verktyget finns i `scripts/14-gen-panel-init.py`.
+
+## Status efter DTS-bygget
+
+| Del | Resultat |
+|---|---|
+| `dts/sdm660-janam-xt3.dts` | kompilerar **utan varningar**, 54 836 B dtb |
+| `model` | `Janam XT3` |
+| `compatible` | `"janam,xt3", "qcom,sda660"` |
+| panelnod | `compatible = "janam,xt3-panel"`, reset tlmm 53 |
+| `drivers/panel/panel-jadard-jd9365da-h3.c` | XT3-deskriptor `janam_xt3_desc` + 219-kommandos init-sekvens |
+| `scripts/14-gen-panel-init.py` | konverterar stock-blob (7-byte header) till C |
+
+Init-sekvensen är genererad ur `qcom,mdss-dsi-on-command` i 91.57:s boot-dtb,
+inte handskriven. Verktyget finns i `scripts/14-gen-panel-init.py`.
