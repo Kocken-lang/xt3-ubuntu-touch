@@ -111,6 +111,8 @@
         };
 
         chosen {
+		#address-cells = <2>;
+		#size-cells = <2>;
                 stdout-path = "serial0:115200n8";
 
                 /* Textkonsol pa den skarm ABL redan tandit. 720x1280 ARGB8888,
