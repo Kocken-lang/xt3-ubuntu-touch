@@ -1,10 +1,13 @@
-1795634596760990118
-=== panelnamn-lista i ABL:
-=== enhet:
-Bus 001 Device 078: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
-(bootloader) Verity mode: false
-(bootloader) Device unlocked: true
-(bootloader) Device critical unlocked: true
-(bootloader) Charger screen enabled: true
-OKAY [  0.000s]
-Finished. Total time: 0.000s
+1795634619937944758
+=== loggkommandon i ABL:
+=== oem-kommandon (alla):
+oem device-info
+oem disable-charger-screen
+oem disable-root
+oem disable-rooting
+oem enable-charger-screen
+oem enable-root
+oem enable-rooting
+oem off-mode-charge
+oem select-display-panel
+oem unlock-flash
