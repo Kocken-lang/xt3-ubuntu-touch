@@ -1,6 +1,10 @@
-1795628312466344511
--rw-rw-r-- 1 moon moon 67108864 Nov 25 18:38 boot-signed.img
-Algorithm:                SHA256_RSA2048
-Flags:                    3
-Descriptors:
-      Hash Algorithm:        sha256
+1795628329259508351
+--- vbmeta:
+Finished. Total time: 0.007s
+Finished. Total time: 0.013s
+--- boot:
+Writing 'boot_a'                                   OKAY [  0.445s]
+Finished. Total time: 2.095s
+Writing 'boot_b'                                   OKAY [  0.449s]
+Finished. Total time: 2.041s
+Finished. Total time: 0.050s
