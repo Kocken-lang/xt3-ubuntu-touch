@@ -1,4 +1,2 @@
-1795639039276527502
-skrev /tmp/boot-kern.img 21233664 byte
-Finished. Total time: 0.715s
-fastboot igen efter 17s
+1795639080712954728
+dtbo-noop: 4222 byte, overlay 138
