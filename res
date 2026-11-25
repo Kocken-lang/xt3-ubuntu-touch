@@ -1,14 +1,25 @@
-1795635596378178001
-19G	/home/moon/xt3/out/release
-5.4G	/home/moon/xt3/out/kbuild
-4.2G	/home/moon/xt3/out/fota
-2.7G	/home/moon/xt3/out/src
-2.6G	/home/moon/xt3/out/rootfs.img
-1.7G	/home/moon/xt3/out/rootfs-build
-=== rotens storsta:
-302G	/home/moon/openhands-toolbox
-109G	/home/moon/moonos-release-test
-82G	/home/moon/applehddkopy
-52G	/home/moon/xt3
-48G	/home/moon/industrial-builder-backups
-40G	/home/moon/janam_fota
+1795635639175265762
+USB_CONFIGFS_F_FS        CONFIG_USB_CONFIGFS_F_FS=y
+
+USB_G_SERIAL             
+USB_CONFIGFS_SERIAL      USB_CONFIGFS_SERIAL=n
+
+USB_FUNCTIONFS           
+KGDB                     KGDB=n
+
+KGDB_SERIAL_CONSOLE      
+PSTORE                   PSTORE=n
+
+PSTORE_RAM               
+PSTORE_CONSOLE           
+NETCONSOLE               NETCONSOLE=n
+
+NETCONSOLE_DYNAMIC       
+MAGIC_SYSRQ              CONFIG_MAGIC_SYSRQ=y
+
+FTRACE                   CONFIG_FTRACE=y
+
+DYNAMIC_DEBUG            DYNAMIC_DEBUG=n
+
+RAMOOPS                  
+CONFIG_USB_CONFIGFS_ACM  
