@@ -1,29 +1,8 @@
-1795637873353048688
-
-        chosen {
-                stdout-path = "serial0:115200n8";
-
-                /* Textkonsol pa den skarm ABL redan tandit. 720x1280 ARGB8888,
-                 * stride 2880. simpledrm tar over bufferten och fbcon skriver
-                 * karnloggen dit - var enda loggkanal eftersom dwc3 inte probar. */
-                framebuffer@9d400000 {
-                        compatible = "simple-framebuffer";
-                        reg = <0x0 0x9d400000 0x0 0x384000>;
-                        width = <720>;
-                        height = <1280>;
-                        stride = <2880>;
-                        format = "a8r8g8b8";
-                };
-        };
-
-        battery: battery {
-                compatible = "simple-battery";
-=== i2c/spi-barn med reg:
-86:                ramoops@a0000000 {
-96:        memory@80000000 {
-119:                framebuffer@9d400000 {
-406:        touchscreen@20 {
-421:                rmi4-f01@1 {
-426:                rmi4-f12@12 {
-455:        fuel-gauge@62 {
-467:        nfc@28 {
+1795637890121056373
+/home/moon/xt3/out/src/linux/arch/arm64/boot/dts/qcom/sdm660-janam-xt3.dts:121.25-61: Warning (reg_format): /chosen/framebuffer@9d400000:reg: property has invalid length (16 bytes) (#address-cells == 2, #size-cells == 1)
+arch/arm64/boot/dts/qcom/sdm660-janam-xt3.dtb: Warning (pci_device_reg): Failed prerequisite 'reg_format'
+arch/arm64/boot/dts/qcom/sdm660-janam-xt3.dtb: Warning (pci_device_bus_num): Failed prerequisite 'reg_format'
+arch/arm64/boot/dts/qcom/sdm660-janam-xt3.dtb: Warning (i2c_bus_reg): Failed prerequisite 'reg_format'
+arch/arm64/boot/dts/qcom/sdm660-janam-xt3.dtb: Warning (spi_bus_reg): Failed prerequisite 'reg_format'
+/home/moon/xt3/out/src/linux/arch/arm64/boot/dts/qcom/sdm660-janam-xt3.dts:119.38-126.19: Warning (avoid_default_addr_size): /chosen/framebuffer@9d400000: Relying on default #address-cells value
+/home/moon/xt3/out/src/linux/arch/arm64/boot/dts/qcom/sdm660-janam-xt3.dts:119.38-126.19: Warning (avoid_default_addr_size): /chosen/framebuffer@9d400000: Relying on default #size-cells value
