@@ -1,6 +1,4 @@
-1795648061107631360
-4
+1795648158680990020
+30056960 26 00:09
 skrev /tmp/boot-mmu.img 30318592 byte
-0
-korn 1: 0 s
-korn 2: 0 s
+< waiting for any device >
