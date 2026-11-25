@@ -1,5 +1,5 @@
-1795646735833525886
-  File "<string>", line 7
-    print("cmdline     =", d[64:64+64].split(b chr(0))[0] if False else d[64:96])
-                                             ^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+1795646760243915092
+=== lk2nd.img:
+python3: can't open file '/tmp/hdr.py': [Errno 2] No such file or directory
+=== stock boot.img:
+python3: can't open file '/tmp/hdr.py': [Errno 2] No such file or directory
