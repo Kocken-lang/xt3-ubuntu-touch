@@ -1,7 +1,9 @@
-1795635784738642111
-filer: 434
--rwxrwxr-x 1310 init
--rwxr-xr-x 1535008 system/bin/adbd
--rwxr-xr-x 318320 system/bin/sh
-#!/system/bin/sh
-PATH=/system/bin:/system/xbin
+1795635803096202430
+stock-filer: 434
+dtb
+kernel
+ramdisk
+  File "/home/moon/xt3/tools/mkbootimg.py", line 31, in <module>
+    from gki.generate_gki_certificate import generate_gki_certificate
+ModuleNotFoundError: No module named 'gki'
+ls: cannot access '/tmp/boot-debug.img': No such file or directory
