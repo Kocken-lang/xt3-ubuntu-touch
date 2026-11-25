@@ -1,5 +1,14 @@
-1795565847393319687
-Klart -> /home/moon/xt3/out/boot.img
-Finished. Total time: 4.124s
-FASTBOOT-ATER-EFTER 21s
-18d1:d00d
+1795565897468620792
+out/initramfs.img: gzip compressed data, from Unix, original size modulo 2^32 27287040
+GZ-OK
+== innehall (urval):
+.
+bin
+conf
+conf/arch.conf
+conf/conf.d
+conf/initramfs.conf
+== nyckelfiler:
+init
+== antal filer:
+274
