@@ -335,6 +335,11 @@
 };
 
 &usb3_dwc3 {
+        /* Endast USB2-PHY, som referensen. QMP-PHY:n (usb3) har egna
+         * matningar som inte ar modellerade; dwc3 deferrar for evigt om den
+         * ar med i phys-listan. USB2 racker for ACM-konsol och adb. */
+        phys = <&qusb2phy0>;
+        phy-names = "usb2-phy";
         dr_mode = "peripheral";
 };
 
