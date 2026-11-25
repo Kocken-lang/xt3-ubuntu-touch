@@ -1,4 +1,9 @@
-1795619175521641361
--rw-rw-r-- 1 moon moon 4096 Nov 25 16:06 /tmp/vbmeta_custom.img
-Algorithm:                SHA256_RSA2048
-Flags:                    3
+1795619190563679472
+--- vbmeta:
+Writing 'vbmeta_a'                                 OKAY [  0.001s]
+Writing 'vbmeta_b'                                 OKAY [  0.001s]
+--- boot:
+Writing 'boot_a'                                   OKAY [  0.008s]
+Writing 'boot_b'                                   OKAY [  0.005s]
+Finished. Total time: 0.050s
+--- usb:
