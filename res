@@ -1,4 +1,11 @@
-1795645789306229566
-GITHUB_TOKEN: tomt
-=== utan auth (publik org):
-{'message': 'Not Found', 'documentation_url': 'https://docs.github.com/rest/repos/repos#list-organization-repositories',
+1795645804467925733
+=== anvandarens repos:
+EmkitSDK.A10
+EmkitSDK.A11
+EmkitSDK.A9
+pointmobile_scanner
+PosControlSample
+RfidSample
+TestSDK
+tScanner
+=== sok pm90 kernel:
