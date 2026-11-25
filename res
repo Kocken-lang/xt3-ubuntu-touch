@@ -1,4 +1,3 @@
-1795644804902517611
-=== ramoops/pstore i overlays:
-(ingen traff)
-=== alla memory-regioner i overlay 00:
+1795644860016103043
+
+=== live devicetree (om Android uppe):
