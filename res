@@ -1,4 +1,5 @@
-1795642570340063709
-tmpfs            16G  843M   15G   6% /tmp
-30056960
-30056960
+1795642590221223440
+fore: 0x0, 30056960 byte
+efter: 0x80000, 30056960 byte, magic=b'ARMd'
+12031361
+skrev /tmp/boot-to.img 12292096 byte
