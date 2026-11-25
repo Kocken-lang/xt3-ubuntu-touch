@@ -1,6 +1,13 @@
-1795640987010837191
-< waiting for any device >
-Sending 'boot_a' (19292 KB)                        OKAY [  0.478s]
-Writing 'boot_a'                                   OKAY [  0.129s]
-Finished. Total time: 0.622s
-rc=0
+1795641043212004930
+34s: 18d1:d00d
+35s: 18d1:d00d
+36s: 18d1:d00d
+37s: 18d1:d00d
+38s: 18d1:d00d
+39s: 18d1:d00d
+40s: 18d1:d00d
+41s: 18d1:d00d
+42s: 18d1:d00d
+43s: 18d1:d00d
+44s: 18d1:d00d
+45s: 18d1:d00d
