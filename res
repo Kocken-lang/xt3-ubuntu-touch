@@ -1,13 +1,18 @@
-1795632328836929554
-== devinfo
-Done |----------|   0.0% Read (Sector 0x0 of 0x8) 0.00 MB/s                   Progress: |██████████| 100.0% Read (Sector 0x8 of 0x8, ) 7.06 MB/s            
+1795632348959969199
+Keystone library is missing (optional).
+Qualcomm Sahara / Firehose Client V3.62 (c) B.Kerler 2018-2025.
+main - Using loader /home/moon/edl-venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/sdm636/000cc0e100000000_7be49b72f9e43372_fhprg_bqx2_peek.bin ...
+main - Waiting for the device
+main - Device detected :)
+main - Mode detected: firehose
+firehose
+firehose - [LIB]: [31mfh.attrs.MaxPayloadSizeToTargetInBytes of 1048576 > fh.channel_buffer_capacity of 32768[0m
+firehose
+firehose - [LIB]: [31mCalling usb_al_bulk_set_zlp_mode(TRUE) since ZlpAwareHost='1'[0m
+Done |----------|   0.0% Read (Sector 0x0 of 0x8) 0.00 MB/s                   Progress: |██████████| 100.0% Read (Sector 0x8 of 0x8, ) 3.70 MB/s            
 Dumped sector 17328128 with sector count 8 as /tmp/rb_devinfo.bin.
+--- fil:
 -rw-r--r-- 1 root root 4096 Nov 25 19:45 /tmp/rb_devinfo.bin
-== misc
-Done |----------|   0.0% Read (Sector 0x0 of 0x800) 0.00 MB/s                 Progress: |----------|   3.1% Read (Sector 0x40 of 0x800, ) 15.57 MB/s        Progress: |█---------|   6.2% Read (Sector 0x80 of 0x800, ) 18.57 MB/s        Progress: |█---------|   9.4% Read (Sector 0xC0 of 0x800, ) 24.05 MB/s        Progress: |█---------|  12.5% Read (Sector 0x100 of 0x800, ) 27.50 MB/s       Progress: |██--------|  15.6% Read (Sector 0x140 of 0x800, ) 26.00 MB/s       Progress: |██--------|  18.8% Read (Sector 0x180 of 0x800, ) 27.40 MB/s       Progress: |██--------|  21.9% Read (Sector 0x1C0 of 0x800, ) 28.35 MB/s       Progress: |██--------|  25.0% Read (Sector 0x200 of 0x800, ) 29.45 MB/s       Progress: |███-------|  28.1% Read (Sector 0x240 of 0x800, ) 30.99 MB/s       Progress: |███-------|  31.2% Read (Sector 0x280 of 0x800, ) 29.93 MB/s       Progress: |███-------|  34.4% Read (Sector 0x2C0 of 0x800, ) 28.92 MB/s       Progress: |████------|  37.5% Read (Sector 0x300 of 0x800, ) 28.35 MB/s       Progress: |████------|  40.6% Read (Sector 0x340 of 0x800, ) 28.27 MB/s       Progress: |████------|  43.8% Read (Sector 0x380 of 0x800, ) 27.31 MB/s       Progress: |█████-----|  46.9% Read (Sector 0x3C0 of 0x800, ) 32.20 MB/s       Progress: |█████-----|  50.0% Read (Sector 0x400 of 0x800, ) 28.52 MB/s       Progress: |█████-----|  53.1% Read (Sector 0x440 of 0x800, ) 27.39 MB/s       Progress: |██████----|  56.2% Read (Sector 0x480 of 0x800, ) 29.38 MB/s       Progress: |██████----|  59.4% Read (Sector 0x4C0 of 0x800, ) 31.61 MB/s       Progress: |██████----|  62.5% Read (Sector 0x500 of 0x800, ) 28.16 MB/s       Progress: |███████---|  65.6% Read (Sector 0x540 of 0x800, ) 27.23 MB/s       Progress: |███████---|  68.8% Read (Sector 0x580 of 0x800, ) 30.07 MB/s       Progress: |███████---|  71.9% Read (Sector 0x5C0 of 0x800, ) 29.78 MB/s       Progress: |████████--|  75.0% Read (Sector 0x600 of 0x800, ) 29.15 MB/s       Progress: |████████--|  78.1% Read (Sector 0x640 of 0x800, ) 29.40 MB/s       Progress: |████████--|  81.2% Read (Sector 0x680 of 0x800, ) 28.28 MB/s       Progress: |████████--|  84.4% Read (Sector 0x6C0 of 0x800, ) 30.02 MB/s       Progress: |█████████-|  87.5% Read (Sector 0x700 of 0x800, ) 29.38 MB/s       Progress: |█████████-|  90.6% Read (Sector 0x740 of 0x800, ) 32.11 MB/s       Progress: |█████████-|  93.8% Read (Sector 0x780 of 0x800, ) 28.31 MB/s       Progress: |██████████|  96.9% Read (Sector 0x7C0 of 0x800, ) 28.71 MB/s       Progress: |██████████| 100.0% Read (Sector 0x800 of 0x800, ) 30.99 MB/s       
-Dumped sector 17772568 with sector count 2048 as /tmp/rb_misc.bin.
--rw-r--r-- 1 root root 1048576 Nov 25 19:45 /tmp/rb_misc.bin
-=== devinfo:
 00000000: 414e 4452 4f49 442d 424f 4f54 2101 0101  ANDROID-BOOT!...
 00000010: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 00000020: 0000 0000 0000 0000 0000 0000 0000 0000  ................
@@ -24,7 +29,3 @@ Dumped sector 17772568 with sector count 2048 as /tmp/rb_misc.bin.
 000000d0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 000000e0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 000000f0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
-00000100: 0000 0000 0000 0000 0000 0000 0000 0000  ................
-00000110: 0000 0000 0000 0000 0000 0000 0000 0000  ................
-00000120: 0000 0000 0000 0000 0000 0000 0000 0000  ................
-00000130: 0000 0000 0000 0000 0000 0000 0000 0000  ................
