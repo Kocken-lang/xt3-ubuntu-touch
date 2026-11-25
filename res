@@ -1,4 +1,6 @@
 1795650342407728934
+fatal: destination path 'mkbootimg' already exists and is not an empty directory.
+fatal: destination path 'avb' already exists and is not an empty directory.
 avb/
 mkbootimg/
 === mkbootimg:
