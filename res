@@ -1,31 +1,5 @@
-1795628521174535230
-t+5s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+10s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+15s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+20s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+25s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+30s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+35s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+40s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+45s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+50s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+55s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+60s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+65s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+70s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+75s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+80s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+85s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+90s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+96s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+101s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+106s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+111s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+116s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+121s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+126s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+131s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+136s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+141s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+146s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
-t+151s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+1795628700804813816
+Finished. Total time: 0.011s
+Finished. Total time: 0.014s
+Finished. Total time: 2.047s
+Finished. Total time: 2.062s
