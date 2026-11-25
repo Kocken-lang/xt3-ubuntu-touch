@@ -1,9 +1,5 @@
-1795635193445063941
-== rawdump
-== pmobile
-== persist
-KLART
-  -> 134217728 byte
-== pmobile
-=== rawdump: ar den nollad?
-icke-noll i första 8 MB: 0
+1795635269907353316
+379M /tmp/rb_pmobile.bin
+128M /tmp/rb_rawdump.bin
+=== rawdump helt nollad?
+icke-noll totalt: 0
