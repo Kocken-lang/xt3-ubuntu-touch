@@ -1,3 +1,4 @@
-1795645250264223119
-0
-50063
+1795645267796963271
+skrev /tmp/boot-min.img 12288000 byte
+2
+fastboot igen efter 17s
