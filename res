@@ -1,4 +1,11 @@
-1795628066299859665
--rw-rw-r-- 1 moon moon 12086082 Nov 25 18:34 /tmp/kernel-dtb.gz
-    /tmp/boot-mainline.img: 19820544 byte, header v2, sida 4096
--rw-rw-r-- 1 moon moon 19M Nov 25 18:34 /tmp/boot-mainline.img
+1795628084408053001
+--- vbmeta:
+Finished. Total time: 0.009s
+Finished. Total time: 0.013s
+--- boot:
+Writing 'boot_a'                                   OKAY [  0.142s]
+Finished. Total time: 0.647s
+Writing 'boot_b'                                   OKAY [  0.131s]
+Finished. Total time: 0.628s
+--- reboot:
+Finished. Total time: 0.050s
