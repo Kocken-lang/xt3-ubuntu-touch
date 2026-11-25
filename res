@@ -1,5 +1,5 @@
 1795617684913767253
 --- kvar:
-inga
+2843087 fastboot getvar product
 --- getvar product:
 < waiting for any device >
