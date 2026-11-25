@@ -318,6 +318,13 @@
 &sdhc_1 {
         status = "okay";
         non-removable;
+        /* RPM-power-domanen och OPP-tabellen arvs fran sdm630.dtsi. Om rpmpd
+         * inte ar igang deferrar sdhci-msm for evigt och vi far ingen eMMC.
+         * Ta bort beroendena - klockorna racker for att lasa kortet. */
+        /delete-property/ power-domains;
+        /delete-property/ operating-points-v2;
+        /delete-property/ interconnects;
+        /delete-property/ interconnect-names;
         mmc-hs200-1_8v;
         vmmc-supply = <&xt3_vreg_emmc_2p95>;
         vqmmc-supply = <&xt3_vreg_emmc_1p8>;
