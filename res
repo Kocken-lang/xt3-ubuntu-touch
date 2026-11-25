@@ -4,3 +4,5 @@
 < waiting for any device >
 === oem log (lk2nd-test):
 < waiting for any device >
+FAILED (remote: 'unknown command')
+fastboot: error: Command failed
