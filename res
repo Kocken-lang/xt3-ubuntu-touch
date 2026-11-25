@@ -1,6 +1,5 @@
-1795646895125908530
-2
-/proc/config.gz: 1 file pulled, 0 skipped. 20.3 MB/s (37366 bytes in 0.002s)
+1795646951010264421
+uid=0(root) gid=0(root) groups=0(root),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),1078(ext_data_rw),1079(ext_obb_rw),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid) context=u:r:su:s0
+tar: /data/local/tmp/dt.tar: No such file or directory
+ls: /data/local/tmp/dt.tar: No such file or directory
 adb: error: failed to stat remote object '/data/local/tmp/dt.tar': No such file or directory
-total 40K
--rw-r--r-- 1 moon moon 37K Nov 25 23:49 config.gz
