@@ -1,43 +1,24 @@
-1795627844476627028
-AndroidBoot.mk
-Documentation
-LICENSE
+1795627867751034598
+dts/:
+panel-janam-xt3.dtsi
+sdm660-janam-xt3.dts
+uboot
+
+panel/:
+Kconfig
+Makefile
 README.md
-app
-arch
-dev
-include
-kernel
-lib
-lk2nd
-make
-makefile
-platform
-project
-scripts
-target
---- README byggavsnitt:
-63:> should be enough to make the stock bootloader ignore the keys.
-64-
-65-`fastboot flash lk2nd lk2nd.img` can be used to update lk2nd directly from its
-66-fastboot interface.
-67-
-68-> [!IMPORTANT]
-69-> `fastboot flash boot boot.img` will flash the actual boot image with 512 KiB offset
---
-81:## Building
-82-
-83:Generally, this should be enough to build lk2nd:
-84-
-85-```
-86:$ make TOOLCHAIN_PREFIX=arm-none-eabi- lk2nd-msmXXXX
-87-```
-88-
-89:See [building.md](Documentation/building.md) for more info.
-90-
-91-## Contact
-92-Ask on [`#lk2nd:postmarketos.org`](https://matrix.to/#/#lk2nd:postmarketos.org) (`#lk2nd` on [irc.oftc.net](https://www.oftc.net/)).
-93-
-94-[PSCI]: https://developer.arm.com/architectures/system-architectures/software-standards/psci
-95-[Little Kernel Embedded Operating System]: https://github.com/littlekernel/lk
---- sok sdm660:
+panel-janam-xt3.c
+startad
+make[1]: Leaving directory '/home/moon/xt3/out/kbuild'
+make: Leaving directory '/home/moon/xt3/out/src/linux'
+  DEPMOD  /home/moon/xt3/out/kernel/modules/lib/modules/7.2.3-sdm660+
+make[1]: Leaving directory '/home/moon/xt3/out/kbuild'
+make: Leaving directory '/home/moon/xt3/out/src/linux'
+    767 byggda, 0 installerade i out/kernel/modules
+    kbuild installerade inget - kopierar modulerna for hand
+    767 moduler efter manuell kopiering
+total 12M
+-rw-rw-r-- 1 moon moon  12M Nov 25 18:31 Image.gz
+drwxrwxr-x 3 moon moon 4.0K Nov 25 18:31 modules
+-rw-rw-r-- 1 moon moon  54K Nov 25 18:32 sdm660-janam-xt3.dtb
