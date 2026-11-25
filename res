@@ -1,28 +1,30 @@
-1795633168650167916
-=== system rot:
-acct
-apex
-bin
-bugreports
-cache
-config
-d
-data
-data_mirror
-debug_ramdisk
-default.prop
-dev
-=== vendor rot:
-app
-bin
-bt_firmware
-build.prop
-default.prop
-dsp
-etc
-firmware
-firmware_mnt
-lib
-lib64
-libnfc-nxp_RF.conf
-=== vendor modules katalog:
+1795633185552817672
+=== vendor/app:
+CACertService
+CneApp
+ConnectionSecurityService
+IWlanService
+QCC-TR-UI
+QFingerprintService
+TimeService
+TrustZoneAccessService
+=== system/system/app (Janam-relaterat):
+BugReport_janam
+CompanionDeviceManager
+CoverInstruction_janam
+EthernetSettings
+GPSDemo_janam
+ICCRDemo_janam
+ImageDemo_janam
+MsrDemo_janam
+NfcDemo_janam
+PingDemo_janam
+PmBackupRestore_janam
+PmButtons
+PrintDemo_janam
+SamDemo_janam
+ScanDemo_janam
+=== system/system/priv-app:
+InputDevices
+SettingsAddon
+SettingsProvider
