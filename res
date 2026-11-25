@@ -1,13 +1,7 @@
-1795641043212004930
-34s: 18d1:d00d
-35s: 18d1:d00d
-36s: 18d1:d00d
-37s: 18d1:d00d
-38s: 18d1:d00d
-39s: 18d1:d00d
-40s: 18d1:d00d
-41s: 18d1:d00d
-42s: 18d1:d00d
-43s: 18d1:d00d
-44s: 18d1:d00d
-45s: 18d1:d00d
+1795641107856261062
+Sending 'vbmeta_a' (8 KB)                          OKAY [  0.004s]
+Writing 'vbmeta_a'                                 OKAY [  0.001s]
+Finished. Total time: 0.010s
+Setting current slot to 'a'                        OKAY [  0.000s]
+Finished. Total time: 0.001s
+current-slot: a
