@@ -6,7 +6,7 @@ page size: 4096
 os version: 11.0.0
 boot image header version: 2
 --- flash:
-Sending 'boot_a' (65536 KB)                        OKAY [  1.710s]
+Sending 'boot_a' (65536 KB)                        OKAY [  1.631s]
 Writing 'boot_a'                                   OKAY [  0.443s]
-Sending 'boot_b' (65536 KB)                        OKAY [  1.678s]
-Writing 'boot_b'                                   OKAY [  0.448s]
+Sending 'boot_b' (65536 KB)                        OKAY [  1.633s]
+Writing 'boot_b'                                   OKAY [  0.445s]
