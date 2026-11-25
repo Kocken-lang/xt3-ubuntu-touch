@@ -1,7 +1,2 @@
-1795626889327494882
---- metadata nu:
-< waiting for any device >
---- userdata:
-< waiting for any device >
---- reboot:
-< waiting for any device >
+1795626910623799358
+slut: usb=0 adb=0
