@@ -1,51 +1,20 @@
-1795645477607438888
-=== project/lk2nd-msm8953.mk:
-# SPDX-License-Identifier: BSD-3-Clause
-TARGET := msm8953
-include lk2nd/project/lk2nd.mk
-=== target/msm8953/init.c (forsta 45):
-/* Copyright (c) 2015-2018, The Linux Foundation. All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are
- * met:
- *     * Redistributions of source code must retain the above copyright
- *       notice, this list of conditions and the following disclaimer.
- *     * Redistributions in binary form must reproduce the above
- *       copyright notice, this list of conditions and the following
- *       disclaimer in the documentation and/or other materials provided
- *       with the distribution.
- *     * Neither the name of The Linux Foundation nor the names of its
- *       contributors may be used to endorse or promote products derived
- *       from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
- * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
- * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
- * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
- * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
- * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
-#include <debug.h>
-#include <platform/iomap.h>
-#include <reg.h>
-#include <target.h>
-#include <platform.h>
-#include <uart_dm.h>
-#include <mmc.h>
-#include <platform/gpio.h>
-#include <dev/keys.h>
-#include <spmi_v2.h>
-#include <pm8x41.h>
-#include <pm8x41_hw.h>
-#include <board.h>
-#include <baseband.h>
-#include <hsusb.h>
-#include <scm.h>
-#include <platform/irqs.h>
+1795645497653734411
+target/sdm660 skapad
+project/lk2nd-sdm660.mk skapad
+78:TOOLCHAIN_PREFIX ?= arm-eabi-
+90:all:: $(OUTBIN) $(OUTELF).lst $(OUTELF).debug.lst $(OUTELF).sym $(OUTELF).size $(OUTELF_STRIP) APPSBOOTHEADER
+211:all:: $(EXTRA_BUILDDEPS)
+251:CC := $(CCACHE) $(TOOLCHAIN_PREFIX)gcc
+253:LD := $(TOOLCHAIN_PREFIX)ld
+255:STRIP := $(TOOLCHAIN_PREFIX)strip
+=== forsta byggforsok:
+make[1]: Entering directory '/home/moon/xt3/out/src/lk2nd'
+aarch64-linux-gnu-gcc: error: unrecognized command-line option ‘-mthumb-interwork’
+aarch64-linux-gnu-gcc: error: unrecognized command-line option ‘-mthumb’
+including dev/fbcon dev/gcdb/display dev/keys dev/pmic/pm8x41 dev/pmic/pmi8994 dev/qpnp_haptic dev/qpnp_wled dev/vib lib/debug lib/heap lib/libc lib/libfdt lib/ptable lk2nd lk2nd/device lk2nd/device/2nd lk2nd/device/menu lk2nd/display lk2nd/fastboot lk2nd/fastboot/debug lk2nd/hw/gpio lk2nd/hw/i2c lk2nd/ramoops lk2nd/serialno lk2nd/smp lk2nd/smp/spin-table lk2nd/version
+lk2nd/smp/spin-table/rules.mk:7: NOTE: msm8953 not supported, disabling SMP spin table
+including lk2nd/hw/regulator
+lk2nd/project/base.mk:15: project/sdm660.mk: No such file or directory
+make[1]: *** No rule to make target 'project/sdm660.mk'.  Stop.
+make[1]: Leaving directory '/home/moon/xt3/out/src/lk2nd'
+make: *** [makefile:20: make-make] Error 2
