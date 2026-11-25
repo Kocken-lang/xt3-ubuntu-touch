@@ -1,5 +1,31 @@
-1795628489649004497
-    /tmp/boot-testC.img: 19824640 byte, header v2, sida 4096
--rw-rw-r-- 1 moon moon 19M Nov 25 18:41 /tmp/boot-testC.img
-Finished. Total time: 0.627s
-t+16s iface=[] fastboot=1
+1795628521174535230
+t+5s usb=0 fb=0 adb=0 if=[br-ab018499dc62 ]
+t+10s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+15s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+20s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+26s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+31s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+36s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+41s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+46s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+51s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+56s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+61s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+66s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+71s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+76s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+81s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+86s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+91s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+96s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+101s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+106s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+111s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+116s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+121s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+126s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+132s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+137s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+142s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+147s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
+t+152s usb=1 fb=1 adb=0 if=[br-ab018499dc62 ]
