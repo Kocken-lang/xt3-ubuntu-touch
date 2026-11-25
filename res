@@ -1,27 +1,24 @@
-1795634553130907333
-=== panelnamn i ABL:
+1795634574306663626
+=== partitioner/panel-lagring:
+=== panel-id-egenskaper:
+/reserved-memory/demura_region_0
+/reserved-memory/demura_region_1
+Could not find the demura reg property
 Could not find the panel id property
+Could not update demura info
 Could not update demura panel id
+Invalid demura node size
 Invalid panel ID size
-Selecting Panel: 
-Unable to get Panel Config, %r
 Unable to get Panel Lcd ID, %r
 existing panel name (%a)
-oem select-display-panel
 qcom,demura-panel-id
-=== dtbo/dtb-val:
- androidboot.dtb_idx=
- androidboot.dtbo_idx=
-BootLinux: failed to get dtbo image
-DTB header is corrupted, DtEntryCount %x, DtEntrySize %x, DtboImgSize %x
-DTB header is corrupted, DtEntryOffset %x, DtEntryCount %x,DtEntrySize %x, DtboImgSize %x
-Dtbo Img buffer is NULL
-Dtbo Table DtEntryOffset got corrupted
-Dtbo Table DtEntrySize got corrupted
-Dtbo Table HeaderSize got corrupted
-Dtbo Table TotalSize got corrupted
-Dtbo count = %u LocalBoardDtMatch = %x
-Dtbo hdr magic mismatch %x, with %x
-DtboImgBuffer is NULL
-Error: Board Dtbo blob not found
-Exact DTB match found. DTBO search is not required
+=== select-display-panel hjalptext:
+oem disable-charger-screen
+oem off-mode-charge
+oem select-display-panel
+oem device-info
+continue
+reboot-bootloader
+download:
+max-download-size
+is-userspace
