@@ -1,4 +1,11 @@
-1795648997603596710
-ls: cannot access '/workspace/project': No such file or directory
----
-ls: cannot access '/workspace/project/janam xt3 1.0verktyg.odt': No such file or directory
+1795649077015476807
+/home/moon/Downloads/janam xt3
+/home/moon/Documents/janam xt3 2.0.odt
+/home/moon/Documents/janam xt3 1.0verktyg.odt
+/home/moon/Documents/janam xt3 3.0.odt
+/home/moon/Documents/janam xt3 5.0.odt
+/home/moon/Documents/janam xt3 4.0.odt
+/home/moon/xt3/out/kernel/sdm660-janam-xt3.dtb
+/home/moon/xt3/panel/panel-janam-xt3.c
+/home/moon/xt3/dts/sdm660-janam-xt3.dtb
+/home/moon/xt3/dts/uboot/sdm660-janam-xt3.dts
