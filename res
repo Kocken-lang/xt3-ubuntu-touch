@@ -1,7 +1,8 @@
-1795634466226759117
-6280 /tmp/kc.txt
-CONFIG_FB=y
-CONFIG_LOGO=y
-# CONFIG_LOGO_LINUX_MONO is not set
-# CONFIG_LOGO_LINUX_VGA16 is not set
-CONFIG_LOGO_LINUX_CLUT224=y
+1795634390616640034
+< waiting for any device >
+< waiting for any device >
+< waiting for any device >
+=== USB efter 30 s:
+ingen enhet
+=== adb:
+List of devices attached
