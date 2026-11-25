@@ -1,4 +1,5 @@
-1795647695882986159
-/dev/nvme0n1p2  915G  851G   18G  98% /
-5.5G	/home/moon/xt3/out/kbuild
-40G	/home/moon/janam_fota
+1795647713318207157
+make[1]: *** [/home/moon/xt3/out/src/linux/Makefile:248: __sub-make] Error 2
+make[1]: Leaving directory '/home/moon/xt3/out/kbuild'
+make: *** [Makefile:248: __sub-make] Error 2
+30056960 26 00:01
