@@ -24,7 +24,7 @@ m = re.search(r"ota-property-files=([^\n]+)", meta).group(1)
 region = [x for x in m.split(",") if x.startswith("payload.bin:")][0].split(":")
 off, ln = int(region[1]), int(region[2])
 fh = re.search(r"FILE_HASH=(\S+)", props).group(1)
-with z.open("payload.bin") as f:
+with open(pfu, "rb") as f:   # offset ar relativt zip-filen, inte posten
     f.seek(off); h = hashlib.sha256()
     left = ln
     while left:
