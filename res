@@ -1,4 +1,4 @@
-1795565969599480959
-Finished. Total time: 4.145s
+1795566081298987129
+Klart -> /home/moon/xt3/out/boot.img
+Finished. Total time: 4.042s
 PORT=INGEN
-18d1:d00d
