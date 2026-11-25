@@ -1,4 +1,5 @@
-1795641496326106858
-skrev /tmp/boot-bringup.img 12292096 byte
+1795641640421509699
 2
-fastboot igen efter 17s -> dog
+2
+adb uppe efter 15s
+2303910504	device
