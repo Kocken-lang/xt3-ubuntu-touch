@@ -1,9 +1,4 @@
-1795569820391399868
-=== adb:
-List of devices attached
-
-=== fastboot:
-2303910504	 fastboot
-
-=== lsusb:
-Bus 001 Device 127: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
+1795569854298201284
+******** Did you mean to fastboot format this ext4 partition?
+Erasing 'userdata'                                 OKAY [  0.158s]
+Finished. Total time: 0.160s
