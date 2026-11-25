@@ -1,7 +1,28 @@
-1795632493836321118
-kernel_size: 23554071
-command line args: console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7 buildvariant=user androidboot.abl=L9G18000TA00
-additional command line args: 
+1795632515178780367
+dtb
 kernel
 ramdisk
-=== 91.57 boot-DTB:
+=== 91.57 boot-DTB model + panel:
+	model = "Qualcomm Technologies, Inc. SDA 660 PM660L SoC";
+					qcom,model = "sdm660-snd-card";
+					qcom,model = "sdm660-tavil-snd-card";
+			qcom,model = "sdm660-tasha-snd-card";
+			compatible = "qcom,mdss_mdp";
+				compatible = "qcom,mdss-fb";
+				compatible = "qcom,mdss-fb";
+				compatible = "qcom,mdss-fb";
+				qcom,mdss-dsi-panel-name = "Simulator video mode dsi panel";
+				qcom,mdss-dsi-panel-name = "Sim dual video mode dsi panel";
+=== panelnoder:
+dsi_panel
+qcom,mdss_dsi_ctrl0
+qcom,mdss_dsi_ctrl1
+qcom,mdss_dsi_dual_sim_video
+qcom,mdss_dsi_hx8399_truly_fhd_video
+qcom,mdss_dsi_ili9881d_720p_video
+qcom,mdss_dsi_ili9881d_720p_video_evt
+qcom,mdss_dsi_jd9365da_720p_video
+qcom,mdss_dsi_jd9365da_s_720p_video
+qcom,mdss_dsi_lgd_incell_sw49106_fhd_video
+qcom,mdss_dsi_nt35521sh_720p_video
+qcom,mdss_dsi_nt35597_dsc_cmd_truly
