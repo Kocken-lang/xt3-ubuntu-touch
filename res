@@ -1,2 +1,4 @@
-1795639080712954728
-dtbo-noop: 4222 byte, overlay 138
+1795639096823016857
+Finished. Total time: 0.015s
+Finished. Total time: 0.644s
+fastboot igen efter 17s
