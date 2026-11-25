@@ -1,5 +1,4 @@
-1795619230705238748
-t+10s: 1 mobil-USB
-t+20s: 1 mobil-USB
-t+30s: 1 mobil-USB
+1795619290519681292
+byggd 14688256
+Sending 'boot_a' (14344 KB)                        FAILED (Write to device failed in SendBuffer() (Bad address))
 Bus 001 Device 045: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
