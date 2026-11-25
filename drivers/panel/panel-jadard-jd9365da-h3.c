@@ -3025,15 +3025,16 @@ static void jadard_dsi_remove(struct mipi_dsi_device *dsi)
 
 
 static const struct drm_display_mode janam_xt3_mode = {
-	.clock		= (720 + 40 + 40 + 40) * (1280 + 20 + 8 + 20) * 60 / 1000,
+	/* Porchar ur 91.57 boot-dtb: h 27/18/23, v 13/7/11, 60 Hz. */
+	.clock		= (720 + 27 + 18 + 23) * (1280 + 13 + 7 + 11) * 60 / 1000,
 	.hdisplay	= 720,
-	.hsync_start	= 720 + 40,
-	.hsync_end	= 720 + 40 + 40,
-	.htotal		= 720 + 40 + 40 + 40,
+	.hsync_start	= 720 + 27,
+	.hsync_end	= 720 + 27 + 18,
+	.htotal		= 720 + 27 + 18 + 23,
 	.vdisplay	= 1280,
-	.vsync_start	= 1280 + 20,
-	.vsync_end	= 1280 + 20 + 8,
-	.vtotal		= 1280 + 20 + 8 + 20,
+	.vsync_start	= 1280 + 13,
+	.vsync_end	= 1280 + 13 + 7,
+	.vtotal		= 1280 + 13 + 7 + 11,
 	.width_mm	= 62,
 	.height_mm	= 110,
 	.type		= DRM_MODE_TYPE_DRIVER | DRM_MODE_TYPE_PREFERRED,
