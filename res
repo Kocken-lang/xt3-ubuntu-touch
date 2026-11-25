@@ -1,4 +1,5 @@
-1795642466255097641
-Bus 001 Device 005: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
-=== fastboot:
-2303910504	 fastboot
+1795642489962313304
+text_offset: 0x0 -> 0x80000
+gzip: /tmp/Image-p: file size changed while zipping
+7065060
+skrev /tmp/boot-to.img 7323648 byte
