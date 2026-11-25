@@ -1,4 +1,5 @@
-1795641909189310858
-skrev /tmp/boot-bringup.img 12292096 byte
+1795642026510598471
 2
-45s forflutna
+adb uppe
+262144
+=== XT3MARK:
