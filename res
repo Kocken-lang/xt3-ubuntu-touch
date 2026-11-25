@@ -1,10 +1,43 @@
-1795566181196102164
-== stock kernel (offset 4096):
-00000000: 1f8b 0800 0000 0000 0203 ec7d 0b78 14e5  ...........}.x..
-00000010: b9ff 3733 bbc9 ec6e 80dc 1302 920b 5e76  ..73...n......^v
-== vara Image.gz:
-00000000: 1f8b 0800 0000 0000 0203 ec9c 0b54 1457  .............T.W
-== finns okomprimerad Image?
--rw-rw-r-- 1 moon moon 12031269 Nov 25 00:00 out/kernel/Image.gz
-== vad 09 packar:
-7:KERNEL="${KERNEL:-$ROOT/out/kernel/Image.gz}"
+1795566203291528796
+Klart -> /home/moon/xt3/out/boot.img
+< waiting for any device >
+t=1s usb=none
+t=2s usb=none
+t=3s usb=none
+t=4s usb=none
+t=5s usb=none
+t=6s usb=none
+t=7s usb=none
+t=8s usb=none
+t=9s usb=none
+t=10s usb=none
+t=11s usb=none
+t=12s usb=none
+t=13s usb=none
+t=14s usb=none
+t=15s usb=none
+t=16s usb=none
+t=17s usb=none
+t=18s usb=none
+t=19s usb=none
+t=20s usb=none
+t=21s usb=none
+t=22s usb=none
+t=23s usb=none
+t=24s usb=none
+t=25s usb=none
+t=26s usb=none
+t=27s usb=none
+t=28s usb=none
+t=29s usb=none
+t=30s usb=none
+t=31s usb=none
+t=32s usb=none
+t=33s usb=none
+t=34s usb=none
+t=35s usb=none
+t=36s usb=none
+t=37s usb=none
+t=38s usb=none
+t=39s usb=none
+t=40s usb=none
