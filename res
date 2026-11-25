@@ -1,3 +1,3 @@
-1795619290519681292
-byggd 14688256
-Bus 001 Device 045: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
+1795619367762818573
+< waiting for any device >
+< waiting for any device >
