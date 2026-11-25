@@ -1,9 +1,20 @@
-1795635358945811017
-debugfs 1.47.2 (1-Jan-2025)
-  32001   40777 (2)   1000   1000    4096  1-Jan-1970 02:16 .
-      2   40771 (2)   1000   1000    4096  1-Jan-1970 02:16 ..
-
-=== rdump av tradet:
-debugfs 1.47.2 (1-Jan-2025)
-rdump: Operation not permitted while changing ownership of /tmp/pm//lost+found
-antal filer: 0
+1795635386288642489
+-rw-r--r-- 1 root root 7.4M Nov 24 23:31 /home/moon/xt3/out/initramfs.img
+--- innehall:
+.
+./usr
+./usr/bin
+./scripts
+./scripts/panic
+./scripts/nfs
+./scripts/local-premount
+./scripts/local
+./scripts/init-top
+./scripts/init-premount
+./scripts/init-bottom
+./scripts/functions
+./sbin
+./run
+./lib.usr-is-merged
+--- busybox:
+bin/busybox: cannot open `bin/busybox' (No such file or directory)
