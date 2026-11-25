@@ -1,4 +1,3 @@
-1795566339044773500
-Klart -> /home/moon/xt3/out/boot.img
-< waiting for any device >
+1795566469001632917
+Finished. Total time: 4.087s
 18d1:d00d
