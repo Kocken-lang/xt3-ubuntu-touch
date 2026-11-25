@@ -2,3 +2,4 @@
 2303910504	 fastboot
 
 --- flash:
+< waiting for any device >
