@@ -1,2 +1,6 @@
-1795646343922417405
-333840
+1795646361120580762
+2
+=== product:
+< waiting for any device >
+=== oem log (lk2nd-test):
+< waiting for any device >
