@@ -1,5 +1,8 @@
-1795641403175282656
-skrev /tmp/boot-bringup.img 12292096 byte
-Writing 'boot_a'                                   OKAY [  0.084s]
-Finished. Total time: 0.399s
-ingen ttyACM
+1795641458408484052
+=== lsusb:
+Bus 001 Device 106: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
+=== adb:
+List of devices attached
+
+=== fastboot:
+2303910504	 fastboot
