@@ -1,22 +1,22 @@
-1795650632643134717
-position(1-baserad) stock_oktal var_oktal:
-                577 352 211
-                578  15  17
-                579 371 364
-                580  35 256
-                581 373 306
-                582  10 350
-                583 303 142
-                584 177 325
-                585 233 161
-                586 247 241
-                587 235  27
-                588  46 134
-                589 375 162
-                590 344 177
-                591  13 311
-                592  25 254
-                593  65  27
-                594 240 274
-                595 115  46
-                596 160 152
+1795650652015445161
+  --ramdisk "$INITRD" \
+  --dtb "$DTB" \
+  --cmdline "$CMDLINE" \
+  --base 0x00000000 \
+  --kernel_offset 0x00008000 \
+  --ramdisk_offset 0x01000000 \
+  --tags_offset 0x00000100 \
+  --pagesize 4096 \
+  --header_version 2 \
+  --output "$OUTIMG"
+
+ls -lh "$OUTIMG"
+BOOT_SIZE=$(stat -c%s "$OUTIMG")
+if [ "$BOOT_SIZE" -gt "$BOOT_MAX" ]; then
+  echo "FEL: boot.img ar $((BOOT_SIZE / 1024 / 1024)) MB, partitionen ar 64 MB."
+  echo "     Minsta initramfs: MODULES=dep i /etc/initramfs-tools/initramfs.conf"
+  echo "     bygg om med: sudo make rootfs && make image"
+  exit 1
+fi
+echo "    $((BOOT_SIZE / 1024 / 1024)) MB av 64 MB"
+echo "Klart -> $OUTIMG"
