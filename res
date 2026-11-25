@@ -1,2 +1,5 @@
-1795565097345701356
--rw-rw-r-- 1 moon moon 67108864 Nov 25 00:28 /tmp/logdump.bin
+1795565114710674145
+== A factory
+sudo: A terminal is required to authenticate
+== B xiaomi emmc
+sudo: A terminal is required to authenticate
