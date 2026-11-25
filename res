@@ -1,6 +1,6 @@
 1795618094165531047
 --- fastboot boot (tillfallig):
-Sending 'boot.img' (560 KB)                        OKAY [  0.017s]
+Sending 'boot.img' (560 KB)                        OKAY [  0.015s]
 Booting                                            FAILED (remote: 'Failed to load/authenticate boot image: Load Error')
 fastboot: error: Command failed
 --- dmesg USB:
