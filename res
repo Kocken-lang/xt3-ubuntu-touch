@@ -1,5 +1,6 @@
-1795635269907353316
-379M /tmp/rb_pmobile.bin
-128M /tmp/rb_rawdump.bin
-=== rawdump helt nollad?
-icke-noll totalt: 0
+1795635291859074725
+main - Mode detected: error
+Connection detected, quiting.
+396713984
+main - Mode detected: error
+Connection detected, quiting.
