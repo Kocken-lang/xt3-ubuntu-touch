@@ -1,7 +1,3 @@
-1795620337732568586
-Bus 001 Device 045: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
-Bus 001 Device 045: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
---- getvar:
-< waiting for any device >
---- fastboot devices:
-2303910504	 fastboot
+1795620392461157179
+skript klart: /tmp/phaseA2.sh
+syntax OK
