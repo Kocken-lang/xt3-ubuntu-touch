@@ -1,9 +1,13 @@
-1795646969718295252
-ls: /data/local/tmp: No such file or directory
-/sys/firmware/devicetree/base/: 14213 files pulled, 0 skipped. 0.0 MB/s (203842 bytes in 30.699s)
-61M	inventory-data/stock-live/
+1795647020741534058
+=== chosen/bootargs:
+rcupdate.rcu_expedited=1 console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.s
+=== minne:
+memory
+00000000: 0000 0000 8000 0000 0000 0000 8000 0000  ................
+00000010: 0000 0001 0000 0000 0000 0000 7e40 0000  ............~@..
+=== mdss/dsi/panel-noder:
+=== cpus:
 #address-cells
 #size-cells
-__symbols__
-aliases
-bt_wcn3990
+cpu-map
+cpu@0
