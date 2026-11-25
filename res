@@ -1,59 +1,9 @@
-1795633293574754031
-=== alla /sys/emkit:
-/sys/emkit/ctrl/ethernet_tempmac
-/sys/emkit/ctrl/ethernet_tempmac_mode
-/sys/emkit/ctrl/gpio_ethernet_en
-/sys/emkit/info/acceleration
-/sys/emkit/info/beacon
-/sys/emkit/info/bluetooth
-/sys/emkit/info/camera_b
-/sys/emkit/info/camera_f
-/sys/emkit/info/cpu
-/sys/emkit/info/display
-/sys/emkit/info/features
-/sys/emkit/info/fingerprint
-/sys/emkit/info/gps
-/sys/emkit/info/gyroscope
-/sys/emkit/info/keyboard
-/sys/emkit/info/light
-/sys/emkit/info/magnetic
-/sys/emkit/info/memory
-/sys/emkit/info/mic_bias_disabled
-/sys/emkit/info/msr
-/sys/emkit/info/nfc
-/sys/emkit/info/phone
-/sys/emkit/info/pressure
-/sys/emkit/info/proximity
-/sys/emkit/info/revision
-/sys/emkit/info/sar
-/sys/emkit/info/scanner
-/sys/emkit/info/temperature
-/sys/emkit/info/title
-/sys/emkit/info/touch
-=== tjansteklasser:
-BeaconService
-DeviceService
-ExGpioService
-HiJackService
-HiddenService
-IdtechService
-MsrService
-RFIDService
-SPIService
-SamService
-ScannerService
-SerialService
-=== JNI/emkit-libs:
-android.hardware.contexthub@1.0.so
-libHSMDecoderBAPI.so
-libHSMDummy.so
-libaudioeffect_jni.so
-libbluetooth_qti_jni.so
-libdrmframework_jni.so
-libext2_blkid.so
-libext2_com_err.so
-libext2_e2p.so
-libext2_misc.so
-libdiagjni.so
-libjnihelper.so
-libvndfwk_detect_jni.qti.so
+1795633312808101306
+=== .so som innehaller /sys/emkit:
+/mnt/xt3s/system/lib64/libjni_barcode.so
+/mnt/xt3s/system/lib64/libjni_mdbtools.so
+/mnt/xt3v/lib64/libacdbloader.so
+/mnt/xt3v/lib64/nfc_nci_nxp.so
+/mnt/xt3v/lib64/sensors.ssc.so
+=== .so med /dev/ttyHS2:
+=== .so med SAM_SELECT:
