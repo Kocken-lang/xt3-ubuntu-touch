@@ -1,2 +1,31 @@
-1795637573967894548
-bash: line 1: gerg: command not found
+1795637587671567106
+174:static const struct drm_panel_funcs jadard_funcs = {
+366:static const struct jadard_panel_desc radxa_display_8hd_ad002_desc = {
+386:	.init = radxa_display_8hd_ad002_init_cmds,
+598:static const struct jadard_panel_desc cz101b4001_desc = {
+618:	.init = cz101b4001_init_cmds,
+831:static const struct jadard_panel_desc kingdisplay_kd101ne3_40ti_desc = {
+851:	.init = kingdisplay_kd101ne3_init_cmds,
+1082:static const struct jadard_panel_desc melfas_lmfbx101117480_desc = {
+1102:	.init = melfas_lmfbx101117480_init_cmds,
+1338:static const struct jadard_panel_desc anbernic_rgds_display_desc = {
+1359:	.init = anbernic_rgds_init_cmds,
+1574:static const struct jadard_panel_desc taiguan_xti05101_01a_desc = {
+1594:	.init = taiguan_xti05101_01a_init_cmds,
+1813:static const struct jadard_panel_desc waveshare_3_4_inch_c_desc = {
+1833:	.init = waveshare_3_4_c_init,
+2047:static const struct jadard_panel_desc waveshare_4_0_inch_c_desc = {
+2067:	.init = waveshare_4_0_c_init,
+2261:static const struct drm_display_mode waveshare_8_0_a_mode = {
+2279:static const struct jadard_panel_desc waveshare_8_0_inch_a_desc = {
+2283:	.init = waveshare_8_0_a_init,
+2290:static const struct jadard_panel_desc waveshare_9_0_inch_b_desc = {
+2326:	.init = waveshare_10_1_b_init,
+2331:static const struct drm_display_mode waveshare_10_1_a_mode = {
+2666:static const struct jadard_panel_desc waveshare_10_1_inch_a_desc = {
+2670:	.init = waveshare_10_1_a_init,
+2893:static const struct jadard_panel_desc waveshare_10_1_inch_b_desc = {
+2929:	.init = waveshare_10_1_b_init,
+3026:static const struct of_device_id jadard_of_match[] = {
+3028:		.compatible = "anbernic,rg-ds-display-bottom",
+3032:		.compatible = "anbernic,rg-ds-display-top",
