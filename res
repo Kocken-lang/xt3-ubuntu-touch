@@ -1,24 +1,10 @@
-1795634574306663626
-=== partitioner/panel-lagring:
-=== panel-id-egenskaper:
-/reserved-memory/demura_region_0
-/reserved-memory/demura_region_1
-Could not find the demura reg property
-Could not find the panel id property
-Could not update demura info
-Could not update demura panel id
-Invalid demura node size
-Invalid panel ID size
-Unable to get Panel Lcd ID, %r
-existing panel name (%a)
-qcom,demura-panel-id
-=== select-display-panel hjalptext:
-oem disable-charger-screen
-oem off-mode-charge
-oem select-display-panel
-oem device-info
-continue
-reboot-bootloader
-download:
-max-download-size
-is-userspace
+1795634596760990118
+=== panelnamn-lista i ABL:
+=== enhet:
+Bus 001 Device 078: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
+(bootloader) Verity mode: false
+(bootloader) Device unlocked: true
+(bootloader) Device critical unlocked: true
+(bootloader) Charger screen enabled: true
+OKAY [  0.000s]
+Finished. Total time: 0.000s
