@@ -1,9 +1,9 @@
 1795646324445927374
-make[1]: *** [arch/arm/compile.mk:5: build-lk2nd-sdm660/platform/msm_shared/shutdown_detect.o] Error 1
-platform/msm_shared/qseecom_lk.c:1425:1: fatal error: opening dependency file build-lk2nd-sdm660/platform/msm_shared/qseecom_lk.d: No such file or directory
- 1425 | }
-      | ^
-compilation terminated.
-make[1]: *** [arch/arm/compile.mk:5: build-lk2nd-sdm660/platform/msm_shared/qseecom_lk.o] Error 1
+ 237352	  63548	 224760	 525660	  8055c	build-lk2nd-sdm660/lk
+arm-none-eabi-objcopy -O binary build-lk2nd-sdm660/lk build-lk2nd-sdm660/lk.bin
+generating size map: build-lk2nd-sdm660/lk.size
+generating stripped elf: build-lk2nd-sdm660/lk_s.elf
+generating image with 20 appended DTBs: build-lk2nd-sdm660/lk.bin-dtb
+cp -f ./build-lk2nd-sdm660/lk_s.elf ./build-lk2nd-sdm660/emmc_appsboot.mbn
+generating Android boot image: build-lk2nd-sdm660/lk2nd.img
 make[1]: Leaving directory '/home/moon/xt3/out/src/lk2nd'
-make: *** [makefile:20: make-make] Error 2
