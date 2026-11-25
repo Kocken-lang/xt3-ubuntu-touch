@@ -1,7 +1,5 @@
-1795634698075228920
-Finished. Total time: 0.279s
-Finished. Total time: 0.001s
-(bootloader) Verity mode: false
-(bootloader) Device unlocked: true
-(bootloader) Device critical unlocked: true
-(bootloader) Charger screen enabled: true
+1795635080406676729
+Bus 001 Device 080: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+sahara - 64-Bit mode detected.
+sahara - Loader successfully uploaded.
+main - Trying to connect to firehose loader ...
