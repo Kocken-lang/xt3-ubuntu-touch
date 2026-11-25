@@ -1,20 +1,194 @@
-1795645497653734411
-target/sdm660 skapad
-project/lk2nd-sdm660.mk skapad
-78:TOOLCHAIN_PREFIX ?= arm-eabi-
-90:all:: $(OUTBIN) $(OUTELF).lst $(OUTELF).debug.lst $(OUTELF).sym $(OUTELF).size $(OUTELF_STRIP) APPSBOOTHEADER
-211:all:: $(EXTRA_BUILDDEPS)
-251:CC := $(CCACHE) $(TOOLCHAIN_PREFIX)gcc
-253:LD := $(TOOLCHAIN_PREFIX)ld
-255:STRIP := $(TOOLCHAIN_PREFIX)strip
-=== forsta byggforsok:
-make[1]: Entering directory '/home/moon/xt3/out/src/lk2nd'
-aarch64-linux-gnu-gcc: error: unrecognized command-line option ‘-mthumb-interwork’
-aarch64-linux-gnu-gcc: error: unrecognized command-line option ‘-mthumb’
-including dev/fbcon dev/gcdb/display dev/keys dev/pmic/pm8x41 dev/pmic/pmi8994 dev/qpnp_haptic dev/qpnp_wled dev/vib lib/debug lib/heap lib/libc lib/libfdt lib/ptable lk2nd lk2nd/device lk2nd/device/2nd lk2nd/device/menu lk2nd/display lk2nd/fastboot lk2nd/fastboot/debug lk2nd/hw/gpio lk2nd/hw/i2c lk2nd/ramoops lk2nd/serialno lk2nd/smp lk2nd/smp/spin-table lk2nd/version
-lk2nd/smp/spin-table/rules.mk:7: NOTE: msm8953 not supported, disabling SMP spin table
-including lk2nd/hw/regulator
-lk2nd/project/base.mk:15: project/sdm660.mk: No such file or directory
-make[1]: *** No rule to make target 'project/sdm660.mk'.  Stop.
-make[1]: Leaving directory '/home/moon/xt3/out/src/lk2nd'
-make: *** [makefile:20: make-make] Error 2
+1795645517323095223
+=== project/msm8953.mk:
+# top level project rules for the MSM8953 project
+#
+LOCAL_DIR := $(GET_LOCAL_DIR)
+
+TARGET := msm8953
+
+MODULES += app/aboot
+
+ifeq ($(TARGET_BUILD_VARIANT),user)
+DEBUG := 0
+else
+ifeq ($(DISABLE_LOGGING_BL),1)
+DEBUG := 0
+else
+DEBUG := 1
+endif
+endif
+
+EMMC_BOOT := 1
+
+ifeq ($(ENABLE_DISPLAY),1)
+DEFINES += ENABLE_DISPLAY=1
+DEFINES += DISPLAY_SPLASH_SCREEN=1
+endif
+
+ifeq ($(VERIFIED_BOOT),1)
+ENABLE_SECAPP_LOADER := 1
+ENABLE_RPMB_SUPPORT := 1
+ifneq (,$(findstring DISPLAY_SPLASH_SCREEN,$(DEFINES)))
+#enable fbcon display menu
+ENABLE_FBCON_DISPLAY_MSG := 1
+endif
+endif
+
+ifeq ($(VERIFIED_BOOT_2),1)
+  ENABLE_SECAPP_LOADER := 1
+  ENABLE_RPMB_SUPPORT := 1
+ifneq (,$(findstring DISPLAY_SPLASH_SCREEN,$(DEFINES)))
+#enable fbcon display menu
+  ENABLE_FBCON_DISPLAY_MSG := 1
+endif
+endif
+
+#Enable below flag to compile cmnlib64
+DEFINES += ENABLE_CMNLIB64_LOADING=1
+
+ENABLE_SMD_SUPPORT := 1
+ENABLE_PWM_SUPPORT := true
+
+#Comment this to disable this feature.
+DEFINES += SECURE_CODE_MEM=1
+
+#DEFINES += WITH_DEBUG_DCC=1
+DEFINES += WITH_DEBUG_LOG_BUF=1
+DEFINES += WITH_DEBUG_UART=1
+#DEFINES += WITH_DEBUG_FBCON=1
+DEFINES += DEVICE_TREE=1
+#DEFINES += MMC_BOOT_BAM=1
+DEFINES += CRYPTO_BAM=1
+DEFINES += SPMI_CORE_V2=1
+DEFINES += ABOOT_IGNORE_BOOT_HEADER_ADDRS=1
+
+DEFINES += BAM_V170=1
+
+#Enable the feature of long press power on
+DEFINES += LONG_PRESS_POWER_ON=1
+
+ifeq ($(ENABLE_RPMB_SUPPORT),1)
+DEFINES += USE_RPMB_FOR_DEVINFO=1
+endif
+
+#Disable thumb mode
+ENABLE_THUMB := false
+
+ENABLE_SDHCI_SUPPORT := 1
+ENABLE_USB30_SUPPORT := 1
+
+ifeq ($(ENABLE_SDHCI_SUPPORT),1)
+DEFINES += MMC_SDHCI_SUPPORT=1
+endif
+
+ifeq ($(ENABLE_FBCON_DISPLAY_MSG),1)
+DEFINES += FBCON_DISPLAY_MSG=1
+endif
+
+#enable power on vibrator feature
+ENABLE_HAP_VIB_SUPPORT := true
+
+ifeq ($(EMMC_BOOT),1)
+DEFINES += _EMMC_BOOT=1
+endif
+
+ifeq ($(ENABLE_HAP_VIB_SUPPORT),true)
+DEFINES += PON_VIB_SUPPORT=1
+endif
+
+ifeq ($(ENABLE_PON_VIB_SUPPORT),true)
+DEFINES += PON_VIB_SUPPORT=1
+endif
+
+ifeq ($(ENABLE_SMD_SUPPORT),1)
+DEFINES += SMD_SUPPORT=1
+endif
+
+ifeq ($(ENABLE_USB30_SUPPORT),1)
+DEFINES += USB30_SUPPORT=1
+endif
+
+ifeq ($(APPEND_CMDLINE),1)
+DEFINES += _APPEND_CMDLINE=1
+endif
+
+#SCM call before entering DLOAD mode
+DEFINES += PLATFORM_USE_SCM_DLOAD=1
+
+#enable user force reset feature
+DEFINES += USER_FORCE_RESET_SUPPORT=1
+
+# Reset USB clock from target code
+DEFINES += USB_RESET_FROM_CLK=1
+
+DEFINES += USE_TARGET_QMP_SETTINGS=1
+
+DEFINES += USE_TARGET_HS200_DELAY=1
+
+#Enable the external reboot functions
+ENABLE_REBOOT_MODULE := 1
+
+ifeq ($(VERIFIED_BOOT),1)
+ifneq (,$(findstring DISPLAY_SPLASH_SCREEN,$(DEFINES)))
+#Enable MDTP feature
+ENABLE_MDTP_SUPPORT := 1
+endif
+endif
+
+ifeq ($(ENABLE_MDTP_SUPPORT),1)
+DEFINES += MDTP_SUPPORT=1
+endif
+
+#enable battery voltage check
+DEFINES += CHECK_BAT_VOLTAGE=1
+
+#Enable the external reboot functions
+ENABLE_REBOOT_MODULE := 1
+
+#Use PON register for reboot reason
+DEFINES += USE_PON_REBOOT_REG=1
+=== lk2nd/project/lk2nd.mk:
+# SPDX-License-Identifier: BSD-3-Clause
+LK2ND_PROJECT := lk2nd
+LK2ND_DISPLAY ?= cont-splash
+include lk2nd/project/base.mk
+
+MODULES += \
+	lk2nd/device \
+	lk2nd/device/2nd \
+
+ifneq ($(ENABLE_FBCON_DISPLAY_MSG),1)
+MODULES += $(if $(filter $(MODULES), lk2nd/display), lk2nd/device/menu)
+endif
+
+# Use part of the "boot" partition for the lk2nd boot image. The real Android
+# boot image can be placed in the partition with 512 KiB offset.
+LK2ND_PARTITION_BASE ?= boot
+LK2ND_PARTITION_NAME ?= lk2nd
+LK2ND_PARTITION_SIZE ?= 512*1024
+
+# The primary bootloader will implement LONG_PRESS_POWER_ON if needed.
+# If we do it again in lk2nd we might accidentally shutdown the device because
+# the user needs to keep the power key pressed for *really* long.
+DEFINES := $(filter-out LONG_PRESS_POWER_ON=1, $(DEFINES))
+
+# Since lk2nd is typically used through lk.bin, having separate code/data
+# segments with a fixed 1 MiB offset increases the binary size significantly,
+# since a lot of padding has to be added inbetween. Disable it for now....
+DEFINES := $(filter-out SECURE_CODE_MEM=1, $(DEFINES))
+
+# Weak battery charging is handled by the primary bootloader
+DEFINES := $(filter-out ENABLE_WBC=1, $(DEFINES))
+
+# Should be already done by primary bootloader if wanted
+DEFINES := $(filter-out ENABLE_XPU_VIOLATION=1, $(DEFINES))
+
+# Build Android boot image
+OUTBOOTIMG := $(BUILDDIR)/lk2nd.img
+MKBOOTIMG_CMDLINE := lk2nd
+
+SIGN_BOOTIMG ?= 0
+BOOTIMG_CERT ?= lk2nd/certs/verity.x509.pem
+BOOTIMG_KEY ?= lk2nd/certs/verity.pk8
+=== arm-verktyg installerade:
+aarch64-linux-gnu-gcc
