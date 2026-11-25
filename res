@@ -1,38 +1,23 @@
-1795647154093930832
-6280
---- CONFIG_ARM64
-  stock: CONFIG_ARM64=y CONFIG_ARM64_PAGE_SHIFT=12 
-  var:   CONFIG_ARM64=y CONFIG_ARM64_CONT_PTE_SHIFT=4 
---- CONFIG_ARCH_QCOM
-  stock: CONFIG_ARCH_QCOM=y 
-  var:   CONFIG_ARCH_QCOM=y 
---- CONFIG_QCOM_SMD_RPM
-  stock: CONFIG_QCOM_SMD_RPM=y 
-  var:   CONFIG_QCOM_SMD_RPM=y 
---- CONFIG_QCOM_RPMH
-  stock: <saknas>
-  var:   CONFIG_QCOM_RPMH=y 
---- CONFIG_SPMI
-  stock: CONFIG_SPMI=y CONFIG_SPMI_MSM_PMIC_ARB=y 
-  var:   CONFIG_SPMI=y CONFIG_SPMI_MSM_PMIC_ARB=y 
---- CONFIG_PINCTRL
-  stock: CONFIG_PINCTRL=y CONFIG_PINCTRL_MSM=y 
-  var:   CONFIG_PINCTRL=y CONFIG_PINCTRL_SINGLE=y 
---- CONFIG_USB_DWC3
-  stock: CONFIG_USB_DWC3=y CONFIG_USB_DWC3_DUAL_ROLE=y 
-  var:   CONFIG_USB_DWC3=y CONFIG_USB_DWC3_ULPI=y 
---- CONFIG_ARM_SMMU
-  stock: CONFIG_ARM_SMMU=y CONFIG_ARM_SMMU_TESTBUS_DUMP=y 
-  var:   CONFIG_ARM_SMMU=y CONFIG_ARM_SMMU_DISABLE_BYPASS_BY_DEFAULT=y 
---- CONFIG_QCOM_LLCC
-  stock: <saknas>
-  var:   CONFIG_QCOM_LLCC=y 
---- CONFIG_CMA
-  stock: CONFIG_CMA=y CONFIG_CMA_AREAS=8 
-  var:   CONFIG_CMA=y CONFIG_CMA_AREAS=7 
---- CONFIG_ARM_GIC
-  stock: CONFIG_ARM_GIC=y CONFIG_ARM_GIC_MAX_NR=1 
-  var:   CONFIG_ARM_GIC=y CONFIG_ARM_GIC_MAX_NR=1 
---- CONFIG_QCOM_CLK
-  stock: CONFIG_QCOM_CLK_APCS_MSM8916=y CONFIG_QCOM_CLK_SMD_RPM=y 
-  var:   CONFIG_QCOM_CLK_SMD_RPM=y CONFIG_QCOM_CLK_RPMH=y 
+1795647177301338864
+18436
+=== memory:
+		rpm-memory@0x778000 {
+			reg = <0x778000 0x5000>;
+			compatible = "qcom,rpm-code-ram";
+			phandle = <0x14c>;
+--
+		memory@0x778000 {
+=== intc/gic:
+
+		interrupt-controller@17a00000 {
+			reg = <0x17a00000 0x10000 0x17b00000 0x100000>;
+			#size-cells = <0x01>;
+			compatible = "arm,gic-v3";
+			redistributor-stride = <0x00 0x20000>;
+--
+		tpda_olc_out_funnel_apss_merg = "/soc/tpda@7b92000/ports/port@0/endpoint";
+		intc = "/soc/interrupt-controller@17a00000";
+		pm660l_l8 = "/soc/qcom,rpm-smd/rpm-regulator-ldob8/regulator-l8";
+		cpe = "/soc/qcom,msm-cpe-lsm";
+		gpio_sw_suspend = "/soc/pinctrl@03000000/tlmm_gpio_key/gpio_sw_suspend";
+=== usb3:
