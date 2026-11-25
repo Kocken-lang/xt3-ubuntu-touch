@@ -1,13 +1,38 @@
-1795647020741534058
-=== chosen/bootargs:
-rcupdate.rcu_expedited=1 console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.s
-=== minne:
-memory
-00000000: 0000 0000 8000 0000 0000 0000 8000 0000  ................
-00000010: 0000 0001 0000 0000 0000 0000 7e40 0000  ............~@..
-=== mdss/dsi/panel-noder:
-=== cpus:
-#address-cells
-#size-cells
-cpu-map
-cpu@0
+1795647154093930832
+6280
+--- CONFIG_ARM64
+  stock: CONFIG_ARM64=y CONFIG_ARM64_PAGE_SHIFT=12 
+  var:   CONFIG_ARM64=y CONFIG_ARM64_CONT_PTE_SHIFT=4 
+--- CONFIG_ARCH_QCOM
+  stock: CONFIG_ARCH_QCOM=y 
+  var:   CONFIG_ARCH_QCOM=y 
+--- CONFIG_QCOM_SMD_RPM
+  stock: CONFIG_QCOM_SMD_RPM=y 
+  var:   CONFIG_QCOM_SMD_RPM=y 
+--- CONFIG_QCOM_RPMH
+  stock: <saknas>
+  var:   CONFIG_QCOM_RPMH=y 
+--- CONFIG_SPMI
+  stock: CONFIG_SPMI=y CONFIG_SPMI_MSM_PMIC_ARB=y 
+  var:   CONFIG_SPMI=y CONFIG_SPMI_MSM_PMIC_ARB=y 
+--- CONFIG_PINCTRL
+  stock: CONFIG_PINCTRL=y CONFIG_PINCTRL_MSM=y 
+  var:   CONFIG_PINCTRL=y CONFIG_PINCTRL_SINGLE=y 
+--- CONFIG_USB_DWC3
+  stock: CONFIG_USB_DWC3=y CONFIG_USB_DWC3_DUAL_ROLE=y 
+  var:   CONFIG_USB_DWC3=y CONFIG_USB_DWC3_ULPI=y 
+--- CONFIG_ARM_SMMU
+  stock: CONFIG_ARM_SMMU=y CONFIG_ARM_SMMU_TESTBUS_DUMP=y 
+  var:   CONFIG_ARM_SMMU=y CONFIG_ARM_SMMU_DISABLE_BYPASS_BY_DEFAULT=y 
+--- CONFIG_QCOM_LLCC
+  stock: <saknas>
+  var:   CONFIG_QCOM_LLCC=y 
+--- CONFIG_CMA
+  stock: CONFIG_CMA=y CONFIG_CMA_AREAS=8 
+  var:   CONFIG_CMA=y CONFIG_CMA_AREAS=7 
+--- CONFIG_ARM_GIC
+  stock: CONFIG_ARM_GIC=y CONFIG_ARM_GIC_MAX_NR=1 
+  var:   CONFIG_ARM_GIC=y CONFIG_ARM_GIC_MAX_NR=1 
+--- CONFIG_QCOM_CLK
+  stock: CONFIG_QCOM_CLK_APCS_MSM8916=y CONFIG_QCOM_CLK_SMD_RPM=y 
+  var:   CONFIG_QCOM_CLK_SMD_RPM=y CONFIG_QCOM_CLK_RPMH=y 
