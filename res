@@ -1,5 +1,5 @@
-1795572926525708835
-rm: cannot remove '/tmp/boot_a.img': Operation not permitted
-exit=124
--rw-r--r-- 1 root root 67108864 Nov 25 01:08 /tmp/boot_a.img
-7132feeaf7b3bf66f422c8655572465c8cacb2de3979d6ba258631f8b289b7fc
+1795573038577218137
+    edl.py modules <command> <options> [--memory=memtype] [--lun=lun] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--devicemodel=value] [--portname=portname] [--serial]
+    edl.py provision <xmlfile> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py qfil <rawprogram> <patch> <imagedir> [--loader=filename] [--memory=memtype] [--pagesperblock=number] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+7842c657d8671267ec93d19e89b554ba34ec13b618dee2470d888941b811dda3 /home/moon/xt3/out/fota/partitions/boot.img
