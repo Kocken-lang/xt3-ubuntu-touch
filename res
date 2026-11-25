@@ -1,13 +1,59 @@
-1795633245090966850
-772K device.jni.dex
-638K device.sdk.dex
-1.3M device.server.dex
-19K ex.dev.sdk.dex
-=== /dev-noder i alla dex:
-/dev/sdk/Bypass
-/dev/sdk/ErroNo
-/dev/sdk/IBypass
-/dev/sdk/Sender
-/dev/sdk/To
+1795633264577693622
+=== /sys-vagar:
+/sys/class/power_supply/battery/charging_mode
+/sys/class/power_supply/battery/force_usb_switching
+/sys/class/power_supply/battery/usb_port_force_switching
+/sys/class/power_supply/bq27542_bms/disable_remap
+/sys/class/qcom-battery/charging_mode
+/sys/class/usb_connection_priority/usb_port_force_switching
+/sys/devices/platform/gpio-keys/pogo_detect
+/sys/devices/platform/gpio-usbdetect/boot_done
+/sys/devices/platform/gpio-usbdetect/id_det
+/sys/devices/platform/gpio-usbdetect/vbus_on
+/sys/devices/platform/soc/c1b8000.i2c/i2c-8/8-005a/iio
+/sys/devices/soc.0/a000000.qcom
+/sys/devices/soc/a000000.qcom
+/sys/emkit/ctrl/ethernet_tempmac
+/sys/emkit/ctrl/ethernet_tempmac_mode
+/sys/emkit/ctrl/gpio_ethernet_en
+/sys/emkit/info/acceleration
+/sys/emkit/info/beacon
+/sys/emkit/info/bluetooth
+/sys/emkit/info/camera_b
+/sys/emkit/info/camera_f
+/sys/emkit/info/cpu
+/sys/emkit/info/display
+/sys/emkit/info/features
+/sys/emkit/info/fingerprint
+=== bussar/enheter:
 /dev/ttyHS2
-/dev/ttyMSM0
+GpioUEventObserver
+I2CService
+I2C_BEACON_PORT
+MSR_CONTROL
+MSR_FIRMWARE
+MSR_IDTECH
+MSR_MMD1000
+MSR_Module
+MSR_PM1100
+MSR_TYPE
+MsrReadError
+MsrReadType
+MsrResultCallback
+MsrResultCallbackWrapper
+MsrService
+SAM_SELECT_0
+SAM_SELECT_1
+SAM_SELECT_POWER
+SPIService
+=== JNI-bibliotek:
+android.hardware.camera.device@1.0.so
+android.hardware.camera.device@3.2.so
+android.hardware.camera.device@3.3.so
+android.hardware.camera.device@3.4.so
+android.hardware.camera.device@3.5.so
+camera.device@1.0-impl.so
+camera.device@3.2-impl.so
+camera.device@3.3-impl.so
+camera.device@3.4-external-impl.so
+camera.device@3.4-impl.so
