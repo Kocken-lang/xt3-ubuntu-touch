@@ -1,4 +1,4 @@
-1795647802239977690
-skrev /tmp/boot-smc.img 30318592 byte
-2
-TID TILL FASTBOOT: 15 s
+1795647842886048071
+korn 1: 5 s
+korn 2: 5 s
+korn 3: 5 s
