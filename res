@@ -1,6 +1,6 @@
-1795634493804312227
-props=5d lc=3 lp=0 pb=2 dict=16777216
-Traceback (most recent call last):
-  File "<stdin>", line 9, in <module>
-_lzma.LZMAError: Corrupt input data
-=== version/kommandon:
+1795634511636683778
+00003052: e77f 1db2 d792 78aa 0b00 2523 02f8 0d23  ......x...%#...#
+00003062: 0202 9858 4eee 1439 5942 9d6e dc7b d794  ...XN..9YB.n.{..
+00003072: 03cf 1800 0100 5d00 0000 01c8 3007 0000  ......].....0...
+00003082: 0000 0000 0200 3273 dea3 ec8f 9622 840a  ......2s....."..
+00003092: feba 927d 0b7d dc96 b3af 56b2 2747 ecdc  ...}.}....V.'G..
