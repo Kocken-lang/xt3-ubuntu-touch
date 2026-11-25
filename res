@@ -1,8 +1,6 @@
-1795643016188932690
-=== lsusb:
-Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
-=== adb:
-List of devices attached
-
-=== fastboot:
+1795642698046940816
+skrev /tmp/boot-testA.img 15683584 byte
+0
+0
+error: no devices/emulators found
+XT3MARK-traff: 0
