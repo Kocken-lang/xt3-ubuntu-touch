@@ -9,7 +9,7 @@ firehose
 firehose - [LIB]: [31mfh.attrs.MaxPayloadSizeToTargetInBytes of 1048576 > fh.channel_buffer_capacity of 32768[0m
 firehose
 firehose - [LIB]: [31mCalling usb_al_bulk_set_zlp_mode(TRUE) since ZlpAwareHost='1'[0m
-Done |----------|   0.0% Read (Sector 0x0 of 0x8) 0.00 MB/s                   Progress: |██████████| 100.0% Read (Sector 0x8 of 0x8, ) 3.70 MB/s            
+Done |----------|   0.0% Read (Sector 0x0 of 0x8) 0.00 MB/s                   Progress: |██████████| 100.0% Read (Sector 0x8 of 0x8, ) 3.79 MB/s            
 Dumped sector 17328128 with sector count 8 as /tmp/rb_devinfo.bin.
 --- fil:
 -rw-r--r-- 1 root root 4096 Nov 25 19:45 /tmp/rb_devinfo.bin
