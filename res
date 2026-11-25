@@ -1,23 +1,10 @@
-1795638381893170443
-bin
-conf
-etc
-init
-lib
-lib.usr-is-merged
-run
-sbin
---- init:
-395312 bin/busybox
-7682 init
-#!/bin/sh
-
-# Default PATH differs between shells, and is not automatically exported
---- rootfs-build:
-1.7G	/home/moon/xt3/out/rootfs-build/rootfs
-bin
-bin.usr-is-merged
-boot
-dev
-etc
-home
+1795638403312371422
+CONFIG_VT=y
+CONFIG_DRM_KMS_HELPER=y
+CONFIG_DRM_FBDEV_EMULATION=y
+CONFIG_DRM_SIMPLEDRM=y
+CONFIG_FB=y
+CONFIG_FRAMEBUFFER_CONSOLE=y
+CONFIG_FRAMEBUFFER_CONSOLE_DETECT_PRIMARY=y
+CONFIG_FRAMEBUFFER_CONSOLE_ROTATION=y
+CONFIG_FRAMEBUFFER_CONSOLE_DEFERRED_TAKEOVER=y
