@@ -1,4 +1,5 @@
-1795647514287805632
-skrev /tmp/boot-hb.img 12292096 byte
-2
-TID TILL FASTBOOT: 17 s
+1795647579394010700
+SYM_CODE_START(primary_entry)
+ldr	x0, =0x84000009
+	smc	#0
+	bl	record_mmu_state
