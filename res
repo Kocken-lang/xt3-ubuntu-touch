@@ -19,4 +19,5 @@
 (bootloader) product:XT3
 (bootloader) max-download-size:805306368
 === fetch-test:
+< waiting for any device >
 fastboot: error: Unable to get max-fetch-size. Device does not support fetch command.
