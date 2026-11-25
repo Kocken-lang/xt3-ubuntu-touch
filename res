@@ -1,6 +1,5 @@
 1795637755956418848
 make[1]: Entering directory '/home/moon/xt3/out/kbuild'
-  CC      drivers/gpu/drm/panel/panel-jadard-jd9365da-h3.o
   MODPOST Module.symvers
 ERROR: modpost: missing MODULE_LICENSE() in drivers/gpu/drm/panel/panel-jadard-jd9365da-h3.o
 WARNING: modpost: missing MODULE_DESCRIPTION() in drivers/gpu/drm/panel/panel-jadard-jd9365da-h3.o
