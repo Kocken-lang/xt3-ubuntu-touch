@@ -1,3 +1,4 @@
-1795566469001632917
-Finished. Total time: 4.087s
+1795566524538632394
+Klart -> /home/moon/xt3/out/boot.img
+Finished. Total time: 4.156s
 18d1:d00d
