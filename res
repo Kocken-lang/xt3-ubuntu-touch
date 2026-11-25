@@ -1,5 +1,3 @@
-1795641122965009828
-Sending 'boot.img' (19292 KB)                      OKAY [  2.028s]
-Booting                                            FAILED (remote: 'Failed to load/authenticate boot image: Load Error')
-fastboot: error: Command failed
-fastboot igen efter 1s
+1795641148887409327
+=== sluttillstand:
+Bus 001 Device 104: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
