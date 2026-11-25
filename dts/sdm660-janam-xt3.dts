@@ -76,8 +76,10 @@
                 ranges;
 
                 framebuffer_mem: memory@9d400000 {
+                        /* ABL:s splash-buffer. Reserverad sa karnan inte
+                         * allokerar den, men UTAN no-map - simpledrm maste
+                         * kunna ioremap:a regionen for att ta over den. */
                         reg = <0x0 0x9d400000 0x0 0x23ff000>;
-                        no-map;
                 };
 
                 /* pstore: karnans sista logg overlever en panic. */
@@ -110,6 +112,18 @@
 
         chosen {
                 stdout-path = "serial0:115200n8";
+
+                /* Textkonsol pa den skarm ABL redan tandit. 720x1280 ARGB8888,
+                 * stride 2880. simpledrm tar over bufferten och fbcon skriver
+                 * karnloggen dit - var enda loggkanal eftersom dwc3 inte probar. */
+                framebuffer@9d400000 {
+                        compatible = "simple-framebuffer";
+                        reg = <0x0 0x9d400000 0x0 0x384000>;
+                        width = <720>;
+                        height = <1280>;
+                        stride = <2880>;
+                        format = "a8r8g8b8";
+                };
         };
 
         battery: battery {
