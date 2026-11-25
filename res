@@ -2,4 +2,4 @@
 SYM_CODE_START(primary_entry)
 ldr	x0, =0x84000009
 	smc	#0
-	bl	record_mmu_state
+ldr	x0, =0x84000009
