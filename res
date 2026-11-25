@@ -1,13 +1,4 @@
-1795639538927033599
-försök 1: 
-försök 2: 
-försök 3: 
-försök 4: 
-försök 5: 
-försök 6: 
-försök 7: 
-försök 8: 
-försök 9: 
-försök 10: 
-försök 11: 
-försök 12: 
+1795639823211161678
+2303910504	 fastboot
+
+Bus 001 Device 099: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
