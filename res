@@ -1,4 +1,8 @@
-1795646451529086758
-0
-Android uppe
-91.57 (Oct 01 2025)
+1795646705482990397
+=== lk_s.elf:
+  Class:                             ELF32
+  Type:                              EXEC (Executable file)
+  Machine:                           ARM
+  Entry point address:               0x8f600000
+=== lk2nd.img:
+build-lk2nd-sdm660/lk2nd.img: Android bootimg, kernel, page size: 2048, cmdline (lk2nd)
