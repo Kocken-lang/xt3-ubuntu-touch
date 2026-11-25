@@ -1,32 +1,11 @@
-1795565401440316756
-< waiting for any device >
-t=5s usb=05c6:9008 adb=none
-t=10s usb=05c6:9008 adb=none
-t=15s usb=05c6:9008 adb=none
-t=20s usb=05c6:9008 adb=none
-t=25s usb=05c6:9008 adb=none
-t=30s usb=05c6:9008 adb=none
-t=35s usb=05c6:9008 adb=none
-t=40s usb=05c6:9008 adb=none
-t=45s usb=05c6:9008 adb=none
-t=50s usb=05c6:9008 adb=none
-t=55s usb=05c6:9008 adb=none
-t=60s usb=05c6:9008 adb=none
-t=65s usb=05c6:9008 adb=none
-t=70s usb=05c6:9008 adb=none
-t=75s usb=05c6:9008 adb=none
-t=80s usb=05c6:9008 adb=none
-t=85s usb=05c6:9008 adb=none
-t=90s usb=05c6:9008 adb=none
-t=95s usb=05c6:9008 adb=none
-t=100s usb=05c6:9008 adb=none
-t=105s usb=05c6:9008 adb=none
-t=110s usb=05c6:9008 adb=none
-t=115s usb=05c6:9008 adb=none
-t=120s usb=05c6:9008 adb=none
-t=125s usb=05c6:9008 adb=none
-t=130s usb=05c6:9008 adb=none
-t=135s usb=05c6:9008 adb=none
-t=140s usb=05c6:9008 adb=none
-t=145s usb=05c6:9008 adb=none
-t=150s usb=05c6:9008 adb=none
+1795565643265364007
+== reset med loader:
+    edl.py modules <command> <options> [--memory=memtype] [--lun=lun] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--devicemodel=value] [--portname=portname] [--serial]
+    edl.py provision <xmlfile> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+    edl.py qfil <rawprogram> <patch> <imagedir> [--loader=filename] [--memory=memtype] [--pagesperblock=number] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
+Bus 001 Device 098: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+== reset utan loader:
+main - Waiting for the device
+main - Device detected :)
+main - Mode detected: firehose
+INGEN-ENHET
