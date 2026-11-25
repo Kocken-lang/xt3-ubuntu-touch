@@ -1,6 +1,2 @@
-1795625659079311815
---- usb:
---- adb:
-List of devices attached
-
---- fastboot:
+1795625804283370070
+slutlage: usb=0
