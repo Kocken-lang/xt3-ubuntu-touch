@@ -1,4 +1,4 @@
-1795638629722873199
-	qcom,msm-id = <0x144 0x00>;
-=== dtbo_a nu:
-current-slot: a
+1795638647202449285
+board-id tillagd
+0
+skrev /tmp/boot-mainline.img 19824640 byte
