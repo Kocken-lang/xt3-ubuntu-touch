@@ -1,8 +1,30 @@
-1795627928411191312
-    kbuild installerade inget - kopierar modulerna for hand
-    767 moduler efter manuell kopiering
-total 12M
--rw-rw-r-- 1 moon moon  12M Nov 25 18:31 Image.gz
-drwxrwxr-x 3 moon moon 4.0K Nov 25 18:31 modules
--rw-rw-r-- 1 moon moon  54K Nov 25 18:32 sdm660-janam-xt3.dtb
---- korande:
+1795628015543105272
+boot
+boot-h1.img
+boot-hyb1.img
+boot-hyb2.img
+boot-no-panel.img
+boot-stockcontent.img
+boot-uboot-v2-nodtb.img
+boot-uboot-v2.img
+boot-uboot-xt3-avb.img
+boot-uboot-xt3.img
+boot.img
+firmware
+fota
+hw
+initramfs.img
+inventory
+kbuild
+kernel
+logs
+release
+rootfs
+rootfs-build
+rootfs.img
+src
+stock
+uboot-src
+vbmeta-disabled.img
+xt3-ut-20261124-ae3977e.zip
+out/initramfs.img
