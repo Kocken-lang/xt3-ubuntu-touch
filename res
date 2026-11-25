@@ -35,4 +35,4 @@ xt3-release/
 --- cpu:
 12
                total        used        free      shared  buff/cache   available
-Mem:              30          13           2           7          20          17
+Mem:              30          13           2           7          20          16
