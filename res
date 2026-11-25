@@ -1,18 +1,7 @@
-1795633185552817672
-=== vendor/app:
-CACertService
-CneApp
-ConnectionSecurityService
-IWlanService
-QCC-TR-UI
-QFingerprintService
-TimeService
-TrustZoneAccessService
-=== system/system/app (Janam-relaterat):
+1795633203032666899
+=== ALLA janam-appar:
 BugReport_janam
-CompanionDeviceManager
 CoverInstruction_janam
-EthernetSettings
 GPSDemo_janam
 ICCRDemo_janam
 ImageDemo_janam
@@ -20,11 +9,18 @@ MsrDemo_janam
 NfcDemo_janam
 PingDemo_janam
 PmBackupRestore_janam
-PmButtons
 PrintDemo_janam
 SamDemo_janam
 ScanDemo_janam
-=== system/system/priv-app:
-InputDevices
-SettingsAddon
-SettingsProvider
+ScanSetting_janam
+SystemInformation_janam
+TouchSensitivityShortcut_janam
+=== sok efter tjansterna:
+=== janam-jar i framework:
+boot-device.jni.vdex
+com.qti.snapdragon.sdk.display.jar
+device.internal.jar
+device.jni.jar
+device.sdk.jar
+device.server.jar
+ex.dev.sdk.jar
