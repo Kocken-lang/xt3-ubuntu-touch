@@ -1,10 +1,3 @@
-1795644608329181217
-=== /sys/fs/pstore:
-ls: /sys/fs/pstore/: No such file or directory
-=== /proc/sysrq-trigger:
---w--w---- 1 root system 0 1970-01-01 00:02 /proc/sysrq-trigger
-=== /proc/config.gz (pstore/sysrq):
-# CONFIG_PSTORE is not set
-CONFIG_MAGIC_SYSRQ=y
-CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE=0x1
-CONFIG_MAGIC_SYSRQ_SERIAL=y
+1795644636892228677
+STOCK-CMDLINE:
+console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 loop.max_part=7 buildvariant=user
