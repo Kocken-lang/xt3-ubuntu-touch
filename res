@@ -1,21 +1,57 @@
-1795649444483111159
-=== innehall i 91.16_20231011.zip (script):
-     2923  2023-10-11 04:03   flash.bat
-     2488  2023-10-11 04:03   flash.sh
-     2915  2023-10-11 04:03   flash_partion.bat
-     2484  2023-10-11 04:03   flash_partion.sh
-     6255  2023-10-11 04:03   patch0.xml
-    22865  2023-10-11 04:03   rawprogram0.xml
-     2923  2023-10-10 22:03   RunThis.bat
+1795649467699479016
+=== flash.sh:
+#!/bin/bash
 
-=== sok efter firehose/prog pa hela systemet:
-/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/edlclient/Library/firehose.py
-/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/edlclient/Library/firehose_client.py
-/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/edlclient/Library/__pycache__/firehose.cpython-314.pyc
-/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/edlclient/Library/__pycache__/firehose_client.cpython-314.pyc
-/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/edlclient/Tools/Library/firehose.py
-/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/edlclient/Tools/Library/firehose_client.py
-/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/edlclient/Tools/Library/__pycache__/firehose.cpython-314.pyc
-/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/edlclient/Tools/Library/__pycache__/firehose_client.cpython-314.pyc
-/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/oneplus/prog_emmc_firehose_8974_oneplusx_peek.mbn
-/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/prog_ufs_firehose_sm6250_ddr.elf
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+check_error()
+{
+    if [ $? -ne 0 ];
+    then
+        echo -e "${RED}Flash fail${NC}"
+        echo -e "${RED}Please check the USB connector${NC}"
+        exit -1
+    fi
+}
+
+flash()
+{
+    fastboot flash $1 $2
+    check_error
+    echo "----------------------------------------------------"
+}
+
+erase()
+{
+    fastboot erase $1
+    check_error
+    echo "----------------------------------------------------"
+}
+
+adb kill-server
+adb devices
+adb reboot bootloader
+fastboot devices
+
+# 0: wifi, 1: phone
+modem_flag=
+
+if ( fastboot getvar variant 2>&1 | grep "SDA" ); then
+    modem_flag=0
+elif ( fastboot getvar variant 2>&1 | grep "SDM" ); then
+    modem_flag=1
+else
+    echo "Can't detect the modem"
+    exit -1
+
+=== sdm660/jasmine-loaders:
+/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf
+/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf
+/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/qualcomm/factory/sdm660
+/usr/src/linux-headers-7.0.0-44/include/dt-bindings/clock/qcom,gcc-sdm660.h
+/usr/src/linux-headers-7.0.0-44/include/dt-bindings/clock/qcom,gpucc-sdm660.h
+/usr/src/linux-headers-7.0.0-44/include/dt-bindings/clock/qcom,mmcc-sdm660.h
+/usr/src/linux-headers-7.0.0-44/include/dt-bindings/interconnect/qcom,sdm660.h
+/usr/src/linux-headers-7.0.0-43/include/dt-bindings/clock/qcom,gcc-sdm660.h
