@@ -1,20 +1,7 @@
-1795632467222707876
-=== fragment@ (overlay) i 11:ans DTB:er:
-00-id0-rev0.dts
-01-id0-rev0.dts
-02-id0-rev0.dts
-(antal med fragment@: 12 av 12)
-=== XT3-specifika strangar:
-janam      0 filer
-Janam      0 filer
-pmobile    0 filer
-scanner    12 filer
-XT3        0 filer
-xt3        0 filer
-=== model:
-			qcom,model = "sdm660-snd-card-mtp";
-	model = "Qualcomm Technologies, Inc. SDA 660 Int. Audio Codec MTP DVT";
-	model = "Qualcomm Technologies, Inc. SDA 660 Int. Audio Codec MTP DVT1-2";
-	model = "Qualcomm Technologies, Inc. SDA 660 Int. Audio Codec MTP DVT2";
-	model = "Qualcomm Technologies, Inc. SDA 660 Int. Audio Codec MTP EVT";
-	model = "Qualcomm Technologies, Inc. SDA 660 Int. Audio Codec MTP PVT";
+1795632493836321118
+kernel_size: 23554071
+command line args: console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7 buildvariant=user androidboot.abl=L9G18000TA00
+additional command line args: 
+kernel
+ramdisk
+=== 91.57 boot-DTB:
