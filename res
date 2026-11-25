@@ -1,5 +1,6 @@
-1795638574413626946
-/tmp/bx/kernel: gzip compressed data, max compression, from 
-00000000: 1f8b 0800                                ....
-=== var Image.gz:
-00000000: 1f8b 0800                                ....
+1795638590074726609
+8:	qcom,msm-id = <0x144 0x00>;
+10:	qcom,pmic-id = <0x1001b 0x101011a 0x00 0x00 0x1001b 0x201011a 0x00 0x00 0x1001b 0x102001a 0x00 0x00>;
+=== dtbo-post 4:
+6:	qcom,msm-id = <0x144 0x00>;
+7:	qcom,board-id = <0x40008 0x00>;
