@@ -1,6 +1,9 @@
-1795638423753830311
-skrev /tmp/boot-mainline.img 19824640 byte
-kernel_size: 12031293
-ramdisk size: 7725514
-boot image header version: 2
-dtb size: 54836
+1795638439326743139
+2303910504	 fastboot
+Writing 'boot_a'                                   OKAY [  0.142s]
+Finished. Total time: 0.631s
+Finished. Total time: 0.050s
+=== USB:
+Bus 001 Device 089: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
+=== adb:
+List of devices attached
