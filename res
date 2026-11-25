@@ -1,3 +1,7 @@
-1795634135984305979
-3414491 timeout 1800 bash -c pgrep -af "bin/edl " | head -3; sudo pkill -9 -f "bin/edl " 2>/dev/null; sleep 3; echo "--- kvar:"; pgrep -af "bin/edl " | head -2; echo "--- test:"; sudo timeout 60 edl printgpt --memory=emmc 2>&1 | tail -3
-3414493 bash -c pgrep -af "bin/edl " | head -3; sudo pkill -9 -f "bin/edl " 2>/dev/null; sleep 3; echo "--- kvar:"; pgrep -af "bin/edl " | head -2; echo "--- test:"; sudo timeout 60 edl printgpt --memory=emmc 2>&1 | tail -3
+1795634165751289001
+Bus 001 Device 073: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+bus=001 dev=073
+--- test:
+Device is in Sahara error state, please reboot the device.
+main - Mode detected: error
+Connection detected, quiting.
