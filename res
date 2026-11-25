@@ -1,7 +1,7 @@
 1795636364371719768
-  3660 /tmp/dmesg.txt
+  3691 /tmp/dmesg.txt
    799 /tmp/props.txt
-  4459 total
+  4490 total
 === /enterprise (pmobile monterad?):
 total 40
 drwxrwx--x  4 system system  4096 1970-01-01 01:16 .
