@@ -1,4 +1,5 @@
-1795648266545678592
-adb: 
-fastboot: 2303910504	 fastboot
-Bus 001 Device 045: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
+1795648282896237787
+0
+korn 1: 0 s
+korn 2: 0 s
+korn 3: 0 s
