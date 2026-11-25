@@ -1,8 +1,13 @@
-1795636334839024307
-=== cmdline:
-rcupdate.rcu_expedited=1 console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 loop.max_part=7 buildvariant=user WifiMac=00:24:06:10:68:C2 androidboot.shortcode=P1N androidboot.verifiedbootstate=orange androidboot.keymaster=1 dm="1 vroot none ro 1,0 6192024 verity 1 PARTUUID=347651a0-79ca-96b6-e6bd-3553f7290aef PARTUUID=347651a0-79ca-96b6-e6bd-3553f7290aef 4096 4096 774003 774003 sha1 da1354b7fa8b6d6b7cc473a395723f2bc0c6a775 607587335d0a59df3c821a4194771e4844012136810d0b2f00c4471b0ecfeb28 10 restart_on_corruption ignore_zero_blocks use_fec_from_device PARTUUID=347651a0-79ca-96b6-e6bd-3553f7290aef fec_roots 2 fec_blocks 780099 fec_start 780099" root=/dev/dm-0 androidboot.vbmeta.device=PARTUUID=840a6eaf-67bd-c1a2-078a-d4d08072089e androidboot.vbmeta.avb_version=1.0 androidboot.vbmeta.device_state=unlocked androidboot.vbmeta.hash_alg=sha256 androidboot.vbmeta.size=4544 androidboot.vbmeta.digest=6595b5f016ab5c9fc777aae8c91acacc700a6b3b369aad5c3e7a88e14ce35e2f androidboot.vbmeta.invalidate_on_error=yes androidboot.veritymode=enforcing androidboot.bootdevice=c0c4000.sdhci androidboot.fstab_suffix=emmc androidboot.serialno=2303910504 androidboot.lcdid=2 androidboot.admin.root=1 androidboot.baseband=apq mdss_mdp.panel=1:dsi:0:qcom,mdss_dsi_jd9365da_720p_video:config0:1:none:cfg:single_dsi androidboot.slot_suffix=_a androidboot.hardware.revision=5 skip_initramfs rootwait ro init=/init androidboot.dtbo_idx=4 androidboot.dtb_idx=0
-=== boot_b header:
-00000000: 414e 4452 4f49 4421 e4fd df00 0080 0000  ANDROID!........
-00000010: 3e00 8000 0000 0001 0000 0000 0000 0000  >...............
-=== boot_a ramdisk:
-00000000: 7558 7f00 0000 0001                      uX......
+1795636181553758793
+2303910504	 fastboot
+
+< waiting for any device >
+< waiting for any device >
+< waiting for any device >
+< waiting for any device >
+< waiting for any device >
+=== USB:
+ingen
+=== adb:
+List of devices attached
+2303910504	device
