@@ -1,7 +1,5 @@
-1795569001603132606
-KLART
-==> bygger
-==> packar boot image
-kernel=620779 ramdisk=21 image=630784
-Klart -> /home/moon/xt3/out/boot-uboot-xt3.img
--rw-rw-r-- 1 moon moon 630784 Nov 25 02:10 /home/moon/xt3/out/boot-uboot-xt3.img
+1795569058114400126
+Writing 'boot_a'                                   OKAY [  0.008s]
+Writing 'boot_b'                                   OKAY [  0.005s]
+t=18s Bus 001 Device 124: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
+2303910504	 fastboot
