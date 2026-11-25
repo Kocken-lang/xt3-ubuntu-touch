@@ -1,9 +1,5 @@
-1795636557201666970
-1
-1
-user
-adb
-1
-=== kan vi skriva som root:
-touch: '/system/xbin/.rtest': Read-only file system
-las
+1795636988961725021
+=== pm90+sdm660
+=== point+mobile+pm90
+=== pm90+device+tree
+=== pm90+kernel
