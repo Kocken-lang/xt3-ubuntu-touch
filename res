@@ -1,3 +1,8 @@
-1795632301025839518
-lokal: 67108864 lasen: 67108864 jamfor: 67108864
-IDENTISKA i alla 67108864 byte  -> flashningen ar korrekt
+1795632328836929554
+== devinfo
+main - Waiting for the device
+main - Device detected :)
+== misc
+main - Waiting for the device
+main - Device detected :)
+=== devinfo:
