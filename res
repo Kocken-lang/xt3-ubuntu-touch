@@ -1,3 +1,4 @@
-1795639180291374173
-finns redan
-7656452
+1795639199052013982
+skrev /tmp/boot-mainline.img 19755008 byte
+fastboot: error: Command failed
+Bus 001 Device 099: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
