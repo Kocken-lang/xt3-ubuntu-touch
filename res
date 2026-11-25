@@ -1,8 +1,5 @@
-1795641711582032006
-ls: /proc/last_kmsg: No such file or directory
-lrwxrwxrwx 1 root root 21 1970-01-01 00:10 logdump -> /dev/block/mmcblk0p62
-lrwxrwxrwx 1 root root 21 1970-01-01 00:10 logfs -> /dev/block/mmcblk0p47
-lrwxrwxrwx 1 root root 21 1970-01-01 00:10 misc -> /dev/block/mmcblk0p57
-=== logfs storlek:
-8388608
-67108864
+1795641726777326219
+adb: error: failed to stat remote object '/data/local/tmp/logfs.bin': No such file or directory
+ls: cannot access '/tmp/logfs.bin': No such file or directory
+=== sok:
+strings: '/tmp/logfs.bin': No such file
