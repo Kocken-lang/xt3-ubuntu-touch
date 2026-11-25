@@ -1,9 +1,3 @@
-1795634390616640034
-Writing 'dtbo_a'                                   OKAY [  0.003s]
-Finished. Total time: 0.017s
-Finished. Total time: 0.004s
-Finished. Total time: 0.050s
-=== USB efter 30 s:
-ingen enhet
-=== adb:
-List of devices attached
+1795634451527438486
+-rw-rw-r-- 1 moon moon 14679524 Nov 25 19:43 /tmp/bx/kernel
+CONFIG_FB=y
