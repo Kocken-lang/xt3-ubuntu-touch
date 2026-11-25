@@ -1,5 +1,8 @@
-1795617725480434462
-Bus 001 Device 033: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
-List of devices attached
-
-2303910504	 fastboot
+1795617741406512593
+--- getvar:
+product: XT3
+Finished. Total time: 0.001s
+--- flash boot_a:
+Sending 'boot_a' (616 KB)                          OKAY [  0.018s]
+Writing 'boot_a'                                   OKAY [  0.009s]
+Finished. Total time: 0.033s
