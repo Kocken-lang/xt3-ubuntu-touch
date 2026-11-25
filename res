@@ -1,75 +1,7 @@
-1795565226247210013
-    edl.py [--loader=filename] [--memory=memtype] [--portname=portname] [--serial]
-    edl.py [--memory=memtype] [--skipstorageinit] [--maxpayload=bytes] [--sectorsize==bytes] [--pagesperblock=number] [--portname=portname] [--serial]
-    edl.py server [--tcpport=portnumber] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
-    edl.py memorydump [--partitions=partnames] [--debugmode] [--vid=vid] [--pid=pid] [--portname=portname] [--serial] [--serial_number=serial_number]
-    edl.py printgpt [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--debugmode]  [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
-    edl.py gpt <directory> [--memory=memtype] [--lun=lun] [--genxml] [--loader=filename]  [--skipresponse] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--pagesperblock=number] [--portname=portname] [--serial] [--devicemodel=value]
-    edl.py r <partitionname> <filename> [--memory=memtype] [--sectorsize==bytes] [--pagesperblock=number] [--lun=lun] [--loader=filename]  [--skipresponse] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
-    edl.py rl <directory> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skip=partnames] [--genxml]  [--skipresponse] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
-    edl.py rf <filename> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--debugmode]  [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
-    edl.py rs <start_sector> <sectors> <filename> [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--memory=memtype] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
-    edl.py w <partitionname> <filename> [--partitionfilename=filename] [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skipwrite] [--skipresponse] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py wl <directory> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skip=partnames] [--skipresponse] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py wf <filename> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--skipresponse] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py ws <start_sector> <filename> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skipwrite] [--skipresponse] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py e <partitionname> [--memory=memtype] [--skipwrite] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py es <start_sector> <sectors> [--memory=memtype] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--skipwrite] [--loader=filename] [--skipresponse] [--debugmode] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py ep <partitionname> <sectors> [--memory=memtype] [--skipwrite] [--lun=lun] [--sectorsize==bytes] [--pagesperblock=number] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--devicemodel=value] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py footer <filename> [--memory=memtype] [--lun=lun] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
-    edl.py peek <offset> <length> <filename> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]
-    edl.py peekdword <offset> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py peekqword <offset> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py memtbl <filename> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py poke <offset> <filename> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py pokehex <offset> <data> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py pokedword <offset> <data> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py pokeqword <offset> <data> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py secureboot [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py pbl <filename> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py qfp <filename> [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]
-    edl.py getstorageinfo [--loader=filename] [--memory=memtype] [--pagesperblock=number] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
-    edl.py setbootablestoragedrive <lun> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
-    edl.py getactiveslot [--memory=memtype] [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
-    edl.py setactiveslot <slot> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
-    edl.py send <command> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
-    edl.py xml <xmlfile> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
-    edl.py rawxml <xmlstring> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial]  [--devicemodel=value]
-    edl.py nop [--loader=filename] [--debugmode] [--vid=vid] [--pid=pid] [--skipstorageinit] [--portname=portname] [--serial] [--devicemodel=value]
-    edl.py modules <command> <options> [--memory=memtype] [--lun=lun] [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--devicemodel=value] [--portname=portname] [--serial]
-    edl.py provision <xmlfile> [--loader=filename] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
-    edl.py qfil <rawprogram> <patch> <imagedir> [--loader=filename] [--memory=memtype] [--pagesperblock=number] [--debugmode] [--skipresponse] [--vid=vid] [--pid=pid] [--portname=portname] [--serial]  [--devicemodel=value]
-    rs                          # Read sectors starting at start_sector to filename
-    ws                          # Write filename to flash at start_sector
-    es                          # Erase sectors at start_sector from flash
-    ep                          # Erase sector count from flash partition
-    peek                        # Dump memory at offset with given length to filename
-    peekhex                     # Dump memory at offset and given length
-    peekdword                   # Dump DWORD at memory offset
-    peekqword                   # Dump QWORD at memory offset
-    memtbl                      # Dump memory table to file
-    poke                        # Write filename to memory at offset to memory
-    pokehex                     # Write hex string data at offset to memory
-    pokedword                   # Write DWORD to memory at offset
-    pokeqword                   # Write QWORD to memory at offset
-    memcpy                      # Copy memory from srcoffset with given size to dstoffset
-    setbootablestoragedrive     # Change bootable storage drive to lun number
-    --lun=lun                          Set lun to read/write from (UFS memory only)
-    --sectorsize=bytes                 Set default sector size
-    --memory=memtype                   Set memory type ("NAND", "eMMC", "UFS", "spinor")
-    --partitions=partnames             Skip reading partition with names != "partname1,partname2,etc."
-    --skipwrite                        Do not allow any writes to flash (simulate only)
-    --skipresponse                     Do not expect a response from phone on read/write (some Qualcomms)
-    --skipstorageinit                  Skip storage initialisation
-    --gpt-part-entry-start-lba=number  Set GPT entry start lba sector [default: 0]
-    --skip=partnames                   Skip reading partition with names "partname1,partname2,etc."
-    --genxml                           Generate rawprogram[lun].xml
-=== i koden:
-96:                    np.sector = offset * self.parent.cfg.block_size // self.parent.cfg.SECTOR_SIZE_IN_BYTES
-97:                    np.sectors = (length & 0xFFFF) * self.parent.cfg.block_size // self.parent.cfg.SECTOR_SIZE_IN_BYTES
-104:                self.totalsectors = (self.parent.cfg.block_size // self.parent.cfg.SECTOR_SIZE_IN_BYTES) * \
-123:            offset = partition.sector * self.parent.cfg.SECTOR_SIZE_IN_BYTES
-124:            length = partition.sectors * self.parent.cfg.SECTOR_SIZE_IN_BYTES
-173:        SECTOR_SIZE_IN_BYTES = 0
-386:               f" SECTOR_SIZE_IN_BYTES=\"{self.cfg.SECTOR_SIZE_IN_BYTES}\"" + \
-429:        <patch SECTOR_SIZE_IN_BYTES="512" byte_offset="16" filename="DISK" physical_partition_number="0"
+1795565273630020677
+firehose - [LIB]: [31mERROR 4: Line 2241: STORAGE_READ_FAILURE[0m
+Done |----------|   0.0% Read (Sector 0x0 of 0x20000) 0.00 MB/s               Progress: |----------|   1.6% Read (Sector 0x800 of 0x20000, 01s left) 36.91 MB/sProgress: |----------|   3.1% Read (Sector 0x1000 of 0x20000, 01s left) 31.94 MB/sProgress: |----------|   4.7% Read (Sector 0x1800 of 0x20000, 01s left) 33.71 MB/sProgress: |█---------|   6.2% Read (Sector 0x2000 of 0x20000, 01s left) 32.00 MB/sProgress: |█---------|   7.8% Read (Sector 0x2800 of 0x20000, 01s left) 33.14 MB/sProgress: |█---------|   9.4% Read (Sector 0x3000 of 0x20000, 01s left) 31.85 MB/sProgress: |█---------|  10.9% Read (Sector 0x3800 of 0x20000, 01s left) 33.18 MB/sProgress: |█---------|  12.5% Read (Sector 0x4000 of 0x20000, 01s left) 31.81 MB/sProgress: |█---------|  14.1% Read (Sector 0x4800 of 0x20000, 01s left) 33.62 MB/sProgress: |██--------|  15.6% Read (Sector 0x5000 of 0x20000, 01s left) 33.07 MB/sProgress: |██--------|  17.2% Read (Sector 0x5800 of 0x20000, 01s left) 33.55 MB/sProgress: |██--------|  18.8% Read (Sector 0x6000 of 0x20000, 01s left) 31.50 MB/sProgress: |██--------|  20.3% Read (Sector 0x6800 of 0x20000, 01s left) 33.11 MB/sProgress: |██--------|  21.9% Read (Sector 0x7000 of 0x20000, 01s left) 32.00 MB/sProgress: |██--------|  23.4% Read (Sector 0x7800 of 0x20000, 01s left) 33.68 MB/sProgress: |██--------|  25.0% Read (Sector 0x8000 of 0x20000, 01s left) 32.72 MB/sProgress: |███-------|  26.6% Read (Sector 0x8800 of 0x20000, 01s left) 33.60 MB/sProgress: |███-------|  28.1% Read (Sector 0x9000 of 0x20000, 01s left) 32.27 MB/sProgress: |███-------|  29.7% Read (Sector 0x9800 of 0x20000, 01s left) 33.76 MB/sProgress: |███-------|  31.2% Read (Sector 0xA000 of 0x20000, 01s left) 33.13 MB/sProgress: |███-------|  32.8% Read (Sector 0xA800 of 0x20000, 01s left) 34.01 MB/sProgress: |███-------|  34.4% Read (Sector 0xB000 of 0x20000, 01s left) 33.37 MB/sProgress: |████------|  35.9% Read (Sector 0xB800 of 0x20000, 01s left) 33.92 MB/sProgress: |████------|  37.5% Read (Sector 0xC000 of 0x20000, 01s left) 31.86 MB/sProgress: |████------|  39.1% Read (Sector 0xC800 of 0x20000, 01s left) 32.99 MB/sProgress: |████------|  40.6% Read (Sector 0xD000 of 0x20000, 01s left) 32.19 MB/sProgress: |████------|  42.2% Read (Sector 0xD800 of 0x20000, 01s left) 33.32 MB/sProgress: |████------|  43.8% Read (Sector 0xE000 of 0x20000, 01s left) 32.95 MB/sProgress: |█████-----|  45.3% Read (Sector 0xE800 of 0x20000, 01s left) 33.84 MB/sProgress: |█████-----|  46.9% Read (Sector 0xF000 of 0x20000, 01s left) 32.08 MB/sProgress: |█████-----|  48.4% Read (Sector 0xF800 of 0x20000, 01s left) 33.44 MB/sProgress: |█████-----|  50.0% Read (Sector 0x10000 of 0x20000, ) 29.61 MB/s   Progress: |█████-----|  51.6% Read (Sector 0x10800 of 0x20000, ) 32.76 MB/s   Progress: |█████-----|  53.1% Read (Sector 0x11000 of 0x20000, ) 32.01 MB/s   Progress: |█████-----|  54.7% Read (Sector 0x11800 of 0x20000, ) 33.40 MB/s   Progress: |██████----|  56.2% Read (Sector 0x12000 of 0x20000, ) 33.15 MB/s   Progress: |██████----|  57.8% Read (Sector 0x12800 of 0x20000, ) 33.95 MB/s   Progress: |██████----|  59.4% Read (Sector 0x13000 of 0x20000, ) 33.17 MB/s   Progress: |██████----|  60.9% Read (Sector 0x13800 of 0x20000, ) 33.99 MB/s   Progress: |██████----|  62.5% Read (Sector 0x14000 of 0x20000, ) 32.84 MB/s   Progress: |██████----|  64.1% Read (Sector 0x14800 of 0x20000, ) 33.76 MB/s   Progress: |███████---|  65.6% Read (Sector 0x15000 of 0x20000, ) 31.81 MB/s   Progress: |███████---|  67.2% Read (Sector 0x15800 of 0x20000, ) 32.95 MB/s   Progress: |███████---|  68.8% Read (Sector 0x16000 of 0x20000, ) 31.71 MB/s   Progress: |███████---|  70.3% Read (Sector 0x16800 of 0x20000, ) 33.25 MB/s   Progress: |███████---|  71.9% Read (Sector 0x17000 of 0x20000, ) 32.00 MB/s   Progress: |███████---|  73.4% Read (Sector 0x17800 of 0x20000, ) 33.39 MB/s   Progress: |████████--|  75.0% Read (Sector 0x18000 of 0x20000, ) 32.43 MB/s   Progress: |████████--|  76.6% Read (Sector 0x18800 of 0x20000, ) 33.77 MB/s   Progress: |████████--|  78.1% Read (Sector 0x19000 of 0x20000, ) 32.25 MB/s   Progress: |████████--|  79.7% Read (Sector 0x19800 of 0x20000, ) 33.43 MB/s   Progress: |████████--|  81.2% Read (Sector 0x1A000 of 0x20000, ) 31.33 MB/s   Progress: |████████--|  82.8% Read (Sector 0x1A800 of 0x20000, ) 32.90 MB/s   Progress: |████████--|  84.4% Read (Sector 0x1B000 of 0x20000, ) 32.50 MB/s   Progress: |█████████-|  85.9% Read (Sector 0x1B800 of 0x20000, ) 33.62 MB/s   Progress: |█████████-|  87.5% Read (Sector 0x1C000 of 0x20000, ) 32.15 MB/s   Progress: |█████████-|  89.1% Read (Sector 0x1C800 of 0x20000, ) 33.37 MB/s   Progress: |█████████-|  90.6% Read (Sector 0x1D000 of 0x20000, ) 31.46 MB/s   Progress: |█████████-|  92.2% Read (Sector 0x1D800 of 0x20000, ) 33.09 MB/s   Progress: |█████████-|  93.8% Read (Sector 0x1E000 of 0x20000, ) 30.76 MB/s   Progress: |██████████|  95.3% Read (Sector 0x1E800 of 0x20000, ) 32.77 MB/s   Progress: |██████████|  96.9% Read (Sector 0x1F000 of 0x20000, ) 30.65 MB/s   Progress: |██████████|  98.4% Read (Sector 0x1F800 of 0x20000, ) 32.68 MB/s   Progress: |██████████| 100.0% Read (Sector 0x20000 of 0x20000, ) 30.66 MB/s   
+Dumped sector 17780760 with sector count 131072 as /tmp/ld.bin.
+== text:
+== matchningar:
+0
