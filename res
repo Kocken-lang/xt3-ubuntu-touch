@@ -1,5 +1,3 @@
-1795648745933869183
-2303910504	 fastboot
+1795648853546108066
 
---- flash:
-< waiting for any device >
+Bus 001 Device 045: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
