@@ -1,3 +1,10 @@
-1795574453102458296
-D=
-0
+1795574468396101956
+python3.14
+/home/moon/.local/share/pipx/venvs/edlclient
+/home/moon/.local/share/pipx/venvs/edlclient/lib/python3.14/site-packages/edlclient
+/home/moon/.local/share/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/samsung/a525f_bitc.elf
+/home/moon/.local/share/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/samsung/001920E100200000_4A14C27B518909E1_fhprg.elf
+/home/moon/.local/share/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/prog_ufs_firehose_sm6250_ddr.elf
+/home/moon/.local/share/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf
+/home/moon/.local/share/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf
+/home/moon/.local/share/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders
