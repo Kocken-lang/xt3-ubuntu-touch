@@ -1,21 +1,10 @@
-1795650486738219087
-boot magic: ANDROID!
-kernel_size: 14679524
-kernel load address: 0x00008000
-ramdisk size: 8388670
-ramdisk load address: 0x01000000
-second bootloader size: 0
-second bootloader load address: 0x00000000
-kernel tags load address: 0x00000100
-page size: 4096
-os version: 11.0.0
-os patch level: 2025-08
-boot image header version: 2
-product name: 
-command line args: console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 loop.max_part=7 buildvariant=user
-additional command line args: 
-recovery dtbo size: 0
-recovery dtbo offset: 0x0000000000000000
-boot header size: 1660
-dtb size: 802464
-dtb address: 0x0000000001f00000
+1795650506261932420
+=== header-jamforelse (stock vs AOSP-repack):
+-- /home/moon/xt3/out/fota/partitions/boot.img
+00000000: 414e 4452 4f49 4421 e4fd df00 0080 0000  ANDROID!........
+00000010: 3e00 8000 0000 0001 0000 0000 0000 0000  >...............
+00000020: 0001 0000 0010 0000 0200 0000 9801 0016  ................
+-- /tmp/repack.img
+00000000: 414e 4452 4f49 4421 e4fd df00 0080 0010  ANDROID!........
+00000010: 3e00 8000 0000 0011 0000 0000 0000 0000  >...............
+00000020: 0001 0010 0010 0000 0200 0000 9801 0016  ................
