@@ -1,11 +1,12 @@
-1795647982656961531
-	adrp	x1, early_init_stack
-	adrp	x2, __pi_init_idmap_pg_dir
-	bl	__enable_mmu
+1795648042656390169
+^Iadrp^Ix2, __pi_init_idmap_pg_dir
+^Ibl^I__enable_mmu
+^Ildr^Ix0, =0x84000009
+^Ismc^I#0
 
-	adrp	x1, early_init_stack
-ldrx0, =0x84000009
-	smc#0
-	mov	sp, x1
-	mov	x29, xzr
-	mov	x0, x20				// pass the full boot status
+^Iadrp^Ix1, early_init_stack
+^Imov^Isp, x1
+^Imov^Ix29, xzr
+^Imov^Ix0, x20^I^I^I^I// pass the full boot status
+^Imov^Ix1, x21^I^I^I^I// pass the FDT
+^Ibl^I__pi_early_map_kernel^I^I// Map and relocate the kernel
