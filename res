@@ -7,3 +7,9 @@
 [165772.184893] usb 1-1: Manufacturer: Google
 [165772.184895] usb 1-1: SerialNumber: 2303910504
 [165772.532327] usb 1-1: USB disconnect, device number 8
+[165788.043964] usb 1-1: new high-speed USB device number 9 using xhci_hcd
+[165788.167523] usb 1-1: New USB device found, idVendor=18d1, idProduct=d00d, bcdDevice= 1.00
+[165788.167538] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[165788.167543] usb 1-1: Product: Android
+[165788.167547] usb 1-1: Manufacturer: Google
+[165788.167550] usb 1-1: SerialNumber: 2303910504
