@@ -1,11 +1,25 @@
-1795637792760343286
-make[1]: Entering directory '/home/moon/xt3/out/kbuild'
-  CC      drivers/gpu/drm/panel/panel-jadard-jd9365da-h3.o
-  MODPOST Module.symvers
-ERROR: modpost: missing MODULE_LICENSE() in drivers/gpu/drm/panel/panel-jadard-jd9365da-h3.o
-WARNING: modpost: missing MODULE_DESCRIPTION() in drivers/gpu/drm/panel/panel-jadard-jd9365da-h3.o
-make[3]: *** [/home/moon/xt3/out/src/linux/scripts/Makefile.modpost:147: Module.symvers] Error 1
-make[2]: *** [/home/moon/xt3/out/src/linux/Makefile:2167: single_modules] Error 2
-make[1]: *** [/home/moon/xt3/out/src/linux/Makefile:248: __sub-make] Error 2
-make[1]: Leaving directory '/home/moon/xt3/out/kbuild'
-make: *** [Makefile:248: __sub-make] Error 2
+1795637813277605754
+panel_jadard_jd9365da_h3.license=GPL
+using_gplonly_symbols
+---
+     1			.compatible = "waveshare,10.1-dsi-touch-b",
+     2			.data = &waveshare_10_1_inch_b_desc
+     3		},
+     4		{ /* sentinel */ }
+     5	};
+     6	MODULE_DEVICE_TABLE(of, jadard_of_match);
+     7	
+     8	static struct mipi_dsi_driver jadard_driver = {
+     9		.probe = jadard_dsi_probe,
+    10		.remove = jadard_dsi_remove,
+    11		.driver = {
+    12			.name = "jadard-jd9365da",
+    13			.of_match_table = jadard_of_match,
+    14		},
+    15	};
+    16	module_mipi_dsi_driver(jadard_driver);
+    17	
+    18	MODULE_AUTHOR("Jagan Teki <jagan@edgeble.ai>");
+    19	MODULE_AUTHOR("Stephen Chen <stephen@radxa.com>");
+    20	MODULE_DESCRIPTION("Jadard JD9365DA-H3 WXGA DSI panel");
+    21	MODULE_LICENSE("GPL");
