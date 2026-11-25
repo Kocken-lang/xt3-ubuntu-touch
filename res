@@ -1,8 +1,9 @@
-1795644206847608476
-CONFIG_KALLSYMS=y
-CONFIG_KALLSYMS_ALL=y
-CONFIG_KALLSYMS_BASE_RELATIVE=y
-# CONFIG_KEXEC is not set
-# CONFIG_DEVMEM is not set
-# CONFIG_PSTORE is not set
-CONFIG_ARCH_HAS_DEVMEM_IS_ALLOWED=y
+1795644287217595835
+=== lsusb:
+Bus 001 Device 002: ID 5986:211b Bison Electronics Inc. HD Webcam
+Bus 001 Device 003: ID 8087:0033 Intel Corp. AX211 Bluetooth
+Bus 001 Device 046: ID 258a:0036 SINOWEALTH Wired Gaming Mouse
+=== adb:
+List of devices attached
+
+=== fastboot:
