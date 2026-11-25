@@ -1,6 +1,2 @@
-1795642698046940816
-skrev /tmp/boot-testA.img 15683584 byte
-2
-0
-error: no devices/emulators found
-XT3MARK-traff: 0
+1795642982550723331
+List of devices attached
