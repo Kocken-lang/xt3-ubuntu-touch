@@ -1,10 +1,9 @@
-1795585957313449026
-=== edl --memory=emmc --sectorsize=512
-Qualcomm Sahara / Firehose Client V3.62 (c) B.Kerler 2018-2025.
-main - Using loader /home/moon/.local/share/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf ...
-=== edl --memory=ufs
-Qualcomm Sahara / Firehose Client V3.62 (c) B.Kerler 2018-2025.
-main - Using loader /home/moon/.local/share/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf ...
-=== edl 
-Qualcomm Sahara / Firehose Client V3.62 (c) B.Kerler 2018-2025.
-main - Using loader /home/moon/.local/share/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf ...
+1795593564305625789
+2303910504	 fastboot
+=== fastboot -w:
+Erasing 'userdata'                                 OKAY [  0.524s]
+mke2fs 1.47.2 (1-Jan-2025)
+/tmp/TemporaryFile-p2Oioe: Unimplemented ext2 library function while setting up superblock
+/usr/lib/android-sdk/platform-tools/mke2fs failed with status 1
+fastboot: error: Cannot generate image for userdata
+List of devices attached
