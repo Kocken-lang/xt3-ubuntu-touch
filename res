@@ -1,3 +1,5 @@
-1795567202601839013
+1795567281066991278
+BYGGT
 Klart -> /home/moon/xt3/out/boot.img
-RESULTAT: INGEN UDC (dwc3/PHY probar inte)
+Finished. Total time: 4.084s
+STARTAT
