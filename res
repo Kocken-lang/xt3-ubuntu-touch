@@ -1,5 +1,3 @@
-1795567123444842167
-822
+1795567202601839013
 Klart -> /home/moon/xt3/out/boot.img
-Finished. Total time: 4.112s
-PORT=INGEN
+RESULTAT: INGEN UDC (dwc3/PHY probar inte)
