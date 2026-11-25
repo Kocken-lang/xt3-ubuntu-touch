@@ -1,6 +1,7 @@
 1795618134540446638
 --- fastboot boot STOCK:
-Sending 'boot.img' (65536 KB)                      OKAY [  1.624s]
+< waiting for any device >
+Sending 'boot.img' (65536 KB)                      OKAY [  1.616s]
 Booting                                            FAILED (remote: 'Failed to load/authenticate boot image: Load Error')
 fastboot: error: Command failed
 --- dmesg:
