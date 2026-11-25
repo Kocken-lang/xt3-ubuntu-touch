@@ -1,7 +1,5 @@
-1795641107856261062
-Sending 'vbmeta_a' (8 KB)                          OKAY [  0.012s]
-Writing 'vbmeta_a'                                 OKAY [  0.001s]
-Finished. Total time: 0.018s
-Setting current slot to 'a'                        OKAY [  0.000s]
-Finished. Total time: 0.001s
-current-slot: a
+1795641122965009828
+Sending 'boot.img' (19292 KB)                      OKAY [  0.471s]
+Booting                                            OKAY [ 10.150s]
+Finished. Total time: 10.635s
+fastboot igen efter 1s
