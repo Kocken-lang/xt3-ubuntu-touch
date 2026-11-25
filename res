@@ -1,23 +1,18 @@
-1795647177301338864
-18436
-=== memory:
-		rpm-memory@0x778000 {
-			reg = <0x778000 0x5000>;
-			compatible = "qcom,rpm-code-ram";
-			phandle = <0x14c>;
---
-		memory@0x778000 {
-=== intc/gic:
-
-		interrupt-controller@17a00000 {
-			reg = <0x17a00000 0x10000 0x17b00000 0x100000>;
-			#size-cells = <0x01>;
-			compatible = "arm,gic-v3";
-			redistributor-stride = <0x00 0x20000>;
---
-		tpda_olc_out_funnel_apss_merg = "/soc/tpda@7b92000/ports/port@0/endpoint";
-		intc = "/soc/interrupt-controller@17a00000";
-		pm660l_l8 = "/soc/qcom,rpm-smd/rpm-regulator-ldob8/regulator-l8";
-		cpe = "/soc/qcom,msm-cpe-lsm";
-		gpio_sw_suspend = "/soc/pinctrl@03000000/tlmm_gpio_key/gpio_sw_suspend";
-=== usb3:
+1795647194349892163
+=== top-level memory:
+	memory {
+		reg = <0x00 0x80000000 0x00 0x80000000 0x01 0x00 0x00 0x7e400000>;
+		device_type = "memory";
+	};
+=== usb-noder:
+632:		ssusb@a800000 {
+8133:		qusb@c012000 {
+14998:		qusb@c014000 {
+16829:		hsusb@c200000 {
+17166:		usb2s = "/soc/hsusb@c200000";
+17385:		usb3 = "/soc/ssusb@a800000";
+17517:		qusb_phy1 = "/soc/qusb@c014000";
+17573:		qusb_phy0 = "/soc/qusb@c012000";
+=== soc ranges:
+		compatible = "simple-bus";
+		ranges = <0x00 0x00 0x00 0xffffffff>;
