@@ -1,8 +1,5 @@
-1795565826487527282
-    64 MB av 64 MB
+1795565847393319687
 Klart -> /home/moon/xt3/out/boot.img
-2303910504	 fastboot
-
-Finished. Total time: 4.174s
+Finished. Total time: 4.124s
 FASTBOOT-ATER-EFTER 21s
-slut: 18d1:d00d
+18d1:d00d
