@@ -1,19 +1,17 @@
-1795637208662069813
-24959 panel/panel-jadard-jd9365da-h3.c
-585 pm90/point-mobile-pm90.json
-11511 pm90/sda660-inforce-ifc6560.dts
-=== panel-driver:
-31:	const struct drm_display_mode mode;
-144:	const struct drm_display_mode *desc_mode = &jadard->desc->mode;
-145:	struct drm_display_mode *mode;
-892:		.compatible = "chongzhou,cz101b4001",
-896:		.compatible = "radxa,display-10hd-ad001",
-900:		.compatible = "radxa,display-8hd-ad002",
-904:		.compatible = "BNS,BNS080B40HD9650113A", // csvke
-909:MODULE_DEVICE_TABLE(of, jadard_of_match);
-=== ifc6560-dts:
-16:	model = "Inforce 6560 Single Board Computer";
-17:	compatible = "inforce,ifc6560", "qcom,sda660";
-30:		compatible = "gpio-keys";
-45:		compatible = "linux,extcon-usb-gpio";
-50:		compatible = "hdmi-connector";
+1795637237388988672
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	0
+	67108864
+	edl_config.json
+	log.txt
+	logs/
+	scripts/25-live-log.sh
+
+nothing added to commit but untracked files present (use "git add" to track)
+931a263 third_party: emkit, jd9365da-panel, PM90-katalog, SDA660-referens + kallstrategi
+108K	third_party
