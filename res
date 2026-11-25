@@ -1,8 +1,6 @@
-1795646361120580762
-2
-=== product:
-< waiting for any device >
-=== oem log (lk2nd-test):
-< waiting for any device >
+1795646419801104972
+fastboot-enhet efter 1s
+product: XT3
 FAILED (remote: 'unknown command')
 fastboot: error: Command failed
+--- lsusb: 18d1:d00d
