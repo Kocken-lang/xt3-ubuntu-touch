@@ -1,4 +1,6 @@
-1795569097783220935
-Writing 'boot_a'                                   OKAY [  0.008s]
-Writing 'boot_b'                                   OKAY [  0.006s]
-Bus 001 Device 125: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
+1795569143109333739
+Writing 'boot_a'                                   OKAY [  0.445s]
+Writing 'boot_b'                                   OKAY [  0.445s]
+Writing 'vbmeta_a'                                 OKAY [  0.001s]
+Writing 'vbmeta_b'                                 OKAY [  0.001s]
+KLART
