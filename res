@@ -1,27 +1,3 @@
-1795647347841650859
-		venus_fw_region {
-		splash_region@9d400000 {
-			reg = <0x00 0x9d400000 0x00 0x2300000>;
-		secure_region {
-		adsp_region {
-		qseecom_region {
-		mem_dump_region {
-			reg = <0x00 0x86000000 0x00 0x200000>;
-		modem_fw_region@8ac00000 {
-			reg = <0x00 0x8ac00000 0x00 0x7e00000>;
-		removed_regions@86200000 {
-			reg = <0x00 0x86200000 0x00 0x2d00000>;
-		cdsp_fw_region@94a00000 {
-			reg = <0x00 0x94a00000 0x00 0x600000>;
-		adsp_fw_region@92a00000 {
-			reg = <0x00 0x92a00000 0x00 0x1e00000>;
-		wlan_msa_guard@85600000 {
-			reg = <0x00 0x85600000 0x00 0x100000>;
-		pil_mba_region@94800000 {
-			reg = <0x00 0x94800000 0x00 0x200000>;
-		removed_regions@85800000 {
-			reg = <0x00 0x85800000 0x00 0x800000>;
-		dfps_data_mem@0x9f700000 {
-			reg = <0x00 0x9f700000 0x00 0x100000>;
-		wlan_msa_mem@85700000 {
-			reg = <0x00 0x85700000 0x00 0x100000>;
+1795647376854858690
+26:#include <linux/delay.h>
+994:	setup_arch(&command_line);
