@@ -1,13 +1,14 @@
-1795635576651355941
-/dev/nvme0n1p2  915G  866G  3.2G 100% /
-Filesystem      Size  Used Avail Use% Mounted on
-tmpfs            16G  457M   15G   3% /tmp
-=== /tmp storlek:
-456M	/tmp
-=== storsta kvar:
-64M	/tmp/rb_boot_a.bin
-64M	/tmp/ld.bin
-64M	/tmp/boot-signed.img
-29M	/tmp/b916
-23M	/tmp/bx
-22M	/tmp/boot-testA.img
+1795635596378178001
+19G	/home/moon/xt3/out/release
+5.4G	/home/moon/xt3/out/kbuild
+4.2G	/home/moon/xt3/out/fota
+2.7G	/home/moon/xt3/out/src
+2.6G	/home/moon/xt3/out/rootfs.img
+1.7G	/home/moon/xt3/out/rootfs-build
+=== rotens storsta:
+302G	/home/moon/openhands-toolbox
+109G	/home/moon/moonos-release-test
+82G	/home/moon/applehddkopy
+52G	/home/moon/xt3
+48G	/home/moon/industrial-builder-backups
+40G	/home/moon/janam_fota
