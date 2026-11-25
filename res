@@ -1,3 +1,4 @@
-1795645772597510444
-=== DevAndroidPointMobile repos:
-{'message': 'Bad credentials', 'documentation_url': 'https://docs.github.com/rest', 'status': '401'}
+1795645789306229566
+GITHUB_TOKEN: tomt
+=== utan auth (publik org):
+{'message': 'Not Found', 'documentation_url': 'https://docs.github.com/rest/repos/repos#list-organization-repositories',
