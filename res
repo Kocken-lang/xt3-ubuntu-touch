@@ -1,25 +1,27 @@
-1795635639175265762
-USB_CONFIGFS_F_FS        CONFIG_USB_CONFIGFS_F_FS=y
-
-USB_G_SERIAL             
-USB_CONFIGFS_SERIAL      USB_CONFIGFS_SERIAL=n
-
-USB_FUNCTIONFS           
-KGDB                     KGDB=n
-
-KGDB_SERIAL_CONSOLE      
-PSTORE                   PSTORE=n
-
-PSTORE_RAM               
-PSTORE_CONSOLE           
-NETCONSOLE               NETCONSOLE=n
-
-NETCONSOLE_DYNAMIC       
-MAGIC_SYSRQ              CONFIG_MAGIC_SYSRQ=y
-
-FTRACE                   CONFIG_FTRACE=y
-
-DYNAMIC_DEBUG            DYNAMIC_DEBUG=n
-
-RAMOOPS                  
-CONFIG_USB_CONFIGFS_ACM  
+1795635664444797436
+total 23316
+drwxrwxr-x  2 moon moon      100 Nov 25 19:43 .
+drwxrwxrwt 45 root root     3140 Nov 25 20:41 ..
+-rw-rw-r--  1 moon moon   802464 Nov 25 19:43 dtb
+-rw-rw-r--  1 moon moon 14679524 Nov 25 19:43 kernel
+-rw-rw-r--  1 moon moon  8388670 Nov 25 19:43 ramdisk
+--- topp:
+acct
+apex
+bin
+bugreports
+config
+d
+data
+data_mirror
+debug_ramdisk
+default.prop
+dev
+enterprise
+--- adbd/init/toybox:
+./system/etc/init
+./system/bin/toybox
+./system/bin/sh
+./system/bin/init
+./system/bin/adbd
+./init
