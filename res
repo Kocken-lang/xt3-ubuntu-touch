@@ -1,5 +1,9 @@
-1795645631370754335
-329744
-2
-USB uppe efter 17s: 18d1:d00d
-Bus 001 Device 026: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
+1795645691912441586
+product: XT3
+Finished. Total time: 0.001s
+getvar:version                                     FAILED (remote: 'GetVar Variable Not found')
+Finished. Total time: 0.001s
+version-bootloader: 
+Finished. Total time: 0.000s
+serialno: 2303910504
+Finished. Total time: 0.001s
