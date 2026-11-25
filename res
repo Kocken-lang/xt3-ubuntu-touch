@@ -1,9 +1,28 @@
-1795633089147869902
-mount: /mnt/xt3v: /home/moon/xt3/out/fota/partitions/vendor.img is already mounted.
-mount: /mnt/xt3s: /home/moon/xt3/out/fota/partitions/system.img is already mounted.
-=== vendor/modules:
-modules.alias
-modules.dep
-modules.load
-modules.softdep
-=== system/app (Janam):
+1795633168650167916
+=== system rot:
+acct
+apex
+bin
+bugreports
+cache
+config
+d
+data
+data_mirror
+debug_ramdisk
+default.prop
+dev
+=== vendor rot:
+app
+bin
+bt_firmware
+build.prop
+default.prop
+dsp
+etc
+firmware
+firmware_mnt
+lib
+lib64
+libnfc-nxp_RF.conf
+=== vendor modules katalog:
