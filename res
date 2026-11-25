@@ -1,24 +1,51 @@
-1795645461256108814
-=== makefile targets:
-2:spotless:
-19:make-make:
-36:LK_TOP_DIR:= .
-90:all:: $(OUTBIN) $(OUTELF).lst $(OUTELF).debug.lst $(OUTELF).sym $(OUTELF).size $(OUTELF_STRIP) APPSBOOTHEADER
-211:all:: $(EXTRA_BUILDDEPS)
-230:MEMRWOFF:= .
-268:clean: $(EXTRA_CLEANDEPS)
-271:install: all
-275:configheader:
-306:.PHONY: configheader
-=== project-lista:
-aboot-surf7k.mk aboot-surf8k.mk apq8064.mk apq8084.mk armemu-test.mk beagle-test.mk fsm9010.mk fsm9900.mk lk1st-apq8084.mk lk1st-mdm9607.mk lk1st-mdm9640.mk lk1st-msm8226.mk lk1st-msm8610.mk lk1st-msm8660.mk lk1st-msm8909.mk lk1st-msm8916.mk lk1st-msm8952.mk lk1st-msm8953.mk lk1st-msm8960.mk lk1st-msm8974.mk lk1st-msm8994.mk lk1st-msm8996.mk lk2nd-apq8084.mk lk2nd-mdm9607.mk lk2nd-mdm9640.mk lk2nd-msm8226.mk lk2nd-msm8610.mk lk2nd-msm8660.mk lk2nd-msm8909.mk lk2nd-msm8916.mk lk2nd-msm8952.mk lk2nd-msm8953.mk lk2nd-msm8960.mk lk2nd-msm8974.mk lk2nd-msm8994.mk lk2nd-msm8996.mk mdm9607.mk mdm9615.mk mdm9615_nandwrite.mk mdm9625.mk mdm9635.mk mdm9640.mk msm7627_6x.mk msm7627_6x_nandwrite.mk msm7627_surf.mk msm7627_surf_nandwrite.mk msm7627a.mk msm7627a_nandwrite.mk msm7630_fusion.mk msm7630_fusion_nandwrite.mk msm7630_surf.mk msm7630_surf_nandwrite.mk msm8226.mk msm8610.mk msm8660.mk msm8660_surf.mk msm8909.mk msm8916.mk msm8952.mk msm8953.mk msm8960.mk msm8974.mk msm8994.mk msm8996.mk osk5912-test.mk pc-x86-test.mk qemu-arm-test.mk qsd8250_ffa.mk qsd8250_ffa_nandwrite.mk qsd8250_surf.mk qsd8250_surf_nandwrite.mk qsd8650a_st1x.mk qsd8650a_st1x_nandwrite.mk sam7ex256-test.mk surf-test.mk 
-=== filer i target/msm8953:
-include
-init.c
-mdtp_defs.c
-meminfo.c
-oem_panel.c
-regulator.c
-rules.mk
-target_display.c
-tools
+1795645477607438888
+=== project/lk2nd-msm8953.mk:
+# SPDX-License-Identifier: BSD-3-Clause
+TARGET := msm8953
+include lk2nd/project/lk2nd.mk
+=== target/msm8953/init.c (forsta 45):
+/* Copyright (c) 2015-2018, The Linux Foundation. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above
+ *       copyright notice, this list of conditions and the following
+ *       disclaimer in the documentation and/or other materials provided
+ *       with the distribution.
+ *     * Neither the name of The Linux Foundation nor the names of its
+ *       contributors may be used to endorse or promote products derived
+ *       from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+ * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#include <debug.h>
+#include <platform/iomap.h>
+#include <reg.h>
+#include <target.h>
+#include <platform.h>
+#include <uart_dm.h>
+#include <mmc.h>
+#include <platform/gpio.h>
+#include <dev/keys.h>
+#include <spmi_v2.h>
+#include <pm8x41.h>
+#include <pm8x41_hw.h>
+#include <board.h>
+#include <baseband.h>
+#include <hsusb.h>
+#include <scm.h>
+#include <platform/irqs.h>
