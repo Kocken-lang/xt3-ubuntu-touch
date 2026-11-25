@@ -1,6 +1,11 @@
-1795567895596199954
-	qcom,msm-id = <0x144 0x00>;
-	qcom,pmic-id = <0x1001b 0x101011a 0x00 0x00 0x1001b 0x201011a 0x00 0x00 0x1001b 0x102001a 0x00 0x00>;
-=== var dtb:
-	qcom,msm-id = <0x144 0x00>;
-	qcom,pmic-id = <0x1001b 0x101011a 0x00 0x00 0x1001b 0x201011a 0x00 0x00 0x1001b 0x102001a 0x00 0x00>;
+1795567920490962819
+-- vbmeta_a
+Rewriting vbmeta struct at offset: 0
+Writing 'vbmeta_a'                                 OKAY [  0.001s]
+-- vbmeta_b
+Rewriting vbmeta struct at offset: 0
+Writing 'vbmeta_b'                                 OKAY [  0.001s]
+-- boot (poweroff-test):
+Writing 'boot_a'                                   OKAY [  0.450s]
+Writing 'boot_b'                                   OKAY [  0.449s]
+UTFALL: NEKAD (tillbaka i fastboot)
