@@ -1,24 +1,12 @@
-1795637110141623134
-=== emkit-katalog i fairphone-karnan:
-Bad credentials
-=== module_names.txt:
-COUNT = 27
-
-CPU
-    APQ8016
-    MSM8916
-    MSM8909
-    APQ8009
-    APQ8053
-    MSM8953
-    SDM450
-    SDA450
-    SDM660
-    SDA660
-    SM4250
-
-KEYBOARD
-    NUMERIC_PM40
-    QWERTY_PM40
-    NUMERIC_PM60
-    QWERTY_PM60
+1795637134805803461
+=== include/emkit
+  emkit.h 1014
+  emkit_info.h 3663
+  mandata.h 17404
+  module_names.txt 3402
+=== drivers/emkit
+  Kconfig 267
+  Makefile 41
+  emkit_info.c 8101
+=== drivers/misc/emkit
+  Not Found
