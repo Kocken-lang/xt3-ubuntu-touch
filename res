@@ -1,3 +1,5 @@
-1795648467731254208
-< waiting for any device >
-< waiting for any device >
+1795648600449331295
+adb: [ ]
+fastboot: [2303910504	 fastboot  ]
+2
+30056960 26 00:09
