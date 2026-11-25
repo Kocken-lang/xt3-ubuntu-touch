@@ -1,3 +1,5 @@
-1795641386494758505
-/tmp/iri/bin/busybox: ELF 64-bit LSB pie executable, ARM aarch64, vers
-194277
+1795641403175282656
+skrev /tmp/boot-bringup.img 12292096 byte
+Writing 'boot_a'                                   OKAY [  0.099s]
+Finished. Total time: 0.406s
+ingen ttyACM
