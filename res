@@ -1,12 +1,22 @@
-1795631634302153834
-/home/moon/.local/bin/edl
-edlclient
-edlclient-3.62.dist-info
-Config
-Library
-Tools
-Windows
-__init__.py
-__pycache__
-edl.py
-/home/moon/edl-venv/lib/python3.14/site-packages/edlclient/edl.py
+1795631650100198755
+fastboot: error: Command failed
+--- usb:
+--- tty:
+--- printgpt:
+Capstone library is missing (optional).
+Keystone library is missing (optional).
+Qualcomm Sahara / Firehose Client V3.62 (c) B.Kerler 2018-2025.
+main - Trying with no loader given ...
+main - Waiting for the device
+......
+main - Hint:   Press and hold vol up+dwn, connect usb. For some, only use vol up.
+main - Xiaomi: Press and hold vol dwn + pwr, in fastboot mode connect usb.
+        Run "./fastpwn oem edl".
+main - Other:  Run "adb reboot edl".
+
+...............
+..............
+..............
+..............
+..............
+............
