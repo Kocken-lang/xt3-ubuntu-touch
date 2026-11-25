@@ -1,18 +1,18 @@
-1795647194349892163
-=== top-level memory:
-	memory {
-		reg = <0x00 0x80000000 0x00 0x80000000 0x01 0x00 0x00 0x7e400000>;
-		device_type = "memory";
-	};
-=== usb-noder:
-632:		ssusb@a800000 {
-8133:		qusb@c012000 {
-14998:		qusb@c014000 {
-16829:		hsusb@c200000 {
-17166:		usb2s = "/soc/hsusb@c200000";
-17385:		usb3 = "/soc/ssusb@a800000";
-17517:		qusb_phy1 = "/soc/qusb@c014000";
-17573:		qusb_phy0 = "/soc/qusb@c012000";
-=== soc ranges:
-		compatible = "simple-bus";
-		ranges = <0x00 0x00 0x00 0xffffffff>;
+1795647224630938668
+585K
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	0
+	67108864
+	edl_config.json
+	inventory-data/stock-live/devicetree-base/
+	log.txt
+	logs/
+	scripts/25-live-log.sh
+
+nothing added to commit but untracked files present (use "git add" to track)
+208fe69 91.57: stock-config + levande devicetree (DTS) for jamforelse
