@@ -1,5 +1,10 @@
-1795618838862924867
-Writing 'boot_a'                                   OKAY [  0.008s]
+1795619030499427548
+--- vbmeta med verifiering av:
+Sending 'vbmeta_a' (8 KB)                          OKAY [  0.006s]
+Writing 'vbmeta_a'                                 OKAY [  0.001s]
+Finished. Total time: 0.014s
+Writing 'vbmeta_b'                                 OKAY [  0.001s]
+Finished. Total time: 0.010s
+--- var bild:
+Writing 'boot_a'                                   OKAY [  0.007s]
 Writing 'boot_b'                                   OKAY [  0.005s]
-Finished. Total time: 0.050s
---- vantar 90s och matar fran fastboot:
