@@ -1,11 +1,11 @@
 1795626367227806579
 --- senaste 6 rader i bevakningen:
-18:05:44 usb=0 adb=0 fb=0
-18:05:46 usb=0 adb=0 fb=0
 18:05:54 usb=0 adb=0 fb=0
 18:05:56 usb=0 adb=0 fb=0
 18:06:04 usb=0 adb=0 fb=0
 18:06:06 usb=0 adb=0 fb=0
+18:06:14 usb=0 adb=0 fb=0
+18:06:16 usb=0 adb=0 fb=0
 --- unika lagen:
 usb=0 adb=0 fb=0
 --- usb nu:
