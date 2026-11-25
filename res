@@ -1,6 +1,23 @@
-1795634634915989661
-FAILED (remote: 'Selecting Panel: : failed')
-fastboot: error: Command failed
----
-FAILED (remote: 'Selecting Panel: : failed')
-fastboot: error: Command failed
+1795634651180861614
+"Dual SHARP video mode dsi panel"
+"Dual nt35597 cmd mode dsi panel without DSC"
+"Dual nt35597 cmd mode dsi truly panel without DSC"
+"Dual nt35597 video mode dsi truly panel without DSC"
+"Dual nt35597 video mode dsi\n   panel without DSC"
+"Dual nt36850 cmd mode dsi truly panel without DSC"
+"Sim dual video mode dsi panel"
+"Simulator video mode dsi panel"
+"hx8399c video mode dsi truly panel"
+"ili9881d 720p video mode dsi panel evt"
+"ili9881d 720p video mode dsi panel"
+"jd9365da 720p video mode dsi panel"
+"jd9365da_s 720p video mode dsi panel"
+"lgd incell sw49106 fhd video"
+"nt35521sh 720p video mode dsi panel"
+"nt35597 cmd mode dsi truly panel with DSC"
+"nt35597 video mode dsi truly panel with DSC"
+"nt35695b truly fhd command mode dsi panel"
+"nt35695b truly fhd video mode dsi panel"
+"rm67195 amoled fhd cmd mode dsi panel"
+"truly 1080p cmd mode dsi panel"
+"truly 1080p video mode dsi panel"
