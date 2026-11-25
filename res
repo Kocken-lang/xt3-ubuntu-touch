@@ -1,9 +1,12 @@
-1795570273920772301
-abl        208896 B  strangar=1810  1 
-xbl       2568192 B  strangar=21145  12 
-devcfg      53248 B  strangar=637  39 
-hyp        282624 B  strangar=1045  3 
-pmic        40960 B  strangar=101  1 
-=== LinuxLoader- strangar:
-DefaultBDSBootApp = "LinuxLoader"
-Load Error
+1795570292843547469
+=== last/verifiering:
+496:elf_segs_hash_verify_entry, Start
+497:elf_segs_hash_verify_exit, Start
+500:xbl_sec_segs_hash_verify_entry, Start
+501:xbl_sec_segs_hash_verify_exit, Start
+3009:Load Error
+3917:aVBF
+=== oem-kommandon:
+544:OEM ID
+546:OEM Config Row 0
+547:OEM Config Row 1
