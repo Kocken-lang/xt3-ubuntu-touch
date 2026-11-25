@@ -1,6 +1,8 @@
-1795571748777020513
--rw-rw-r-- 1 moon moon   16777216 Nov 25 02:55 /tmp/md.img
--rw-rw-r-- 1 moon moon 2147483648 Nov 25 02:55 /tmp/ud2.img
-fastboot: error: Command failed
-Finished. Total time: 0.309s
+1795572071786209583
+=== usb:
+Bus 001 Device 015: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
+=== fastboot:
+2303910504	 fastboot
+
+=== adb:
 List of devices attached
