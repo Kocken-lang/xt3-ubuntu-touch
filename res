@@ -1,6 +1,9 @@
-1795640808575753695
-/sys/bus/usb/drivers/usb/unbind: No such device (os error 19)
-/sys/bus/usb/drivers/usb/bind: Device or resource busy (os error 16)
+1795640956221240683
 Bus 001 Device 099: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
-< waiting for any device >
+--- fastboot devices:
+2303910504	 fastboot
+
+--- getvar:
+getvar:product                                     FAILED (Status read failed (No such device))
+Finished. Total time: 6.179s
 exit=0
