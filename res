@@ -1,12 +1,9 @@
-1795634369820438201
-00 -> 42606 byte
-01 -> 40357 byte
-02 -> 41618 byte
-04 -> 42606 byte
-05 -> 43074 byte
-08 -> 39702 byte
-=== verifiera en:
-      dt_entry_count = 1
-             dt_size = 42542
-                  id = 00000000
-                 rev = 00000000
+1795634390616640034
+Writing 'dtbo_a'                                   OKAY [  0.003s]
+Finished. Total time: 0.017s
+Finished. Total time: 0.004s
+Finished. Total time: 0.050s
+=== USB efter 30 s:
+ingen enhet
+=== adb:
+List of devices attached
