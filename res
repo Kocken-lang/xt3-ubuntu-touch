@@ -1,3 +1,4 @@
-1795644659666068567
-skrev /tmp/boot-2.1.img 15683584 byte
-0
+1795644804902517611
+=== ramoops/pstore i overlays:
+(ingen traff)
+=== alla memory-regioner i overlay 00:
