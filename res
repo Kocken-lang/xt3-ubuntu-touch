@@ -1,6 +1,6 @@
-1795646816536910122
-skrev /tmp/lk2nd-hdr.img 307200 byte
-=== ny header:
-00000000: 414e 4452 4f49 4421 6497 0400 0080 0000  ANDROID!d.......
-00000010: 0000 0000 0000 0001 0000 0000 0000 0000  ................
-00000020: 0001 0000 0010 0000 0200 0000 08c8 0016  ................
+1795646837167647068
+2
+enhet efter 10s
+product: XT3
+FAILED (remote: 'unknown command')
+fastboot: error: Command failed
