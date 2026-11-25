@@ -1,8 +1,5 @@
-1795574810219900715
-000660e100000000_986c77a37680ea98_fhprg_peek.bin
-000660e100000000_ddb33f2a320b3536_fhprg_peek.bin
-000660e160008000_b9eca30dfea46934_fhprg_peek.bin
-000a50e100290025_7e5acfff90370967_fhprg_zs660kl.bin
-jasmine_prog_emmc_firehose_Sdm660_ddr.elf
-jasmine_prog_emmc_firehose_Sdm660_lite.elf
-Bus 001 Device 018: ID 05c6:9008 Qualcomm, Inc. Gobi Wireless Modem (QDL mode)
+1795574824887341876
+Qualcomm Sahara / Firehose Client V3.62 (c) B.Kerler 2018-2025.
+main - Using loader /home/moon/.local/share/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf ...
+main - Waiting for the device
+main - Device detected :)
