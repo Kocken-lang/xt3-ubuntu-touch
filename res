@@ -1,9 +1,12 @@
-1795633312808101306
-=== .so som innehaller /sys/emkit:
-/mnt/xt3s/system/lib64/libjni_barcode.so
-/mnt/xt3s/system/lib64/libjni_mdbtools.so
-/mnt/xt3v/lib64/libacdbloader.so
-/mnt/xt3v/lib64/nfc_nci_nxp.so
-/mnt/xt3v/lib64/sensors.ssc.so
-=== .so med /dev/ttyHS2:
-=== .so med SAM_SELECT:
+1795633331070435746
+142K
+=== emkit-sysfs + enheter:
+/sys/emkit/ctrl/camlock
+/sys/emkit/info/scanner
+/sys/emkit/mdb/partx
+/sys/n5600/model
+=== protokoll/kommandon:
+ScanResultCallback
+aimerXoffset
+aimerYoffset
+scanner
