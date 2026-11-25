@@ -1,3 +1,4 @@
-1795595854235993374
+1795596052893296051
+Rebooting into bootloader                          2303910504	 fastboot
+
 rc=124
---- logg (0 rader):
