@@ -1,3 +1,6 @@
-1795637237388988672
-931a263 third_party: emkit, jd9365da-panel, PM90-katalog, SDA660-referens + kallstrategi
-108K	third_party
+1795637259296577448
+=== /tmp/b57.dts
+6
+=== inventory-data/91.57/dtbo/dtb/04-id0-rev0.dts
+2
+=== jd9365da-nod (ur boot-dtb):
