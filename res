@@ -1,10 +1,16 @@
-1795620172837047268
---- fastboot-pids:
-2921010 fastboot erase metadata
---- phaseA:
-2915247 sudo /tmp/phaseA.sh
-2915252 /bin/bash /tmp/phaseA.sh
-2922174 timeout 1800 bash -c echo "--- fastboot-pids:"; pgrep -ax fastboot; echo "--- phaseA:"; pgrep -af phaseA | head -3; echo "--- alla som anvander usb:"; sudo lsof /dev/bus/usb/001/* 2>/dev/null | grep -E "fastboot|COMMAND" | head -5
---- alla som anvander usb:
-COMMAND      PID USER FD   TYPE DEVICE SIZE/OFF NODE NAME
-fastboot 2921010 root 4u   CHR 189,44     0t50 2876 /dev/bus/usb/001/045
+1795620190489739615
+[16:19:36] === dtbo (8388608 byte)
+
+[16:21:42] === boot (67108864 byte)
+
+[16:21:44] === vbmeta (8192 byte)
+
+[16:22:16] === dsp (16777216 byte)
+
+[16:22:17] === bluetooth (765952 byte)
+
+[16:22:18] === vendor (838860800 byte)
+
+[16:22:19] === system (3221225472 byte)
+
+[16:22:20] === wipe
