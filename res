@@ -1,20 +1,2 @@
-1795619813004354230
-=== partitionens storlek vs image:
-abl_a /dev/block/by-name/abl_b /dev/block/by-name/apdp /dev/block/by-name/bluetooth_a /dev/block/by-name/bluetooth_b /dev/block/by-name/boot_a /dev/block/by-name/boot_b /dev/block/by-name/cmnlib64_a /dev/block/by-name/cmnlib64_b /dev/block/by-name/cmnlib_a /dev/block/by-name/cmnlib_b /dev/block/by-name/ddr /dev/block/by-name/devcfg_a /dev/block/by-name/devcfg_b /dev/block/by-name/devinfo /dev/block/by-name/dip /dev/block/by-name/dpo /dev/block/by-name/dsp_a /dev/block/by-name/dsp_b /dev/block/by-name/dtbo_a /dev/block/by-name/dtbo_b /dev/block/by-name/frp /dev/block/by-name/fsc /dev/block/by-name/fsg /dev/block/by-name/fsgbk_a /dev/block/by-name/fsgbk_b /dev/block/by-name/hyp_a /dev/block/by-name/hyp_b /dev/block/by-name/keymaster_a /dev/block/by-name/keymaster_b /dev/block/by-name/keystore /dev/block/by-name/limits /dev/block/by-name/logdump /dev/block/by-name/logfs /dev/block/by-name/mdtp_a /dev/block/by-name/mdtp_b /dev/block/by-name/mdtpsecapp_a /dev/block/by-name/mdtpsecapp_b /dev/block/by-name/mfg /dev/block/by-name/misc /dev/block/by-name/modem_a /dev/block/by-name/modem_b /dev/block/by-name/modemst1 /dev/block/by-name/modemst2 /dev/block/by-name/msadp /dev/block/by-name/persist /dev/block/by-name/pmic_a /dev/block/by-name/pmic_b /dev/block/by-name/pmobile /dev/block/by-name/rawdump /dev/block/by-name/rpm_a /dev/block/by-name/rpm_b /dev/block/by-name/sec /dev/block/by-name/splash /dev/block/by-name/ssd /dev/block/by-name/sti /dev/block/by-name/storsec /dev/block/by-name/system_a /dev/block/by-name/system_b /dev/block/by-name/toolsfv /dev/block/by-name/traceability /dev/block/by-name/tunning /dev/block/by-name/tz_a /dev/block/by-name/tz_b /dev/block/by-name/userdata /dev/block/by-name/vbmeta_a /dev/block/by-name/vbmeta_b /dev/block/by-name/vendor_a /dev/block/by-name/vendor_b /dev/block/by-name/xbl_a /dev/block/by-name/xbl_b 
---- images:
-system       3221225472
-vendor       838860800
-boot         67108864
-dtbo         8388608
-xbl          2568192
-abl          208896
-tz           1974272
-hyp          282624
-rpm          225280
-pmic         40960
-devcfg       53248
-keymaster    319488
-cmnlib       225280
-cmnlib64     274432
-dsp          16777216
-bluetooth    765952
+1795619970133990004
+startad pid=2915247
