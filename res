@@ -1,9 +1,6 @@
-1795635310937967261
-ext4-magic vid 1080: 53ef
-blockstorlek: 4096
-block totalt: 128000
-inodes: 128000
-=== debugfs listning:
+1795635328069663072
 debugfs 1.47.2 (1-Jan-2025)
-/tmp/rb_pmobile.bin: Can't read a block bitmap while reading allocation bitmaps
-ls: Filesystem not open
+      2   40771 (2)   1000   1000    4096  1-Jan-1970 02:16 .
+      2   40771 (2)   1000   1000    4096  1-Jan-1970 02:16 ..
+     11   40700 (2)      0      0   16384  1-Jan-1970 13:32 lost+found
+  32001   40777 (2)   1000   1000    4096  1-Jan-1970 02:16 usr
