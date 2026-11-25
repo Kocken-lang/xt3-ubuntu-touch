@@ -1,4 +1,4 @@
-1795568357608496500
-usb: 18d1:d00d
-2303910504	 fastboot
-List of devices attached
+1795568975072232863
+STARTAT
+==> klonar u-boot (main-sdm660)
+Cloning into '/home/moon/xt3/out/uboot-src'...
