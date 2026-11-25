@@ -1,6 +1,4 @@
-1795646419801104972
-fastboot-enhet efter 1s
-product: XT3
-FAILED (remote: 'unknown command')
-fastboot: error: Command failed
---- lsusb: 18d1:d00d
+1795646451529086758
+2
+Android uppe
+91.57 (Oct 01 2025)
