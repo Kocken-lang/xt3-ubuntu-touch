@@ -1,10 +1,15 @@
-1795637755956418848
-make[1]: Entering directory '/home/moon/xt3/out/kbuild'
-  MODPOST Module.symvers
-ERROR: modpost: missing MODULE_LICENSE() in drivers/gpu/drm/panel/panel-jadard-jd9365da-h3.o
-WARNING: modpost: missing MODULE_DESCRIPTION() in drivers/gpu/drm/panel/panel-jadard-jd9365da-h3.o
-make[3]: *** [/home/moon/xt3/out/src/linux/scripts/Makefile.modpost:147: Module.symvers] Error 1
-make[2]: *** [/home/moon/xt3/out/src/linux/Makefile:2167: single_modules] Error 2
-make[1]: *** [/home/moon/xt3/out/src/linux/Makefile:248: __sub-make] Error 2
-make[1]: Leaving directory '/home/moon/xt3/out/kbuild'
-make: *** [Makefile:248: __sub-make] Error 2
+1795637777068740979
+	.remove = jadard_dsi_remove,
+	.driver = {
+		.name = "jadard-jd9365da",
+		.of_match_table = jadard_of_match,
+	},
+};
+module_mipi_dsi_driver(jadard_driver);
+
+MODULE_AUTHOR("Jagan Teki <jagan@edgeble.ai>");
+MODULE_AUTHOR("Stephen Chen <stephen@radxa.com>");
+MODULE_DESCRIPTION("Jadard JD9365DA-H3 WXGA DSI panel");
+MODULE_LICENSE("GPL");
+=== antal rader:
+3360 panel-jadard-jd9365da-h3.c
