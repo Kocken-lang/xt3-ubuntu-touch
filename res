@@ -1,27 +1,15 @@
-1795635664444797436
-total 23316
-drwxrwxr-x  2 moon moon      100 Nov 25 19:43 .
-drwxrwxrwt 46 root root     3160 Nov 25 20:41 ..
--rw-rw-r--  1 moon moon   802464 Nov 25 19:43 dtb
--rw-rw-r--  1 moon moon 14679524 Nov 25 19:43 kernel
--rw-rw-r--  1 moon moon  8388670 Nov 25 19:43 ramdisk
---- topp:
-acct
-apex
-bin
-bugreports
-config
-d
-data
-data_mirror
-debug_ramdisk
-default.prop
-dev
-enterprise
---- adbd/init/toybox:
-./system/etc/init
-./system/bin/toybox
-./system/bin/sh
-./system/bin/init
-./system/bin/adbd
-./init
+1795635702999045474
+/tmp/bx/ramdisk: gzip compressed data, from Unix, original size modulo
+=== boot-header:
+boot magic: ANDROID!
+kernel_size: 14679524
+kernel load address: 0x00008000
+ramdisk size: 8388670
+ramdisk load address: 0x01000000
+second bootloader size: 0
+second bootloader load address: 0x00000000
+kernel tags load address: 0x00000100
+page size: 4096
+os version: 11.0.0
+os patch level: 2025-08
+boot image header version: 2
