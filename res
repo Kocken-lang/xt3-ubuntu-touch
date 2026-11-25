@@ -1,8 +1,13 @@
-1795632913382775056
-./_abl.img.extracted/3078
-./_abl.img.extracted/3078.7z
-./abl.img
---- storlekar:
--rw-r--r-- 1 root root 461K Nov 25 19:55 ./_abl.img.extracted/3078
--rw-r--r-- 1 root root 192K Nov 25 19:55 ./_abl.img.extracted/3078.7z
--rw-r--r-- 1 moon moon 204K Nov 25 19:55 ./abl.img
+1795632934000381141
+00-id0-rev0      panel=  touch="synaptics,rmi4"
+01-id0-rev0      panel=  touch="synaptics,rmi4"
+02-id0-rev0      panel=  touch="synaptics,rmi4"
+03-id0-rev0      panel=  touch="synaptics,rmi4"
+04-id0-rev0      panel=  touch="synaptics,rmi4"
+05-id0-rev0      panel=  touch="synaptics,rmi4"
+06-id0-rev0      panel=  touch="synaptics,rmi4"
+07-id0-rev0      panel=  touch="synaptics,rmi4"
+08-id0-rev0      panel=  touch="synaptics,rmi4"
+09-id0-rev0      panel=  touch="synaptics,rmi4"
+10-id0-rev0      panel=  touch="synaptics,rmi4"
+11-id0-rev0      panel=  touch="synaptics,rmi4"
