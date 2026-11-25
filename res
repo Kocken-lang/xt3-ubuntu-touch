@@ -1,4 +1,4 @@
-1795648158680990020
-30056960 26 00:09
-skrev /tmp/boot-mmu.img 30318592 byte
-< waiting for any device >
+1795648266545678592
+adb: 
+fastboot: 2303910504	 fastboot
+Bus 001 Device 045: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
