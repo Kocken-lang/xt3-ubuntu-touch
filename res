@@ -1,4 +1,6 @@
-1795631344918660594
+1795631366003866613
+startad
+--- resultat:
  
 148K abl.img
 556K bluetooth.img
