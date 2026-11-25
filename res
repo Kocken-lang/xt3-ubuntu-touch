@@ -1,12 +1,12 @@
-1795650527898699097
-=== header (stock vs ratt anrop):
-00000000: 414e 4452 4f49 4421 e4fd df00 0080 0000  ANDROID!........
-00000010: 3e00 8000 0000 0001 0000 0000 0000 0000  >...............
-00000020: 0001 0000 0010 0000 0200 0000 9801 0016  ................
-
-00000000: 414e 4452 4f49 4421 e4fd df00 0080 0000  ANDROID!........
-00000010: 3e00 8000 0000 0001 0000 0000 0000 0000  >...............
-00000020: 0001 0000 0010 0000 0200 0000 9801 0016  ................
-
-=== byte-diff pa 1660-byte headern:
-0
+1795650548827730221
+scripts/09-pack-boot.sh
+scripts/00-bootstrap.sh
+scripts/__pycache__/pack-bootimg.cpython-314.pyc
+scripts/pack-bootimg.py
+---
+scripts/00-bootstrap.sh:35:for f in unpack_bootimg.py mkbootimg.py; do
+scripts/00-bootstrap.sh:37:    "https://android.googlesource.com/platform/system/tools/mkbootimg/+/refs/heads/main/$f?format=TEXT" \
+scripts/09-pack-boot.sh:43:echo "==> mkbootimg"
+scripts/09-pack-boot.sh:47:# scripts/pack-bootimg.py ar sjalvstandig (header v2). AOSP:s mkbootimg.py kraver
+scripts/09-pack-boot.sh:51:if [ -f "$ROOT/tools/mkbootimg.py" ] && \
+scripts/09-pack-boot.sh:53:  PACKER="$ROOT/tools/mkbootimg.py"
