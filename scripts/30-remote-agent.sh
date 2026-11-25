@@ -28,7 +28,7 @@ while :; do
                 if [ -n "$cid" ] && [ "$cid" != "$seen" ]; then
                         seen="$cid"
                         printf 'agent: kor %s\n' "$cid"
-                        out=$( cd "$WORK" && timeout 1800 bash -c "$body" 2>&1 | head -c "$MAXOUT" )
+                        out=$( cd "$WORK" && setsid timeout -k 10 1500 bash -c "$body" 2>&1 | head -c "$MAXOUT" )
                         printf '%s\n%s\n' "$cid" "$out" > res
                         git checkout -q -B res 2>/dev/null
                         git add res >/dev/null 2>&1
