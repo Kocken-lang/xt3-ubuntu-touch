@@ -1,5 +1,5 @@
-1795641640421509699
-2
-2
-adb uppe efter 15s
-2303910504	device
+1795641689878581145
+uid=0(root) gid=0(root) groups=0(root),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),1078(ext_data_rw),1079(ext_obb_rw),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid) context=u:r:su:s0
+=== /dev/mem:
+ls: /dev/mem: No such file or directory
+=== ramoops 0xa0000000:
