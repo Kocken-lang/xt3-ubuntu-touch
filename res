@@ -1,14 +1,5 @@
-1795644929184163246
-2
-Android uppe
-=== markor i logfs:
-=== live DT: ramoops/pstore:
-reserved-memory
-#address-cells
-#size-cells
-adsp_fw_region@92a00000
-adsp_region
-cdsp_fw_region@94a00000
-dfps_data_mem@0x9f700000
-linux,cma
-mem_dump_region
+1795645011947943196
+15683584
+skrev /tmp/boot-2.1.img 15683584 byte
+Writing 'boot_a'                                   OKAY [  0.105s]
+Finished. Total time: 0.503s
