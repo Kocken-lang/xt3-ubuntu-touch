@@ -1,14 +1,30 @@
-1795637025992068685
-=== DevAndroidPointMobile repos:
-fel: string indices must be integers, not 'str'
-=== sok pointmobile:
-  DevAndroidPointMobile/pointmobile_scanner | A Flutter plugin for using the barcode scanner of 
-  hjfactory/PointMobileBI07DelphiSample | PointMobile Barcode Scanner Delphi Sample
-  ariffatur22/pointmobile | UI
-  tylerpark1/pointmobile | 
-  KorayLiman/pointmobile_scanner_advanced | A Flutter plugin to access and configure Scanner f
-  Mikku44/pointmobile-vendor | 
-  Damon-point/pointmobile-faq | 
-  brianhollander/pointmobile-plugin | 
-  skiw9841/PointMobileDemo | The existing PointMobile App was reconstructed.
-  PMTA-Team/pointmobile-faq | 
+1795637044421715834
+=== Mikku44/pointmobile-vendor:
+None | default: master | size: 12167
+  .dockerignore file
+  .gitignore file
+  Dockerfile file
+  README.md file
+  app dir
+  components.json file
+  components dir
+  hooks dir
+  package-lock.json file
+  package.json file
+  public dir
+  react-router.config.ts file
+  tsconfig.json file
+  vite.config.ts file
+=== mainline sda660-dts:
+  apq8096-ifc6640.dts
+  sda660-inforce-ifc6560.dts
+  sda660-xiaomi-clover.dts
+  sdm660-bbry-athena-boe.dts
+  sdm660-bbry-athena-common.dtsi
+  sdm660-bbry-athena-syna.dts
+  sdm660-bbry-common.dtsi
+  sdm660-vsmart-zangyapro.dts
+  sdm660-xiaomi-clover-common.dtsi
+  sdm660-xiaomi-clover-plus.dts
+  sdm660-xiaomi-clover-regular-common.dtsi
+  sdm660-xiaomi-clover.dts
