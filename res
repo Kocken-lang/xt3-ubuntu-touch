@@ -1,4 +1,3 @@
-1795640291068358327
-< waiting for 2303910504>
---- flash:
-< waiting for 2303910504>
+1795640748848021179
+=== getvar product:
+exit=124
