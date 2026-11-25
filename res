@@ -1,6 +1,7 @@
-1795634667452308344
-jd9365da 720p video mode dsi panel            FAILED (remote: 'Selecting Panel: : failed')
-ili9881d 720p video mode dsi panel            FAILED (remote: 'Selecting Panel: : failed')
-nt35521sh 720p video mode dsi panel           FAILED (remote: 'Selecting Panel: : failed')
-jd9365da_s 720p video mode dsi panel          FAILED (remote: 'Selecting Panel: : failed')
-ili9881d 720p video mode dsi panel evt        FAILED (remote: 'Selecting Panel: : failed')
+1795634698075228920
+Finished. Total time: 0.265s
+Finished. Total time: 0.004s
+(bootloader) Verity mode: false
+(bootloader) Device unlocked: true
+(bootloader) Device critical unlocked: true
+(bootloader) Charger screen enabled: true
