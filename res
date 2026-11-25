@@ -1,3 +1,7 @@
-1795633917449911490
-3406901 timeout -k 10 1500 bash -c sudo kill -9 3404417 2>/dev/null; sleep 3; pgrep -af "edl printgpt" | head -2; L=/home/moon/edl-venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/sdm636/000cc0e100000000_7be49b72f9e43372_fhprg_bqx2_peek.bin; sudo timeout 90 edl printgpt --memory=emmc --loader=$L 2>&1 | grep -E "pmobile|system_a|Total disk" | head -4
-3406908 bash -c sudo kill -9 3404417 2>/dev/null; sleep 3; pgrep -af "edl printgpt" | head -2; L=/home/moon/edl-venv/lib/python3.14/site-packages/Loaders/qualcomm/factory/sdm636/000cc0e100000000_7be49b72f9e43372_fhprg_bqx2_peek.bin; sudo timeout 90 edl printgpt --memory=emmc --loader=$L 2>&1 | grep -E "pmobile|system_a|Total disk" | head -4
+1795633939045363682
+Bus 001 Device 071: ID 05c6:900e Qualcomm, Inc. QUSB_BULK_SN:12379F92
+main - Device detected :)
+DeviceClass
+DeviceClass - [LIB]: [31mUSB Overflow[0m
+main - Mode detected: error
+Connection detected, quiting.
