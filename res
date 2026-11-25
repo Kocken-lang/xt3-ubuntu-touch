@@ -1,4 +1,3 @@
-1795644804902517611
-=== ramoops/pstore i overlays:
-(ingen traff)
-=== alla memory-regioner i overlay 00:
+1795644558081202431
+< waiting for any device >
+Android uppe efter 2s
