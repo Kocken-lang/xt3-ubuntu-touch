@@ -1,8 +1,3 @@
-1795650382342002766
-ubports-installer    -
-ubports-cli          -
-ubuntu-device-flash  -
-snap                 OK
-flatpak              OK
-
---- snap:
+1795650408041537623
+--- exempel:
+404: Not Found
