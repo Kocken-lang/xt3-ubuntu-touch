@@ -1,22 +1,11 @@
-1795652303645144392
-make[3]: *** [/home/moon/xt3/out/src/linux/scripts/Makefile.vmlinux:72: vmlinux.unstripped] Error 1
-make[2]: *** [/home/moon/xt3/out/src/linux/Makefile:1370: vmlinux] Error 2
-make[1]: *** [/home/moon/xt3/out/src/linux/Makefile:248: __sub-make] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-aarch64-linux-gnu-nm: 'vmlinux.unstripped': No such file
-aarch64-linux-gnu-nm: 'vmlinux.unstripped': No such file
-vmlinux.unstripped: No such file or directory
-make[3]: *** [/home/moon/xt3/out/src/linux/scripts/Makefile.vmlinux:72: vmlinux.unstripped] Error 1
----
-make: *** [Makefile:248: __sub-make] Error 2
-  NM      System.map
-aarch64-linux-gnu-nm: 'vmlinux.unstripped': No such file
-  SORTTAB vmlinux.unstripped
-aarch64-linux-gnu-nm: 'vmlinux.unstripped': No such file
-vmlinux.unstripped: No such file or directory
-Failed to sort kernel tables
-make[3]: *** [/home/moon/xt3/out/src/linux/scripts/Makefile.vmlinux:72: vmlinux.unstripped] Error 1
-make[2]: *** [/home/moon/xt3/out/src/linux/Makefile:1370: vmlinux] Error 2
-make[1]: *** [/home/moon/xt3/out/src/linux/Makefile:248: __sub-make] Error 2
-make[1]: Leaving directory '/home/moon/xt3/out/kbuild'
-make: *** [Makefile:248: __sub-make] Error 2
+1795652323368372967
+/dev/nvme0n1p2  915G  851G   18G  98% /
+--- storsta kataloger:
+40G	/home/moon/janam_fota
+19G	/home/moon/xt3/out
+5.2G	/home/moon/Downloads/janam xt3
+3.3G	/home/moon/xt3_fw
+--- vmlinux:
+-rwxrwxr-x 1 moon moon 366M Nov 26 00:09 /home/moon/xt3/out/kbuild/vmlinux
+-rw-rw-r-- 1 moon moon 206K Nov 26 01:17 /home/moon/xt3/out/kbuild/vmlinux.a
+-rw-rw-r-- 1 moon moon 919M Nov 26 01:17 /home/moon/xt3/out/kbuild/vmlinux.o
