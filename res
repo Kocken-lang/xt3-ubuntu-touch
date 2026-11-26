@@ -1,4 +1,3 @@
-1795721351324763135
-PING
-Thu Nov 26 20:29:18 CET 2026
-dev: [2303910504	 fastboot  ]
+1795721365740195899
+< waiting for any device >
+rc=0
