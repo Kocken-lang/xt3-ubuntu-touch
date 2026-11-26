@@ -1,13 +1,8 @@
-1795652607057068085
-ffff8000817f10a0:	58002cc0 	ldr	x0, ffff8000817f1638 <__primary_switch+0x40>
-ffff8000817f10a4:	d4000003 	smc	#0x0
-ffff8000817f10a8:	940062a6 	bl	ffff800081809b40 <record_mmu_state>
-ffff8000817f10ac:	940062bb 	bl	ffff800081809b98 <preserve_boot_args>
-ffff8000817f10c4:	94005929 	bl	ffff800081807568 <__pi_create_init_idmap>
-ffff8000817f10e0:	d63f0040 	blr	x2
-ffff8000817f10fc:	d63f0040 	blr	x2
-ffff8000817f1104:	94000007 	bl	ffff8000817f1120 <init_kernel_el>
-ffff8000817f110c:	940001fb 	bl	ffff8000817f18f8 <__cpu_setup>
-ffff8000817f1110:	58002940 	ldr	x0, ffff8000817f1638 <__primary_switch+0x40>
-ffff8000817f1114:	d4000003 	smc	#0x0
-ffff8000817f1118:	14000138 	b	ffff8000817f15f8 <__primary_switch>
+1795652629045001826
+    64 MB av 64 MB
+Klart -> /home/moon/xt3/out/boot.img
+0
+0
+korn 1: 20 s
+korn 2: 21 s
+korn 3: 20 s
