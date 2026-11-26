@@ -12,4 +12,4 @@
 19:  KSYMS   .tmp_vmlinux0.kallsyms.S
 --- minne:
                total        used        free      shared  buff/cache   available
-Mem:              30           7           3           1          20          22
+Mem:              30           8           3           1          20          22
