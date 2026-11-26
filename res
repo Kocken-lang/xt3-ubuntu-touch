@@ -1,7 +1,5 @@
-1795651241938362038
-kernel:  0x80008000 .. 0x81cb2200  (28 MB)
-ramdisk: 0x81000000 .. 0x8102f7d2  (0 MB)
-dtb:     0x81f00000 .. 0x81f0d656
-
-OVERLAPP ramdisk/kernel: 0x81000000 .. 0x8102f7d2 = 0 MB
-OVERLAPP dtb/kernel: nej
+1795651272199642236
+KERNEL="${KERNEL:-$ROOT/out/kernel/Image.gz}"
+DTB="${DTB:-$(ls "$ROOT"/out/kernel/*.dtb 2>/dev/null | head -1)}"
+INITRD="${INITRD:-}"
+CMDLINE="${CMDLINE:-console=tty0 console=ttyMSM0,115200n8 earlycon root=PARTLABEL=userdata rootwait rw loglevel=7}"
