@@ -1,8 +1,7 @@
-1795651355179837653
-2
-2
-korn 1: 16 s
-korn 2: 5 s
-korn 3: 16 s
-korn 4: 6 s
-korn 5: 17 s
+1795651495843252149
+=== oem log:
+FAILED (remote: 'unknown command')
+fastboot: error: Command failed
+=== oem-kommandon:
+FAILED (remote: 'unknown command')
+fastboot: error: Command failed
