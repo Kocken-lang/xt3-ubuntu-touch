@@ -1,12 +1,4 @@
-1795652163663014419
-82:	 *  x20        primary_entry() .. __primary_switch()    CPU boot mode
-132:	b	__primary_switch
-222:SYM_FUNC_START_LOCAL(__primary_switched)
----
-	 *  x20        primary_entry() .. __primary_switch()    CPU boot mode
-	 *  x21        primary_entry() .. start_kernel()        FDT pointer passed at boot in x0
-	 */
-SYM_CODE_START(primary_entry)
+1795652196354221110
 ldr	x0, =0x84000009
 	smc	#0
 	bl	record_mmu_state
@@ -31,3 +23,35 @@ ldr	x0, =0x84000009
 	adr_l	x2, dcache_inval_poc
 	blr	x2
 	b	1f
+
+	/*
+	 * If we entered with the MMU and caches on, clean the ID mapped part
+	 * of the primary boot code to the PoC so we can safely execute it with
+	 * the MMU off.
+	 */
+0:	adrp	x0, __idmap_text_start
+	adr_l	x1, __idmap_text_end
+	adr_l	x2, dcache_clean_poc
+	blr	x2
+
+1:	mov	x0, x19
+	bl	init_kernel_el			// w0=cpu_boot_mode
+	mov	x20, x0
+
+	/*
+	 * The following calls CPU setup code, see arch/arm64/mm/proc.S for
+	 * details.
+	 * On return, the CPU will be ready for the MMU to be turned on and
+	 * the TCR will have been set.
+	 */
+	bl	__cpu_setup			// initialise processor
+	b	__primary_switch
+SYM_CODE_END(primary_entry)
+
+	__INIT
+SYM_CODE_START_LOCAL(record_mmu_state)
+	mrs	x19, CurrentEL
+	cmp	x19, #CurrentEL_EL2
+	mrs	x19, sctlr_el1
+	b.ne	0f
+=== record_mmu_state:
