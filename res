@@ -1,9 +1,6 @@
 1795723188608032472
-fatal: Unable to create '/home/moon/xt3/.git/index.lock': File exists.
+On branch main
+Your branch is up to date with 'origin/main'.
 
-Another git process seems to be running in this repository, e.g.
-an editor opened by 'git commit'. Please make sure all processes
-are terminated then try again. If it still fails, a git process
-may have crashed in this repository earlier:
-remove the file manually to continue.
+nothing to commit, working tree clean
 d52b9be pack: rå Image + automatisk ramdisk-offset (ABL dekomprimerar inte)
