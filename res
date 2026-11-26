@@ -1,11 +1,10 @@
-1795723151719286719
-    OBS: karnan (30056960 B) overlappar ramdisken vid 0x01000000 - flyttar till 0x02000000
-==> mkbootimg
--rw-rw-r-- 1 moon moon 64M Nov 26 20:59 /home/moon/xt3/out/boot.img
-    64 MB av 64 MB
-Klart -> /home/moon/xt3/out/boot.img
---- verifiering:
-kernel_size: 30056960
-kernel load address: 0x00008000
-ramdisk load address: 0x02000000
-command line args: console=tty0 console=ttyMSM0,115200n8 earlycon root=PARTLABEL=userdata rootwait rw loglevel=7
+1795723173031846570
+fatal: Unable to create '/home/moon/xt3/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+rc=128
+208fe69 91.57: stock-config + levande devicetree (DTS) for jamforelse
