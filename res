@@ -1,22 +1,27 @@
-1795651882140129489
-2
-2
-=== boot + USB-observation:
-2s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-4s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-6s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-8s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-10s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-12s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-14s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-16s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-18s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-20s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-22s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-24s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-26s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-28s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-30s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-32s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-34s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)|ID 1d6b:0003 Linux Foundation 3.0 root hub|
-36s: ID 1d6b:0002 Linux Foundation 2.0 root hub|ID 5986:211b Bison Electronics Inc. HD Webcam|ID 8087:0033 Intel Corp. AX211 Bluetooth|ID 258a:0036 SINOWEALTH Wired Gaming Mouse|ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)|ID 1d6b:0003 Linux Foundation 3.0 root hub|
+1795651941973946086
+aktiv slot: current-slot: a
+Setting current slot to 'a'                        OKAY [  0.004s]
+Finished. Total time: 0.004s
+Erasing 'misc'                                     OKAY [  0.004s]
+Finished. Total time: 0.005s
+=== observation:
+2s: []
+4s: []
+6s: []
+8s: []
+10s: []
+12s: []
+14s: []
+16s: []
+18s: []
+20s: []
+22s: []
+24s: []
+26s: []
+28s: []
+30s: []
+32s: [ID 18d1:d00d ]
+34s: [ID 18d1:d00d ]
+36s: [ID 18d1:d00d ]
+38s: [ID 18d1:d00d ]
+40s: [ID 18d1:d00d ]
