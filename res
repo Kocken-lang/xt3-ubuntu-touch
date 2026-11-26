@@ -1,30 +1,41 @@
-1795724664554081674
-=== filer som namner adl/backdoor/rootshell:
-/home/moon/Downloads/xt3gpt/xt3_recovered_sources/Pasted text(20261026-224440)_2.txt
-/home/moon/Downloads/xt3gpt/xt3_recovered_sources/Pasted text(20261105-041222).txt
-/home/moon/Downloads/xt3gpt/xt3_recovered_sources/Pasted text(20261026-224440).txt
-/home/moon/Downloads/xt3gpt/xt3_recovered_sources/Pasted text(20261026-224909).txt
-/home/moon/Downloads/xt3_recovered_sources/Pasted text(20261026-224440)_2.txt
-/home/moon/Downloads/xt3_recovered_sources/Pasted text(20261105-041222).txt
-/home/moon/Downloads/xt3_recovered_sources/Pasted text(20261026-224440).txt
-/home/moon/Downloads/xt3_recovered_sources/Pasted text(20261026-224909).txt
-=== egna systemd-tjanster:
-/etc/systemd/system/chronyd.service
-/etc/systemd/system/cloud-init-network.service
-/etc/systemd/system/dbus-fi.w1.wpa_supplicant1.service
-/etc/systemd/system/dbus-org.bluez.service
-/etc/systemd/system/dbus-org.freedesktop.Avahi.service
-/etc/systemd/system/dbus-org.freedesktop.ModemManager1.service
-/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
-/etc/systemd/system/dbus-org.freedesktop.oom1.service
-/etc/systemd/system/dbus-org.freedesktop.resolve1.service
-/etc/systemd/system/dbus-org.freedesktop.thermald.service
-=== xt3_backup:
-total 131888
-drwxrwxr-x  3 moon moon     4096 Nov 24 03:41 .
-drwxr-x--- 61 moon moon     4096 Nov 26 20:40 ..
--rw-r--r--  1 moon moon   753135 Nov 24 03:40 FOTAClient.apk
--rw-rw-r--  1 moon moon 67108864 Nov 24 03:21 apatch-patched.img
--rw-r--r--  1 moon moon 67108864 Nov 24 01:36 boot_working_orig.img
--rw-rw-r--  1 moon moon     2416 Nov 24 02:13 diag_fastboot.txt
-drwxrwxr-x  4 moon moon     4096 Nov 24 03:41 fc
+1795724678553451546
+
+timeout 10s fastboot -s "$serial" reboot
+
+deadline=$((SECONDS + 120))
+while (( SECONDS < deadline )); do
+    boot=$(timeout 4s adb -s "$serial" shell getprop sys.boot_completed 2>/dev/null |
+        tr -d '\r') || boot=''
+    if [[ "$boot" == 1 ]]; then
+        adb -s "$serial" shell '
+            printf "Slot: "; getprop ro.boot.slot_suffix
+            printf "Kernel: "; uname -r
+            value=$(getprop ro.boot.admin.root)
+            printf "ro.boot.admin.root: %s\n" "${value:-<saknas>}"
+--
+fb 10 reboot
+sleep 5
+
+deadline=$((SECONDS + 120))
+fastboot_seen=0
+
+while (( SECONDS < deadline )); do
+    boot=$(timeout 4s adb -s "$serial" shell getprop sys.boot_completed \
+        2>/dev/null | tr -d '\r') || boot=''
+
+    if [[ "$boot" == 1 ]]; then
+        slot=$(timeout 5s adb -s "$serial" shell getprop ro.boot.slot_suffix |
+            tr -d '\r')
+        printf 'Android har startat. Slot: %s\n' "$slot"
+
+--
+    fb 10s reboot
+    sleep 5
+
+    deadline=$((SECONDS + 120))
+    fastboot_seen=0
+    while (( SECONDS < deadline )); do
+        completed=$(timeout 4s adb -s "$serial" shell getprop sys.boot_completed \
+            2>/dev/null | tr -d '\r') || completed=''
+
+        if [[ "$completed" == 1 ]]; then
