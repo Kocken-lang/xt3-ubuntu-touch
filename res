@@ -1,4 +1,4 @@
 1795652047181226283
-korn 1: 17 s
+korn 1: 15 s
 korn 2: 17 s
-korn 3: 16 s
+korn 3: 17 s
