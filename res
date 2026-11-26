@@ -1,22 +1,26 @@
-1795652492588349526
-make[3]: *** [/home/moon/xt3/out/src/linux/scripts/Makefile.vmlinux:72: vmlinux.unstripped] Error 1
-make[2]: *** [/home/moon/xt3/out/src/linux/Makefile:1370: vmlinux] Error 2
-make[1]: *** [/home/moon/xt3/out/src/linux/Makefile:248: __sub-make] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-make[3]: *** [/home/moon/xt3/out/src/linux/scripts/Makefile.vmlinux:72: vmlinux.unstripped] Error 1
-make[2]: *** [/home/moon/xt3/out/src/linux/Makefile:1370: vmlinux] Error 2
-make[1]: *** [/home/moon/xt3/out/src/linux/Makefile:248: __sub-make] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
----
-make[1]: *** [/home/moon/xt3/out/src/linux/Makefile:248: __sub-make] Error 2
-make[1]: Leaving directory '/home/moon/xt3/out/kbuild'
-make: *** [Makefile:248: __sub-make] Error 2
-  SORTTAB vmlinux.unstripped
-aarch64-linux-gnu-nm: 'vmlinux.unstripped': No such file
-vmlinux.unstripped: No such file or directory
-Failed to sort kernel tables
-make[3]: *** [/home/moon/xt3/out/src/linux/scripts/Makefile.vmlinux:72: vmlinux.unstripped] Error 1
-make[2]: *** [/home/moon/xt3/out/src/linux/Makefile:1370: vmlinux] Error 2
-make[1]: *** [/home/moon/xt3/out/src/linux/Makefile:248: __sub-make] Error 2
-make[1]: Leaving directory '/home/moon/xt3/out/kbuild'
-make: *** [Makefile:248: __sub-make] Error 2
+1795652508546039812
+
+ifdef CONFIG_ARCH_WANTS_PRE_LINK_VMLINUX
+vmlinux.unstripped: arch/$(SRCARCH)/tools/vmlinux.arch.o
+
+arch/$(SRCARCH)/tools/vmlinux.arch.o: vmlinux.o FORCE
+	$(Q)$(MAKE) $(build)=arch/$(SRCARCH)/tools $@
+endif
+
+ARCH_POSTLINK := $(wildcard $(srctree)/arch/$(SRCARCH)/Makefile.postlink)
+
+# Final link of vmlinux with optional arch pass after final link
+cmd_link_vmlinux =							\
+	$< "$(LD)" "$(KBUILD_LDFLAGS)" "$(LDFLAGS_vmlinux)" "$@";	\
+	$(if $(ARCH_POSTLINK), $(MAKE) -f $(ARCH_POSTLINK) $@, true)
+
+targets += vmlinux.unstripped .vmlinux.export.o
+vmlinux.unstripped: scripts/link-vmlinux.sh vmlinux.o .vmlinux.export.o $(KBUILD_LDS) FORCE
+	+$(call if_changed_dep,link_vmlinux)
+ifdef CONFIG_DEBUG_INFO_BTF
+vmlinux.unstripped: $(RESOLVE_BTFIDS) $(srctree)/scripts/gen-btf.sh
+endif
+
+ifdef CONFIG_BUILDTIME_TABLE_SORT
+vmlinux.unstripped: scripts/sorttable
+endif
