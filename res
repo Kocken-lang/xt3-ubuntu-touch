@@ -1,11 +1,15 @@
-1795652323368372967
-/dev/nvme0n1p2  915G  851G   18G  98% /
---- storsta kataloger:
-40G	/home/moon/janam_fota
-19G	/home/moon/xt3/out
-5.2G	/home/moon/Downloads/janam xt3
-3.3G	/home/moon/xt3_fw
---- vmlinux:
--rwxrwxr-x 1 moon moon 366M Nov 26 00:09 /home/moon/xt3/out/kbuild/vmlinux
--rw-rw-r-- 1 moon moon 206K Nov 26 01:17 /home/moon/xt3/out/kbuild/vmlinux.a
--rw-rw-r-- 1 moon moon 919M Nov 26 01:17 /home/moon/xt3/out/kbuild/vmlinux.o
+1795652343749816485
+--- kontext:
+4:  COPY    vmlinux.a
+5:  LD      vmlinux.o
+8:  COPY    vmlinux.a
+9:  MODPOST vmlinux.symvers
+12:  KSYMS   .tmp_vmlinux0.kallsyms.S
+13:  AS      .tmp_vmlinux0.kallsyms.o
+14:  LD      .tmp_vmlinux1
+15:  MODPOST vmlinux.symvers
+18:  NM      .tmp_vmlinux1.syms
+19:  KSYMS   .tmp_vmlinux0.kallsyms.S
+--- minne:
+               total        used        free      shared  buff/cache   available
+Mem:              30           7           3           1          20          22
