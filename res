@@ -1,8 +1,8 @@
 1795652587468089416
 rc=0
-  GZIP    arch/arm64/boot/Image.gz
 make[1]: Leaving directory '/home/moon/xt3/out/kbuild'
-6.0M Nov 26 01:23
+make[1]: Leaving directory '/home/moon/xt3/out/kbuild'
+12M Nov 26 01:23
 --- markor efter cpu_setup:
 ffff80008002e288:	35ffffa7 	cbnz	w7, ffff80008002e27c <vec_probe_vqs+0xa4>
 ffff80008002e28c:	35fffca2 	cbnz	w2, ffff80008002e220 <vec_probe_vqs+0x48>
