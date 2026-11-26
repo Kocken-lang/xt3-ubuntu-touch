@@ -4,6 +4,11 @@
 #   usage: 09-pack-boot.sh [--initrd <file|dir>] [--cmdline "..."]
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+if [ -z "${KERNEL:-}" ]; then
+  for _k in "$ROOT/out/kbuild/arch/arm64/boot/Image" "$ROOT/out/kernel/Image" "$ROOT/out/kernel/Image.gz"; do
+    [ -f "$_k" ] && { KERNEL="$_k"; break; }
+  done
+fi
 KERNEL="${KERNEL:-$ROOT/out/kernel/Image.gz}"
 DTB="${DTB:-$(ls "$ROOT"/out/kernel/*.dtb 2>/dev/null | head -1)}"
 INITRD="${INITRD:-}"
@@ -40,6 +45,12 @@ EOF
   fi
 fi
 
+RAMDISK_OFFSET="${RAMDISK_OFFSET:-0x01000000}"
+KERNSZ=$(stat -c%s "$KERNEL" 2>/dev/null || echo 0)
+if [ "$(( 0x8000 + KERNSZ ))" -gt "$(( RAMDISK_OFFSET ))" ]; then
+  echo "    OBS: karnan ($KERNSZ B) overlappar ramdisken vid $RAMDISK_OFFSET - flyttar till 0x02000000"
+  RAMDISK_OFFSET=0x02000000
+fi
 echo "==> mkbootimg"
 # XT3:s boot_a/boot_b ar 64 MB (67108864 byte). Ett for stort image flashar
 # "lyckat" men startar inte, sa vi kontrollerar det har i stallet.
@@ -78,7 +89,7 @@ python3 "$PACKER" \
   --cmdline "$CMDLINE" \
   --base 0x00000000 \
   --kernel_offset 0x00008000 \
-  --ramdisk_offset 0x01000000 \
+  --ramdisk_offset "$RAMDISK_OFFSET" \
   --tags_offset 0x00000100 \
   --pagesize 4096 \
   --header_version 2 \

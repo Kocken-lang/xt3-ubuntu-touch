@@ -70,3 +70,29 @@ Testa aldrig en parser mot en fil som byggts med samma antagande som parsern.
 Tre buggar (DTBO-magic, DTBO-header, 7z-fallback) överlevde just därför.
 Använd riktiga producenter (`mkfs.vfat`, `mke2fs`, `dtc`, `payload-dumper-go`) och
 `tests/selftest.sh`, som nu också bygger DTB mot en riktig 7.2.y-källa.
+
+## Boot-avbildning (verifierat 2026-11-26)
+
+Qualcomms ABL på XT3 dekomprimerar INTE karnan. Lägg därfor alltid en rå
+Image (okomprimerad) i boot.img, inte Image.gz.
+
+Karnan är ~28-30 MB okomprimerad, så ramdisken MÅSTE lägga ovenför:
+- kernel:  0x80008000 .. 0x81CB2200
+- ramdisk: 0x82000000 (--ramdisk_offset 0x02000000)
+- dtb:     0x81F00000
+
+scripts/09-pack-boot.sh väljer nu rå Image först och flyttar ramdisken
+automatiskt om karnan överlappar den.
+
+## Boot-avbildning (verifierat 2026-11-26)
+
+Qualcomms ABL på XT3 dekomprimerar INTE karnan. Lägg därfor alltid en rå
+Image (okomprimerad) i boot.img, inte Image.gz.
+
+Karnan är ~28-30 MB okomprimerad, så ramdisken MÅSTE lägga ovenför:
+- kernel:  0x80008000 .. 0x81CB2200
+- ramdisk: 0x82000000 (--ramdisk_offset 0x02000000)
+- dtb:     0x81F00000
+
+scripts/09-pack-boot.sh väljer nu rå Image först och flyttar ramdisken
+automatiskt om karnan överlappar den.

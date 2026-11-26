@@ -1,0 +1,90 @@
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+[Errno 110] Operation timed out
+[Errno 110] Operation timed out
+[Errno 110] Operation timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+[Errno 110] Operation timed out
+[Errno 110] Operation timed out
+[Errno 110] Operation timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+Timed out
+USBError(16, 'Resource busy')
+[Errno 16] Resource busy
+[Errno 16] Resource busy
+[Errno 16] Resource busy
+USBError(16, 'Resource busy')
+[Errno 16] Resource busy
+[Errno 16] Resource busy
+[Errno 16] Resource busy
+USBError(16, 'Resource busy')
+argument 2: TypeError: 'Interface' object cannot be interpreted as an integer
