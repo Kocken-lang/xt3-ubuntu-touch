@@ -1,12 +1,13 @@
-1795651659732949906
-boot_a     4000000 (64 MB)
-boot_b     4000000 (64 MB)
-dtbo_a     800000 (8 MB)
-dtbo_b     800000 (8 MB)
-vbmeta_a   10000 (0 MB)
-system_a   0000000 (0 MB)
-vendor_a   32000000 (800 MB)
-modem_a    00000 (0 MB)
-persist    2000000 (32 MB)
-misc       100000 (1 MB)
-userdata   00 (0 MB)
+1795651687246729689
+-- system_a:
+partition-size:system_a:  0xC0000000
+Finished. Total time: 0.001s
+-- system_b:
+partition-size:system_b:  0xC0000000
+Finished. Total time: 0.001s
+-- userdata:
+partition-size:userdata:  0xC3B3FBE00
+Finished. Total time: 0.001s
+-- modem_a:
+partition-size:modem_a:  0x6E00000
+Finished. Total time: 0.001s
