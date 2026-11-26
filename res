@@ -1,4 +1,3 @@
-1795722047322447842
-PING_OK
-Thu Nov 26 20:40:52 CET 2026
-agent startad Thu Nov 26 20:40:28 CET 2026
+1795721399133666604
+stromcykla nu - vantar pa svar...
+flash: 0 OKAY
