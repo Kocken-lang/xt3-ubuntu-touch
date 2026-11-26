@@ -1,5 +1,7 @@
 1795723137015472448
-patchad
+Traceback (most recent call last):
+  File "<stdin>", line 11, in <module>
+AssertionError: ramdisk_offset hittades inte
 syntax OK
 8:  for _k in "$ROOT/out/kbuild/arch/arm64/boot/Image" "$ROOT/out/kernel/Image" "$ROOT/out/kernel/Image.gz"; do
 48:RAMDISK_OFFSET="${RAMDISK_OFFSET:-0x01000000}"
