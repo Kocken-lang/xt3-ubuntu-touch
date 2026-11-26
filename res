@@ -1,21 +1,11 @@
-1795724821610346390
- #%1$s, %2$s adl
- #^1 adl
- $%1$s adl
- $%s adl
- %%1$s adl
- %1$s adl
- %2$s adl
- %@aDL3
- %s adl
- &%1$s adl
- &Mesaj %1$s adl
- (kod %1$d) %2$s adl
- <b>%2$s</b> adl
- bilen herkes "%1$s" adl
- bilen herkes "%2$s" adl
- da {PERSON} adl
- edin.}female{Google Assistent {PERSON} adl
- edin.}male{{PERSON} adl
- edin.}other{Google Assistent {PERSON} adl
- edin.}other{{PERSON} adl
+1795724853042995431
+=== alla USB:
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 002: ID 5986:211b Bison Electronics Inc. HD Webcam
+Bus 001 Device 003: ID 8087:0033 Intel Corp. AX211 Bluetooth
+Bus 001 Device 048: ID 258a:0036 SINOWEALTH Wired Gaming Mouse
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+=== adb:
+List of devices attached
+
+=== fastboot:
