@@ -1,3 +1,2 @@
-1795720924371183596
-dev: [2303910504	 fastboot  ]
-< waiting for any device >
+1795720957506704766
+Rebooting                                          dev: [2303910504	 fastboot  ]
