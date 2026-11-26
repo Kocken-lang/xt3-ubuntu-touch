@@ -1,3 +1,3 @@
-1795722189932603346
-flash: 0 OKAY
-korn 1: 25 s
+1795722320249886236
+67108864
+< waiting for any device >
