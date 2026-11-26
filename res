@@ -1,4 +1,2 @@
-1795720957506704766
-< waiting for any device >
-Rebooting                                          dev: [2303910504	 fastboot  ]
-< waiting for any device >
+1795721020986729892
+Sending 'boot.img' (65536 KB)                      tillbaka efter 70 s
