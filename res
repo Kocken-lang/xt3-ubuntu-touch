@@ -1,3 +1,3 @@
-1795721020986729892
-< waiting for any device >
-tillbaka efter 70 s
+1795721113785719677
+rc=0
+Bus 001 Device 072: ID 18d1:d00d Google Inc. Xiaomi Mi/Redmi 2 (fastboot)
