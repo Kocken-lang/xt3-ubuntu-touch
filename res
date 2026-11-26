@@ -1,31 +1,10 @@
-1795652359507786943
-  KSYMS   .tmp_vmlinux2.kallsyms.S
-  AS      .tmp_vmlinux2.kallsyms.o
-  NM      .tmp_vmlinux2.syms
-  KSYMS   .tmp_vmlinux2.kallsyms.S
-  LD      vmlinux.unstripped
-  AS      .tmp_vmlinux2.kallsyms.o
-  LD      vmlinux.unstripped
-  NM      System.map
-aarch64-linux-gnu-nm: vmlinux.unstripped: file format not recognized
-  SORTTAB vmlinux.unstripped
-aarch64-linux-gnu-nm: vmlinux.unstripped: file format not recognized
-unrecognized ELF data encoding 0: vmlinux.unstripped
-Failed to sort kernel tables
-make[3]: *** [/home/moon/xt3/out/src/linux/scripts/Makefile.vmlinux:72: vmlinux.unstripped] Error 1
-make[3]: *** Deleting file 'vmlinux.unstripped'
-make[2]: *** [/home/moon/xt3/out/src/linux/Makefile:1370: vmlinux] Error 2
-make[1]: *** [/home/moon/xt3/out/src/linux/Makefile:248: __sub-make] Error 2
-make[1]: Leaving directory '/home/moon/xt3/out/kbuild'
-make: *** [Makefile:248: __sub-make] Error 2
-  NM      System.map
-aarch64-linux-gnu-nm: 'vmlinux.unstripped': No such file
-  SORTTAB vmlinux.unstripped
-aarch64-linux-gnu-nm: 'vmlinux.unstripped': No such file
-vmlinux.unstripped: No such file or directory
-Failed to sort kernel tables
-make[3]: *** [/home/moon/xt3/out/src/linux/scripts/Makefile.vmlinux:72: vmlinux.unstripped] Error 1
-make[2]: *** [/home/moon/xt3/out/src/linux/Makefile:1370: vmlinux] Error 2
-make[1]: *** [/home/moon/xt3/out/src/linux/Makefile:248: __sub-make] Error 2
-make[1]: Leaving directory '/home/moon/xt3/out/kbuild'
-make: *** [Makefile:248: __sub-make] Error 2
+1795652381710304081
+/dev/nvme0n1p2  915G  851G   18G  98% /
+/dev/nvme0n1p2 60981248 2306349 58674899    4% /
+--- fs-typ:
+ext4 rw,relatime
+--- dmesg:
+[175480.201450] vethc8426b7: entered promiscuous mode
+[175480.221425] eth0: renamed from veth256390c
+[175480.224981] br-ab018499dc62: port 6(vethc8426b7) entered blocking state
+[175480.224989] br-ab018499dc62: port 6(vethc8426b7) entered forwarding state
