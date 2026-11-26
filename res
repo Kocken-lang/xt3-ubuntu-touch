@@ -1,7 +1,14 @@
-1795724440036696757
-/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf
-/opt/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf
-/home/moon/.local/share/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf
-/home/moon/.local/share/pipx/venvs/edlclient/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf
-/home/moon/edl-venv/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_lite.elf
-/home/moon/edl-venv/lib/python3.14/site-packages/Loaders/xiaomi/jasmine_prog_emmc_firehose_Sdm660_ddr.elf
+1795724522844245681
+echo deadline > /sys/block/mmcblk0/queue/scheduler 2>/dev/null
+echo deadline > /sys/block/mmcblk0/queue/scheduler 2>/dev/null
+echo deadline > /sys/block/mmcblk0/queue/scheduler 2>/dev/null
+echo deadline > /sys/block/mmcblk0/queue/scheduler 2>/dev/null
+echo deadline > /sys/block/mmcblk0/queue/scheduler 2>/dev/null
+echo deadline > /sys/block/mmcblk0/queue/scheduler 2>/dev/null
+echo deadline > /sys/block/mmcblk0/queue/scheduler 2>/dev/null
+echo deadline > /sys/block/mmcblk0/queue/scheduler 2>/dev/null
+8Rx5C4jj7ZU3WsEeazwI4uJ+hAgRJ3vhvBz5OGq4YeJAHe3k/HLaDLpflZt0Zy/CEqByXIXLXNUn
+=== alias/funktioner:
+=== filer:
+drwx------  9 moon moon   4096 Nov 15 01:40 .gradle
+/home/moon/.gradle
